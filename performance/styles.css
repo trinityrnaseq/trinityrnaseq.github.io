@@ -38,6 +38,10 @@
     background-color: gray;
 }
 
+.navbar a.current {
+    color: lightgray;
+}
+
 body {
     background: lightgray;
 }
