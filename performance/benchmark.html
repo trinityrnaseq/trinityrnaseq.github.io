@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Trinity Performance Metrics</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="//code.highcharts.com/highcharts.js"></script>
+    <script src="gray.js"></script>
+    <script src="performance.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="//code.highcharts.com/modules/exporting.js"></script>
+    <style type="text/css">
+        ${demo.css}
+    </style>
+</head>
+
+<body>
+<div class="navbar">
+    <ul>
+        <li><a href="http://trinityrnaseq.sourceforge.net/">Trinity</a></li>
+        <li><a href="index.html">Performance</a></li>
+        <li><a href="requirements.html">Requirements</a></li>
+        <li><a href="#">Benchmarks</a></li>
+    </ul>
+</div>
+<img class="background" src="/images/TrinityCompositeLogo.png" />
+<h1>Performance</h1>
+<h2>Benchmarks</h2>
+<p>Trinity run-time depends on a number of factors, including the number of reads to be assembled and the
+    complexity of the transcript graphs. The assembly from start to finish can take anywhere from ~1/2 hour to
+    1 hour per million reads</p>
+<p>The performance of Trinity is measured using three
+    <a href="http://sourceforge.net/projects/trinityrnaseq/files/misc/">Trinity Test Sets</a>,
+    all of which may be downloaded from the Trinity web site. Each set comprises 50 million short-read paired-end
+    reads of a model organism: a yeast, an invertebrate, and a vertebrate. The sets are:
+    <ul>
+        <li><a href="http://en.wikipedia.org/wiki/Drosophila_melanogaster">Drosophila Melanogaster</a>, fruit fly</li>
+        <li><a href="http://en.wikipedia.org/wiki/Schizosaccharomyces_pombe">Schizosaccharomyces pombe</a>, fission yeast</li>
+        <li><a href="http://en.wikipedia.org/wiki/House_mouse">Mus Muscula</a>, house mouse</li>
+    </ul>
+</p>
+<p>Each released version of Trinity is benchmarked for three components:
+    <ul>
+    <li>Transcript Reconstruction Performance</li>
+    <li>Runtime</li>
+    <li>Memory Usage</li>
+
+    </ul>
+<em>Transcript
+        Reconstruction Performance</em>
+is measured by calculating the total number of genes that can be matched in the assembly, and also via a third-party
+analysis tool. <em>Runtime</em> is analyzed for the overall amount of time taken from start to finish of the assembly,
+and also in more detail based on the number of cores available and the amount of time each core works or is idle.
+<em>Memory Usage</em> is analyzed to determine the maximum amount of memory that is used by Trinity at any one moment.
+    If the
+amount of memory can be kept to a minimum, smaller, less powerful machines can be used to process data sets.</p>
+</body>
+</html>
