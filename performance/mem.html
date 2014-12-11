@@ -1,0 +1,302 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Trinity Memory Usage</title>
+
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script src="http://code.highcharts.com/highcharts.js"></script>
+        <script src="gray.js"></script>
+        <script src="series.js"></script>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <script src="http://code.highcharts.com/modules/exporting.js"></script>
+        <style type="text/css">
+            ${demo.css}
+            body { background-color: lightgray; }
+        </style>
+	</head>
+	<body>
+<div class="navbar">
+    <ul>
+        <li><a href="http://trinityrnaseq.sourceforge.net/">Trinity</a></li>
+        <li><a href="index.html">Performance</a></li>
+        <li><a href="cpu.html">CPU</a></li>
+        <li><a href="mem.html">Memory</a></li>
+    </ul>
+</div>
+<img class="background" src="/images/TrinityCompositeLogo.png" />
+<h1>Trinity Performance</h1>
+<h2>Memory Usage Over Time</h2>
+<p>The Trinity pipeline consists of a series of executables, many of which run simultaneously. The charts
+    below show the amount of memory consumed by the individual processes over the course of a test run. When running
+    on a single node, the number of processes that can be run at the same time may be limited by the amount of
+    available RAM. This is particularly noticeable when running the final Trinity phase, <em>Butterfly</em>. </p>
+<div class="exposition">
+<h3>Butterfly</h3>
+<p>The final phase of a Trinity run consists of running multiple instances of a Java application called Butterfly.
+    It is easy to set parameters such that Butterfly requires a huge amount of memory. By default, Trinity runs two
+    simultaneous instances, each one requesting 10GB of memory. Thus, the system must
+    have 20 GB available to it. It is common, however, to set the <span class="parameter">--CPU</span> to a much
+    larger value.</p>
+
+    <p>The <span class="parameter">--CPU</span> parameter specifies the number of CPU's available. Trinity passes this value
+        on to the Bowtie application to increase its running efficiency; the value also is used to determine the
+        number of Butterfly instances that can be run simultaneously. However, the system must also have sufficient
+        RAM to run this number of instances. If 32 copies of Butterfly run at the same time, 320 GB of memory
+        must be available.
+    </p>
+
+    <p>However, some systems do not allocate all requested memory until required. In this case, many instances
+    of Butterfly may use just one or five GB of memory and more instances may be run at once. But the safest option
+    is to make sure that available memory is sufficient to hold 10GB per instance.</p>
+
+    <p>Trinity makes various options available to minimize this issue. The <span class="parameter">--bflyCalculateCPU</span>
+        option is the simplest, allowing Trinity to use 80% of available memory to run 10GB Butterfly instances,
+        so a 200GB system would run 16 instances. For more precise control, the <span class="parameter">--bflyCPU</span>
+        option is available. Combining this option with the CPU option allows both Bowtie and Butterfly to run at
+        maximum efficiency while keeping memory pressure under control.</p>
+
+    <p>In addition, the <span class="parameter">--bflyHeapSpaceMax</span> is available. If you are confident that
+    no instances of Butterfly will use all 10GB of memory, setting this to a smaller value may allow more Butterfly
+    processes to run.</p>
+
+    <p>The flag <span class="parameter">--normalize_reads</span> allows the use of in silico normalization.
+        The normalization will be more memory intensive because it uses Jellyfish
+        to count the kmers, but it may reduce the memory footprint required later. (However, also note
+        that at this time quality trimming and the in silico normalization are currently not compatible).
+        Normalization requires that the reads in the left.fq file are identically ordered as those in the right.fq file.
+    </p>
+
+    <p>Finally, note that the <span class="parameter">--JM</span> parameter refers to "Jellyfish Memory" and not "Java
+        Memory". As Jellyfish runs only a single instance, changing this parameter will probably not greatly affect the
+        overall memory required.</p>
+
+</div>
+<h2>Drosophila Data Set</h2>
+<p>The drosophila test was completed on a high-memory cluster in slightly less than five hours of wall time. The test
+    was performed on a single node with four eight-core processors for a total of 32 cores, and 500 gigabytes of
+    memory. Note the command line has been manipulated to minimize memory usage: the maximum amount of memory in
+    use at any one time is 23GB.
+</p>
+<ul>
+<li>Total length of sequence: 3,189,642,961 bp</li>
+    <li>Total number of sequences:      50,000,000</li>
+    <li>GC %:                           53.39 %</li>
+</ul>
+Command line: <span class="commandline">Trinity --seqType fa --JM 20G --output ./trinity_out --CPU 32 --bflyCPU 2
+    --monitoring --left  reads.left.fa --right reads.right.fa</span>
+<div id="droso_bflycpu" class="chart"></div>
+
+<p>
+<h2>Mouse Data Set</h2>
+<p>If there is sufficient memory available, the <span class="parameter">--bflyCPU</span> parameter may be left off.
+    In this case, Trinity will run simultaneous Butterfly instances up to the <span class="parameter">--CPU</span>
+    parameter. The Mouse data set was run using 400GB of memory, which allows a time savings of around 25%. Note
+    the Butterfly memory spike over the final 1.5 hours of runtime.
+    The test ran to completion in slightly more than eight hours of wall time.<br />
+<ul>
+    <li>Total length of sequence: 4,001,038,088 bp</li>
+    <li>Total number of sequences:      52,645,238</li>
+    <li>GC %:                           48 %</li>
+</ul>
+Command line: <span class="commandline">Trinity --seqType fq --JM 20G --SS_lib_type RF --output ./trinity_out  --CPU 32
+    --monitoring --left reads.left.fq --right reads.right.fq</span>
+</p>
+<div id="mouse" class="chart"></div>
+<h2>Pombe Data Set</h2>
+<p>The S. Pombe test consists of paired-end reads, including quality scores, with a length of 68.
+    This test also completed in slightly more than eight hours.<br />
+<ul>
+    <li>Total length of sequence: 3,400,000,000 bp</li>
+    <li>Total number of sequences:      50,000,000</li>
+    <li>GC %:                           48 %</li>
+</ul>
+Command line: <span class="commandline">Trinity --seqType fq
+           --JM 20G
+           --SS_lib_type RF
+           --output ./trinity_out
+           --CPU 32
+           --bflyCPU 2
+           --monitoring
+           --left  reads.left.fq
+           --right reads.right.fq</span>
+</p>
+
+
+<div id="schizo"  class="chart"></div>
+<script type="text/javascript">
+$(function () {
+
+    $('#mouse').highcharts({
+        chart: {
+            type: 'line'
+        },
+        title: {
+            text: 'Trinity Memory Usage'
+        },
+        plotOptions: {
+            column: {
+                stacking: 'normal',
+            }
+        },
+        xAxis: {
+            type: 'datetime',
+            labels: {
+                formatter: function () {
+                    return timeFormat(this.value);
+                }},
+            title: {
+                text: 'Wall Time'
+            }
+        },
+        yAxis: { title: { text: 'Memory Used' }, min: 0 },
+        tooltip: {
+            formatter: function () {
+                result = '<b>' + this.series.name + ': ' + Math.round(this.y / (1024 * 1024 * 1024)) + ' GB'
+                if (this.point.processes > 1)
+                    result += ' (' + this.point.processes + ' processes)'
+                return result;
+            }
+        },
+
+        series: mouse_mem
+    });
+});
+
+
+</script>
+<script type="text/javascript">
+$(function () {
+
+    $('#droso').highcharts({
+        chart: {
+            type: 'line'
+        },
+        title: {
+            text: 'Trinity Memory Usage'
+        },
+        plotOptions: {
+            column: {
+                stacking: 'normal',
+            }
+        },
+        xAxis: {
+            type: 'datetime',
+            labels: {
+                formatter: function () {
+                    return timeFormat(this.value);
+                }},
+            title: {
+                text: 'Wall Time'
+            }
+        },
+        yAxis: { title: { text: 'Memory Used' }, min: 0 },
+        tooltip: {
+            formatter: function () {
+                result = '<b>' + this.series.name + ': ' + Math.round(this.y / (1024 * 1024 * 1024)) + ' GB'
+                if (this.point.processes > 1)
+                    result += ' (' + this.point.processes + ' processes)'
+                return result;
+            }
+        },
+
+        series: droso_mem
+    });
+});
+
+$(function () {
+
+    $('#droso_bflycpu').highcharts({
+        chart: {
+            type: 'line'
+        },
+        title: {
+            text: 'Trinity Memory Usage'
+        },
+        plotOptions: {
+            column: {
+                stacking: 'normal',
+            }
+        },
+        xAxis: {
+            type: 'datetime',
+            labels: {
+                formatter: function () {
+                    return timeFormat(this.value);
+                }},
+            title: {
+                text: 'Wall Time'
+            }
+        },
+        yAxis: { title: { text: 'Memory Used' }, min: 0 },
+        tooltip: {
+            formatter: function () {
+                result = '<b>' + this.series.name + ': ' + Math.round(this.y / (1024 * 1024 * 1024)) + ' GB'
+                if (this.point.processes > 1)
+                    result += ' (' + this.point.processes + ' processes)'
+                return result;
+            }
+        },
+
+        series: droso_bflycpu_mem
+       });
+});
+</script>
+<script type="text/javascript">
+function timeFormat(ms) {
+    x = ms / 1000;
+    seconds = x % 60;
+    x /= 60;
+    minutes = x % 60;
+    hours = (x-minutes)/60;
+    return (hours < 10 ? '0' : '') + hours + ':' + (minutes < 10 ? '0' : '') + minutes;
+}
+$(function () {
+
+    $('#schizo').highcharts({
+        chart: {
+            type: 'line'
+        },
+        title: {
+            text: 'Memory Usage'
+        },
+        plotOptions: {
+            column: {
+                stacking: 'normal',
+            }
+        },
+        xAxis: {
+            type: 'datetime',
+            labels: {
+            formatter: function () {
+                return timeFormat(this.value);
+            }},
+            title: {
+                text: 'Wall Time'
+            }
+        },
+        yAxis: { title: { text: 'Memory Used' }, min: 0 },
+        tooltip: {
+            formatter: function () {
+                result = '<b>' + this.series.name + ': ' + Math.round(this.y / (1024 * 1024 * 1024)) + ' GB'
+                if (this.point.processes > 1)
+                    result += ' (' + this.point.processes + ' processes)'
+                return result;
+            }
+        },
+
+        series: schizo_mem
+    });
+});
+
+
+</script>    
+    
+    </body>
+</html>
+
+
+

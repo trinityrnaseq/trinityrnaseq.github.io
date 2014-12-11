@@ -1,1 +1,343 @@
-here we go again
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Trinity Performance Metrics</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="gray.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+    <style type="text/css">
+        ${demo.css}
+    </style>
+</head>
+
+<body>
+<div class="navbar">
+    <ul>
+        <li><a href="http://trinityrnaseq.sourceforge.net/">Trinity</a></li>
+        <li><a href="#">Performance</a></li>
+        <li><a href="cpu.html">CPU</a></li>
+        <li><a href="mem.html">Memory</a></li>
+    </ul>
+</div>
+<img class="background" src="/images/TrinityCompositeLogo.png" />
+<h1>Performance</h1>
+<h2>Hardware and Configuration Requirements</h2>
+<p>The Inchworm and Chrysalis steps can be memory intensive.  A basic recommendation is to have
+    1G of RAM per 1M pairs of Illumina reads. Simpler transcriptomes (lower eukaryotes) require
+    less memory than more complex transcriptomes such as from vertebrates.</p>
+<p>If you are able to run the entire Trinity process on a single high-memory multi-core server,
+    indicate the number of butterfly processes to run in parallel by the --CPU parameter.</p>
+<p>Our experience is that the entire process can require ~1/2 hour to one hour per million pairs
+    of reads in the current implementation (see <a href="http://trinityrnaseq.sourceforge.net/trinity_faq.html">FAQ</a>).  We're striving
+    to improve upon both memory and time requirements.</p>
+<p>If you do not have access to a high memory machine (typically having 256G or 512G of RAM),
+    consider running Trinity on one of the externally available resources. If you are limited to the amount of
+    time available for executing Trinity (due to artificially imposed limits on a shared computing resource), you
+    can aim to run Trinity in separate stages, where subsequent stages resume from the previous ones.  To do so,
+    include the following options for each of the stages:</p></div>
+<ol>
+    <li>Generate the kmer-catalog using jellyfish: <em>--no_run_inchworm</em></li>
+    <li>Run Inchworm to generate draft contigs:  <em>--no_run_chrysalis</em></li>
+    <li>Chrysalis clustering of inchworm contigs and mapping reads: <em>--no_run_quantifygraph</em></li>
+    <li>Chrysalis deBruijn graph construction: <em>--no_run_butterfly</em></li>
+    <li>Run butterfly, generate final Trinity.fasta file:  (exclude <em>--no_</em> options)</li>
+</ol>
+<h2>Testing</h2>
+<p>Trinity run-time depends on a number of factors, including the number of reads to be assembled and the
+    complexity of the transcript graphs. The assembly from start to finish can take anywhere from ~1/2 hour to
+    1 hour per million reads</p>
+<p>The performance of Trinity is measured using three
+    <a href="http://sourceforge.net/projects/trinityrnaseq/files/misc/">Trinity Test Sets</a>,
+    all of which may be downloaded from the Trinity web site. Each set comprises 50 million short-read paired-end
+    reads of a model organism: a yeast, an invertebrate, and a vertebrate. The sets are:
+    <ul>
+        <li><a href="http://en.wikipedia.org/wiki/Drosophila_melanogaster">Drosophila Melanogaster</a>, fruit fly</li>
+        <li><a href="http://en.wikipedia.org/wiki/Schizosaccharomyces_pombe">Schizosaccharomyces pombe</a>, fission yeast</li>
+        <li><a href="http://en.wikipedia.org/wiki/House_mouse">Mus Muscula</a>, house mouse</li>
+    </ul>
+</p>
+<p>Each released version of Trinity is run against each test set, and the results are analyzed for three components,
+<em>skill</em>, <em>speed</em>, and <em>space</em>. <em>Skill</em>
+is measured by calculating the total number of genes that can be matched in the assembly, and also via a third-party
+analysis tool. <em>Speed</em> is analyzed for the overall amount of time taken from start to finish of the assembly,
+and also in more detail based on the number of cores available and the amount of time each core works or is idle.
+<em>Space</em> is analyzed to determine the maximum amount of memory that is used by Trinity at any one moment. If the
+amount of memory can be kept to a minimum, smaller, less powerful machines can be used to process data sets.</p>
+<h2>Skill</h2>
+<p>Trinity assemblies from several versions were analyzed to find the number of single genes, and also
+    given an overall evaluation score using the
+    <a href="http://deweylab.biostat.wisc.edu/detonate/">Detonate</a> assembly evaluation tool
+    <sup><a href="#reference1">1</a></sup>, which gives a rating to the assembly based on the
+    likelihood of its being perfectly correct. Result for the six most recent versions of Trinity
+    are show below. The values are given as log probabilities, so the shorter bars are the best scores.
+</p>
+<table style="width:90%">
+    <tr>
+        <td id="fly_genes" style="width: 30%"></td>
+        <td id="yeast_genes" style="width: 30%"></td>
+        <td id="mouse_genes" style="width: 30%"></td>
+    </tr>
+    </table>
+<table style="width:90%">
+    <tr>
+        <td id="fly" style="width: 30%"></td>
+        <td id="yeast" style="width: 30%"></td>
+        <td id="mouse" style="width: 30%"></td>
+    </tr>
+</table>
+<h2>Speed</h2>
+<p>The total amount of wall time required to produce an assembly.
+</p>
+<table style="width:90%">
+    <tr>
+        <td id="fly_time" style="width: 30%"></td>
+        <td id="yeast_time" style="width: 30%"></td>
+        <td id="mouse_time" style="width: 30%"></td>
+    </tr>
+</table>
+<p>The many components of Trinity each have their own unique processor requirements. Additional information can
+    be found on the <a href="cpu.html">Trinity Processor Usage</a> page.</p>
+<h2>Space</h2>
+<p>The maximum amount of memory used at a single time when producing an assembly. This number does not include
+    memory used by the parallel Butterfly component, which can use as much or as little memory as is available
+    on the system. (See <a href="mem.html">Trinity Memory Usage</a> for more information)</p>
+</p>
+<table style="width:90%">
+    <tr>
+        <td id="fly_mem" style="width: 30%"></td>
+        <td id="yeast_mem" style="width: 30%"></td>
+        <td id="mouse_mem" style="width: 30%"></td>
+    </tr>
+</table>
+<p>The many components of Trinity each have their own unique memory requirements. Additional information can
+    be found on the <a href="mem.html">Trinity Memory Usage</a> page.</p>
+<h4>References</h4>
+<a name="reference1"></a>
+1. <cite>Bo Li, Nathanael Fillmore, Yongsheng Bai, Mike Collins, James A. Thompson, Ron Stewart, Colin N. Dewey.
+    Evaluation of de novo transcriptome assemblies from RNA-Seq data.</cite>
+<script type="application/javascript">
+
+    const cats = ['2012 Oct', '2013 Feb', '2013 Aug', '2013 Nov', '2014 Apr', '2014 Jul', '2014 Nov'];
+
+    function timeFormat(ms) {
+        x = ms / 1000;
+        seconds = x % 60;
+        x /= 60;
+        minutes = x % 60;
+        hours = (x-minutes)/60;
+        return (hours < 10 ? '0' : '') + hours + ':' + (minutes < 10 ? '0' : '') + minutes;
+    }
+    function create_detonate_chart(title, target, ymin, series, color) {
+        $(target).highcharts({
+            chart: {
+                type: 'bar', height: '300'
+            },
+            title: {
+                text: title
+            },
+            subtitle: {
+                text: 'Detonate Evaluation'
+            },
+            xAxis: {
+                categories: cats,
+                title: {
+                    text: null
+                }
+            },
+            yAxis: {
+                min: ymin,
+                title: {
+                    text: 'Detonate rating (shorter is better!)'
+                 },
+                labels: {
+                    formatter: function () {
+                        return "-" + this.value.toExponential();
+                    }
+                }
+            },
+            tooltip: {
+                formatter: function () {
+                    return "-" + this.y.toExponential();
+                }
+            },
+
+            credits: {
+                enabled: false
+            },
+            plotOptions: { bar: { pointWidth: 5 }},
+            series: [
+                {
+                    name: 'RSEM-EVAL Score',
+                    data: series,
+                    color: Highcharts.theme.colors[ color]
+                }
+            ]
+        });
+    }
+
+    function create_gene_chart(title, target, min, data, color) {
+        $(target).highcharts({
+            chart: {
+                type: 'bar', height: 300
+            },
+            title: {
+                text: title
+            },
+            subtitle: {
+                text: 'Single Genes'
+            },
+            xAxis: {
+                categories: cats
+            },
+            yAxis: {
+                min: min,
+                title: {
+                    text: 'Total Genes'
+                }
+            },
+            legend: {
+                reversed: true
+            },
+            plotOptions: { bar: { pointWidth: 5 }},
+            series: [
+                {
+                    name: 'Single Genes',
+                    data: data,
+                    color: Highcharts.theme.colors[ color]
+                }
+            ]
+        });
+    }
+
+    function create_time_chart(title, target, data, color) {
+        $(target).highcharts({
+            chart: {
+                type: 'bar', height: 300
+            },
+            title: {
+                text: title
+            },
+            subtitle: {
+                text: 'Wall Time'
+            },
+            xAxis: {
+                categories: cats
+            },
+            yAxis: {
+                title: {
+                    text: 'Total Time'
+                },
+                type: 'datetime',
+                labels: {
+                    formatter: function () {
+                        return timeFormat(this.value);
+                    }}
+            },
+            tooltip: {
+                formatter: function() {
+                    return timeFormat(this.y);
+                }
+            },
+            legend: {
+                reversed: true
+            },
+            plotOptions: { bar: { pointWidth: 5 }},
+            series: [
+                {
+                    name: 'Total Time',
+                    data: data,
+                    color: Highcharts.theme.colors[ color]
+                }
+            ]
+        });
+    }
+
+    function create_memory_chart(title, target, data, color) {
+        $(target).highcharts({
+            chart: {
+                type: 'bar', height: 300
+            },
+            title: {
+                text: title
+            },
+            subtitle: {
+                text: 'Memory'
+            },
+            xAxis: {
+                categories: cats
+            },
+            yAxis: {
+                title: {
+                    text: 'Memory'
+                }
+            },
+            legend: {
+                reversed: true
+            },
+            plotOptions: { bar: { pointWidth: 5 }},
+            series: [
+                {
+                    name: 'Memory',
+                    data: data,
+                    color: Highcharts.theme.colors[ color]
+                }
+            ]
+        });
+    }
+
+    function create_charts(data) {
+        var title = data['title'];
+        var prefix = data['prefix'];
+        var color = data['color'];
+        create_detonate_chart(title, prefix, data['detonate_min'], data['detonate'], color);
+        create_gene_chart(title, prefix + '_genes', data['single_genes_min'], data['single_genes'], color);
+        create_time_chart(title, prefix + '_time', data['wall_time'], color);
+        create_memory_chart(title, prefix + '_mem', data['max_mem'], color);
+    }
+    $(function () {
+        var droso = { detonate : [2477687900, 2485538966, 2487213098, 2489302722, 2467311010, 2466633020, 2469774184],
+            detonate_min : 2440000000,
+            single_genes : [6641, 6621, 6618, 6634, 6462, 6568, 6517],
+            single_genes_min : 6000,
+            wall_time : [40440000,35880000,34500000,12120000,11280000,16860000,18780000],
+            max_mem : [22671159296,22671159296,20337782784,2.27E+10,2.27E+10,2.16E+10,2.16E+10],
+            prefix: '#fly',
+            title : 'D. melanogaster',
+            color : 2};
+
+        var mouse = { detonate : [3732546751, 3739526586, 3730722453, 3742756640, 3711692016, 3691985845, 3709380976],
+            detonate_min : 3640000000,
+            single_genes : [7854, 7846, 7845, 7854, 7533, 7758, 7757],
+            single_genes_min : 7000,
+            wall_time : [70320000,63480000,62400000,18780000, 23400000,29640000,16440000],
+            max_mem : [60745121792,60776148992,60478222336,6.05E+10,6.01E+10,6.04E+10,60389638144,],
+            prefix: '#mouse',
+            title : 'M. muscula',
+            color : 1};
+
+        var schizo = { detonate : [2104252611, 2125204094, 2115915016, 2107772409, 2082603842, 2123921952, 2123442573],
+            detonate_min : 2000000000,
+            single_genes : [4129, 3872, 3865, 3892, 4097, 4101, 4095],
+            single_genes_min : 3500,
+            wall_time : [182940000,141960000,112920000,129180000,141780000,153960000, 130620000 ],
+            max_mem : [26864455680, 27495628800, 27495641088, 27495518208, 27495788544, 24502489088],
+            prefix: '#yeast',
+            title : 'S. pombe',
+            color : 0};
+
+        create_charts(droso);
+        create_charts(mouse);
+        create_charts(schizo);
+
+    });
+
+</script>
+</body>
+</html>
