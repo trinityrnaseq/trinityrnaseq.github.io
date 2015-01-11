@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
 <meta name="generator" content="AsciiDoc 8.6.8" />
-<title>Trinity and Tuxedo RNA-Seq Workshop</title>
+<title>Gene Ontology Enrichment using Trinotate and GOseq</title>
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
 
@@ -731,150 +731,110 @@ asciidoc.install();
 </head>
 <body class="article">
 <div id="header">
-<h1>Trinity and Tuxedo RNA-Seq Workshop</h1>
+<h1>Gene Ontology Enrichment using Trinotate and GOseq</h1>
 </div>
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>Do you want to learn the basics of how to analyze RNA-Seq data, including genome-based and genome-free transcript reconstruction and differential expression analysis?  Below, we provide materials to help get you started. A VirtualBox virtual machine image is provided that includes several popular tools for analyzing RNA-Seq, including Tuxedo for genome-based and Trinity for genome-free RNA-Seq studies, and small sample RNA-Seq data sets.  Hands-on tutorials are provided to guide users in a step-by-step analysis of these data.</p></div>
-<div class="paragraph"><p>The slides from the lecture part of the workshop are available <a href="ftp://ftp.broad.mit.edu/pub/users/bhaas/rnaseq_workshop/rnaseq_workshop_2014/rnaseq_workshop_slides.pdf">here</a>.</p></div>
+<div class="paragraph"><p>The following describes how to use Trinotate and GOseq to explore functional enrichment among gene sets.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">This combined Trinotate/GOseq system hasn&#8217;t been rigorously tested, benchmarked, or as of yet published, so use for exploratory purposes. Alternatives such as <a href="http://www.blast2go.com/b2ghome">Blast2GO</a> should be considered as potentially more useful and/or accurate alternatives, yet the system here can be quite useful and readily accessible.</td>
+</tr></table>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_the_tutorials_are_based_on_the_following_nature_protocol_papers">The tutorials are based on the following Nature Protocol papers</h2>
-<div class="sectionbody">
-<div class="ulist"><ul>
-<li>
-<p>
-<strong>Trinity</strong>: Haas BJ, Papanicolaou A, Yassour M, Grabherr M, Blood PD, Bowden J, Couger MB, Eccles D, Li B, Lieber M, Macmanes MD, Ott M, Orvis J, Pochet N, Strozzi F, Weeks N, Westerman R, William T, Dewey CN, Henschel R, Leduc RD, Friedman N, Regev A. De novo transcript sequence reconstruction from RNA-seq using the Trinity platform for reference generation and analysis. <a href="http://www.nature.com/nprot/journal/v8/n8/full/nprot.2013.084.html">Nat Protoc. 2013 Aug;8(8):1494-512. doi: 10.1038/nprot.2013.084. Epub 2013 Jul 11. PubMed PMID: 23845962.</a>
-</p>
-</li>
-<li>
-<p>
-<strong>Tuxedo</strong>: Trapnell C, Roberts A, Goff L, Pertea G, Kim D, Kelley DR, Pimentel H, Salzberg SL, Rinn JL, Pachter L. Differential gene and transcript expression analysis of RNA-seq experiments with TopHat and Cufflinks. Nat Protoc. 2012 Mar 1;7(3):562-78. doi: 10.1038/nprot.2012.016. PubMed PMID: 22383036; <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3334321/">PubMed Central PMCID: PMC3334321.</a>
-</p>
-</li>
-</ul></div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_to_complete_either_the_trinity_or_tuxedo_workshop_you_must_do_the_following">To complete either the Trinity or Tuxedo workshop, you must do the following</h2>
+<h2 id="_run_trinotate_to_generate_an_annotation_report">Run Trinotate to Generate an Annotation Report</h2>
 <div class="sectionbody">
-<div class="ulist"><ul>
-<li>
-<p>
-Install Virtualbox from <a href="http://virtualbox.org">http://virtualbox.org</a>
-</p>
-</li>
-<li>
-<p>
-Download the <a href="ftp://ftp.broadinstitute.org/pub/users/bhaas/rnaseq_workshop/rnaseq_workshop_2014/TrinityWorkshopVM_2014.ova">Ubuntu Linux image with pre-installed software and data</a>.
-</p>
-</li>
-<li>
-<p>
-Install the Ubuntu image following <a href="ftp://ftp.broadinstitute.org/pub/users/bhaas/rnaseq_workshop/rnaseq_workshop_2014/virtualbox_setup.pdf">these instructions</a>.
-</p>
-</li>
-<li>
-<p>
-Run through the <a href="ftp://ftp.broadinstitute.org/pub/users/bhaas/rnaseq_workshop/rnaseq_workshop_2014/Trinity_workshop_activities.pdf">Trinity Tutorial</a> and/or the <a href="ftp://ftp.broadinstitute.org/pub/users/bhaas/rnaseq_workshop/rnaseq_workshop_2014/Tuxedo_workshop_activities.pdf">Tuxedo Tutorial</a> provided.
-</p>
-</li>
-</ul></div>
+<div class="paragraph"><p>Use <a href="http://trinotate.sf.net">Trinotate</a> to generate an annotation report <em>trinotate.xls</em>, which includes top-matching blast matches from SwissProt (and optionally UniRef) and any corresponding Gene Ontology (GO) assignments from the TrEMBL/SwissProt databases.</p></div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_system_requirements">System requirements</h2>
+<h2 id="_extract_go_assignments_per_gene">Extract GO assignments per gene</h2>
 <div class="sectionbody">
-<div class="ulist"><ul>
-<li>
-<p>
-a 64-bit computer (Mac OS X, Windows, or Linux)
-</p>
-</li>
-<li>
-<p>
-approx. 30 Gb of free disk space
-</p>
-</li>
-<li>
-<p>
-approx. 8 Gb of RAM
-</p>
-</li>
-</ul></div>
+<div class="paragraph"><p>Extract all GO assignments for each gene feature, including all parent terms within the GO DAG, using a script included in Trinotate (not Trinity) like so:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>${TRINOTATE_HOME}/util/extract_GO_assignments_from_Trinotate_xls.pl --Trinotate_xls trinotate.xls \
+                                                                    -G --include_ancestral_terms \
+                                                                  &gt; go_annotations.txt</code></pre>
+</div></div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_time_investment">Time investment</h2>
+<h2 id="_run_goseq">Run GOseq</h2>
 <div class="sectionbody">
-<div class="ulist"><ul>
-<li>
-<p>
-Setup: approx. 30 min.
-</p>
-</li>
-<li>
-<p>
-Trinity tutorial: approx. 2 hours.
-</p>
-</li>
-<li>
-<p>
-Tuxedo tutorial: approx. 2 hours.
-</p>
-</li>
-</ul></div>
+<div class="paragraph"><p>The Bioconductor package <a href="http://www.bioconductor.org/packages/release/bioc/html/goseq.html">GOseq</a> can then be used to perform functional enrichment tests, like so:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>${TRINITY_HOME}/Analysis/DifferentialExpression/run_GOseq.pl --factor_labeling  factor_labeling.txt \
+                                                             --GO_assignments go_annotations.txt \
+                                                             --lengths gene.lengths.txt</code></pre>
+</div></div>
+<div class="paragraph"><p>Note, the above script is here in the Trinity software package (not Trinotate).</p></div>
+<div class="paragraph"><p>The <em>factor_labeling.txt</em> file should be of format:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>gene_id (tab) factor</code></pre>
+</div></div>
+<div class="paragraph"><p>where factor is a string describing that subset of genes.  (Note, future versions will require formatting <em>factor (tab) gene_id</em> instead).</p></div>
+<div class="paragraph"><p>For example:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>my_gene_A (tab) diff_expressed_cond_X_Y
+my_gene_B (tab) diff_expressed_cond_X_Y
+...
+my_gene_M (tab) diff_cond_W_Z
+my_gene_N (tab) diff_cond_W_Z
+...</code></pre>
+</div></div>
+<div class="paragraph"><p>You can come up with whatever gene subset you want and call it whatever you want.  The enrichment tests will be performed separately for
+      each factor defined.</p></div>
+<div class="paragraph"><p>The gene.lengths.txt file has the format</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>gene (tab) length</code></pre>
+</div></div>
+<div class="paragraph"><p>Such a file can be generated by extracting the length info from an RSEM genes.results output file, like so:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>cat RSEM.genes.results | cut -f 1,2 &gt; genes.lengths.txt</code></pre>
+</div></div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_workshop_events">Workshop events</h2>
+<h2 id="_output_format">Output format</h2>
 <div class="sectionbody">
-<div class="ulist"><ul>
-<li>
-<p>
-Oct 25, 2012  Programming for Biology course at CSHL
-</p>
-</li>
-<li>
-<p>
-June 18, 2013  <a href="http://rna-seqsummit.com/agenda/interactive-workshops">RNA-Seq Summit, Boston, MA</a>
-</p>
-</li>
-<li>
-<p>
-July 29, 2013 <a href="http://www.broadinstitute.org/collaboration/cegs/july_29_2013">Center for Cell Circuits Computational Genomics Workshop</a>
-</p>
-</li>
-<li>
-<p>
-Oct 24, 2013 <a href="http://meetings.cshl.edu/courses/2013/c-info13.shtml"> Programming for Biology course at CSHL</a>
-</p>
-</li>
-<li>
-<p>
-Nov 2013  University of Virginia
-</p>
-</li>
-<li>
-<p>
-Dec 2, 2013  <a href="http://www.broadinstitute.org/partnerships/education/broade/broad-workshops">BroadE</a>, Broad Institute
-</p>
-</li>
-<li>
-<p>
-Oct 23, 2014 <a href="http://meetings.cshl.edu/courses/2014/c-info14.shtml">Programming for Biology Course at CSHL</a>
-</p>
-</li>
-</ul></div>
+<div class="paragraph"><p>Two outputs will be generated, one containing the enriched categories, and another containing the depleted categories (see .enriched and .depleted files).  Each is formatted like so:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>category        over_represented_pvalue under_represented_pvalue        numDEInCat      numInCat        over_represented_FDR    go_term
+GO:0006950      2.31865343285843e-06    0.999999300797978       29      865     0.0194486974248318      BP response to stress
+GO:0050896      4.21926400365154e-06    0.999998538716346       37      1260    0.0194486974248318      BP response to stimulus
+GO:0005991      1.46319165581868e-05    0.99999948534722        5       13      0.0335131128161946      BP trehalose metabolic process
+GO:0034599      1.53076318362736e-05    0.999998405098904       8       68      0.0335131128161946      BP cellular response to oxidative stress
+GO:0005984      1.81761106498506e-05    0.99999886707966        6       28      0.0335131128161946      BP disaccharide metabolic process
+GO:0016491      2.85213785315928e-05    0.999992430044754       18      384     0.0438230981137924      MF oxidoreductase activity
+GO:0009311      6.17142027090978e-05    0.999995031367248       6       36      0.0812776049678818      BP oligosaccharide metabolic process
+GO:0006979      7.43934748203219e-05    0.999990139968793       8       86      0.0829156739562135      BP response to oxidative stress
+GO:0033554      8.56780402612919e-05    0.999971893243069       22      725     0.0829156739562135      BP cellular response to stress
+GO:0051716      8.9939986935908e-05     0.999966321461546       29      1062    0.0829156739562135      BP cellular response to stimulus
+GO:0009628      0.000216085667513453    0.999952957354358       11      178     0.176369334253296       BP response to abiotic stimulus
+GO:0004601      0.000248703909891837    0.999994839511817       3       8       0.176369334253296       MF peroxidase activity
+GO:0016684      0.000248703909891837    0.999994839511817       3       8       0.176369334253296       MF oxidoreductase activity, acting on peroxide as acceptor
+GO:0070887      0.00026865285434211     0.999935263149842       12      216     0.176907904584279       BP cellular response to chemical stimulus</code></pre>
+</div></div>
 </div>
 </div>
 </div>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-10-26 17:15:04 EDT
+Last updated 2014-08-04 20:08:26 EDT
 </div>
 </div>
 </body>
