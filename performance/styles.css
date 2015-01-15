@@ -1,0 +1,79 @@
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.navbar li {
+    float: left;
+}
+
+.navbar a:link {
+    display: block;
+    width: 140px;
+    font-weight: bold;
+    color: white;
+    background-color: black;
+    margin-right: 3px;
+    text-align: center;
+    padding: 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.navbar a:visited {
+    display: block;
+    width: 120px;
+    font-weight: bold;
+    color: white;
+    background-color: black;
+    text-align: center;
+    padding: 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.navbar a:hover, a:active {
+    background-color: gray;
+}
+
+.navbar a.current {
+    color: lightgray;
+}
+
+body {
+    background: lightgray;
+}
+
+h2 {
+    text-align: center;
+    border-bottom: 1px solid gray;
+    padding-top: 15px;
+}
+
+img.background {
+    opacity: .2;
+    position: absolute;
+    margin-left: 50%;
+}
+
+.commandline {
+ font-family: "Courier New", Courier, monospace;
+    font-size: small;
+}
+
+.chart {
+    width: 90%;
+    min-width: 310px;
+    height: 400px;
+    margin: 10px auto;
+    -webkit-box-shadow: 0 0 6px 2px black;
+    -moz-box-shadow: 0 0 6px 2px black;
+    box-shadow: 0 0 6px 2px black;
+
+}
+
+span.parameter {
+    font-weight: bold;
+}

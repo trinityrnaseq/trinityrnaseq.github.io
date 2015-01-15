@@ -1,0 +1,211 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Trinity CPU Usage</title>
+
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script src="//code.highcharts.com/highcharts.js"></script>
+        <script src="gray.js"></script>
+        <script src="series.js"></script>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <script src="//code.highcharts.com/modules/exporting.js"></script>
+        <style type="text/css">
+            ${demo.css}
+        </style>
+	</head>
+<body>
+<div class="navbar">
+    <ul>
+        <li><a href="http://trinityrnaseq.sourceforge.net/">Trinity</a></li>
+        <li><a href="index.html">Performance</a></li>
+        <li><a href="requirements.html">Requirements</a></li>
+        <li><a href="benchmark.html">Benchmarks</a></li>
+    </ul>
+</div>
+<img class="background" src="/images/TrinityCompositeLogo.png" />
+<h1>Trinity Performance - Runtime</h1>
+<!-- Performance Tips
+If you have parallel samtools (ie. version 1.1, possibly earlier versions), then there's a parameter
+   -@ threads
+you can use with samtools sort.
+
+The next version of Trinity will enable this. For now, if you go in and search out the couple of 'samtools sort' instances in the Trinity script, just replace it with:
+
+     samtools sort -\@ $CPU
+
+-->
+<h2>CPU Usage Over Time</h2>
+<p>The Trinity pipeline consists of a series of executables, many of which run simultaneously. The charts
+below show the amount of CPU consumed by the individual processes over the course of a test run. The tests
+were performed on a single node with four eight-core processors for a total of 32 cores, and 500 gigabytes of memory.</p>
+<h2>Drosophila Data Set</h2>
+<p>The drosophila test was completed on a high-memory cluster in slightly less than five hours of wall time.<br />
+</p>
+<ul>
+<li>Total length of sequence: 3,189,642,961 bp</li>
+    <li>Total number of sequences:      50,000,000</li>
+    <li>GC %:                           53.39 %</li>
+</ul>
+Command line: <span class="commandline">Trinity --seqType fa --JM 20G --output ./trinity_out --CPU 32 --monitoring --left
+    reads.left.fa --right reads.right.fa</span>
+
+<div id="droso" class="chart"></div>
+<hr />
+<h2>Mouse Data Set</h2>
+<p>The mouse test ran to completion in slightly more than eight hours of wall time.<br />
+<ul>
+    <li>Total length of sequence: 4,001,038,088 bp</li>
+    <li>Total number of sequences:      52,645,238</li>
+    <li>GC %:                           48 %</li>
+</ul>
+Command line: <span class="commandline">Trinity --seqType fq --JM 20G --SS_lib_type RF --output ./trinity_out  --CPU 32 --monitoring --left
+    reads.left.fq --right reads.right.fq</span>
+</p>
+<div id="mouse" class="chart"></div>
+<h2>Pombe Data Set</h2>
+<p>The S. Pombe test consists of paired-end reads, including quality scores, with a length of 68.
+    Due to the large size of the data set, jaccard clipping was employed. The run was completed in slightly less
+    than 43 hours.<br />
+<ul>
+    <li>Total length of sequence: 3,400,000,000 bp</li>
+    <li>Total number of sequences:      50,000,000</li>
+    <li>GC %:                           48 %</li>
+</ul>
+    Command line: <span class="commandline">Trinity --seqType fq --JM 50G --SS_lib_type RF --jaccard_clip --bflyCalculateCPU
+        --output ./trinity_out --CPU 32 --monitoring --left  reads.left.fq --right reads.right.fq</span>
+</p>
+
+
+<div id="schizo" class="chart"></div>
+<script type="text/javascript">
+function timeFormat(ms) {
+    x = ms / 1000;
+    seconds = x % 60;
+    x /= 60;
+    minutes = x % 60;
+    hours = (x-minutes)/60;
+    return (hours < 10 ? '0' : '') + hours + ':' + (minutes < 10 ? '0' : '') + minutes;
+}
+$(function () {
+
+    $('#schizo').highcharts({
+        chart: {
+            type: 'line'
+        },
+        title: {
+            text: 'Core utilization by process'
+        },
+        plotOptions: {
+            series: {
+                marker: {
+                    enabled: false
+                }
+            }
+        },
+        xAxis: {
+            type: 'datetime',
+            labels: {
+                formatter: function () {
+                    return timeFormat(this.value);
+                }},
+            title: {
+                text: 'Wall Time'
+            }
+        },
+        yAxis: [{ title: { text: 'Core Utilization' }, min: 0 }],
+        tooltip: {
+            headerFormat: '<b>{series.name}</b><br>',
+            pointFormat: '{point.x:%H:%M:%S}: {point.y:.2f} cpu'
+        },
+        series: schizo_cpu
+    });
+});
+
+
+</script>
+<script type="text/javascript">
+$(function () {
+
+    $('#mouse').highcharts({
+        chart: {
+            type: 'line'
+        },
+        title: {
+            text: 'Core utilization by process'
+        },
+        plotOptions: {
+            series: {
+                marker: {
+                    enabled: false
+                }
+            }
+        },
+        xAxis: {
+            type: 'datetime',
+            labels: {
+                formatter: function () {
+                    return timeFormat(this.value);
+                }},
+            title: {
+                text: 'Wall Time'
+            }
+        },
+        yAxis: [{ title: { text: 'Core Utilization' }, min: 0 }],
+        tooltip: {
+            headerFormat: '<b>{series.name}</b><br>',
+            pointFormat: '{point.x:%H:%M:%S}: {point.y:.2f} cpu'
+        },
+
+        series: mouse_cpu
+    });
+});
+
+
+</script>
+<script type="text/javascript">
+$(function () {
+
+    $('#droso').highcharts({
+        chart: {
+            type: 'line'
+        },
+        title: {
+            text: 'Core utilization by process'
+        },
+        plotOptions: {
+            series: {
+                marker: {
+                    enabled: false
+                }
+            }
+        },
+        xAxis: {
+            type: 'datetime',
+            labels: {
+                formatter: function () {
+                    return timeFormat(this.value);
+                }},
+            title: {
+                text: 'Wall Time'
+            }
+        },
+        yAxis: [{ title: { text: 'Core Utilization' }, min: 0 }],
+        tooltip: {
+            headerFormat: '<b>{series.name}</b><br>',
+            pointFormat: '{point.x:%H:%M:%S}: {point.y:.2f} cpu'
+        },
+
+        series: droso_cpu
+    });
+});
+
+
+</script></body>
+</html>
+
+
+

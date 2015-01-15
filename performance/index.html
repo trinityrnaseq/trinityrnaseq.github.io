@@ -1,1 +1,301 @@
-here we go again
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Trinity Performance Metrics</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="//code.highcharts.com/highcharts.js"></script>
+    <script src="gray.js"></script>
+    <script src="performance.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="//code.highcharts.com/modules/exporting.js"></script>
+    <style type="text/css">
+        ${demo.css}
+    </style>
+</head>
+<body>
+<div class="navbar">
+    <ul>
+        <li><a href="http://trinityrnaseq.sourceforge.net/">Trinity</a></li>
+        <li><a href="#">Performance</a></li>
+        <li><a href="requirements.html">Requirements</a></li>
+        <li><a href="benchmark.html">Benchmarks</a></li>
+    </ul>
+</div>
+<img class="background" src="/images/TrinityCompositeLogo.png" />
+<h1>Performance</h1>
+<h2>Transcript Reconstruction Performance</h2>
+<p>Trinity assemblies from several versions were analyzed to find the number of single genes, and also
+    given an overall evaluation score using the
+    <a href="http://deweylab.biostat.wisc.edu/detonate/">Detonate</a> assembly evaluation tool
+    <sup><a href="#reference1">1</a></sup>, which gives a rating to the assembly based on the
+    likelihood of its being perfectly correct. Result for the six most recent versions of Trinity
+    are show below. The values are given as log probabilities, so the shorter bars are the best scores.
+</p>
+<table style="width:90%">
+    <tr>
+        <td id="fly_genes" style="width: 30%"></td>
+        <td id="yeast_genes" style="width: 30%"></td>
+        <td id="mouse_genes" style="width: 30%"></td>
+    </tr>
+    </table>
+<table style="width:90%">
+    <tr>
+        <td id="fly" style="width: 30%"></td>
+        <td id="yeast" style="width: 30%"></td>
+        <td id="mouse" style="width: 30%"></td>
+    </tr>
+</table>
+<h2>Runtime</h2>
+<p>The total amount of wall time required to produce an assembly.
+</p>
+<table style="width:90%">
+    <tr>
+        <td id="fly_time" style="width: 30%"></td>
+        <td id="yeast_time" style="width: 30%"></td>
+        <td id="mouse_time" style="width: 30%"></td>
+    </tr>
+</table>
+<p>The many components of Trinity each have their own unique processor requirements. Additional information can
+    be found on the <a href="cpu.html">Trinity Processor Usage</a> page.</p>
+<h2>Memory Usage</h2>
+<p>The maximum amount of memory used at a single time when producing an assembly. This number does not include
+    memory used by the parallel Butterfly component, which can use as much or as little memory as is available
+    on the system. (See <a href="mem.html">Trinity Memory Usage</a> for more information)</p>
+</p>
+<table style="width:90%">
+    <tr>
+        <td id="fly_mem" style="width: 30%"></td>
+        <td id="yeast_mem" style="width: 30%"></td>
+        <td id="mouse_mem" style="width: 30%"></td>
+    </tr>
+</table>
+<p>The many components of Trinity each have their own unique memory requirements. Additional information can
+    be found on the <a href="mem.html">Trinity Memory Usage</a> page.</p>
+<h4>References</h4>
+<a name="reference1"></a>
+1. <cite>Bo Li, Nathanael Fillmore, Yongsheng Bai, Mike Collins, James A. Thompson, Ron Stewart, Colin N. Dewey.
+    Evaluation of de novo transcriptome assemblies from RNA-Seq data.</cite>
+<script type="application/javascript">
+
+    const cats = ['2012 Oct', '2013 Feb', '2013 Aug', '2013 Nov', '2014 Apr', '2014 Jul', '2014 Nov'];
+
+    function timeFormat(ms) {
+        x = ms / 1000;
+        seconds = x % 60;
+        x /= 60;
+        minutes = x % 60;
+        hours = (x-minutes)/60;
+        return (hours < 10 ? '0' : '') + hours + ':' + (minutes < 10 ? '0' : '') + minutes;
+    }
+    function create_detonate_chart(title, target, ymin, series, color) {
+        $(target).highcharts({
+            chart: {
+                type: 'bar', height: '300'
+            },
+            title: {
+                text: title
+            },
+            subtitle: {
+                text: 'Detonate Evaluation'
+            },
+            xAxis: {
+                categories: cats,
+                title: {
+                    text: null
+                }
+            },
+            yAxis: {
+                min: ymin,
+                title: {
+                    text: 'Detonate rating (shorter is better!)'
+                 },
+                labels: {
+                    formatter: function () {
+                        return "-" + this.value.toExponential();
+                    }
+                }
+            },
+            tooltip: {
+                formatter: function () {
+                    return "-" + this.y.toExponential();
+                }
+            },
+
+            credits: {
+                enabled: false
+            },
+            plotOptions: { bar: { pointWidth: 5 }},
+            series: [
+                {
+                    name: 'RSEM-EVAL Score',
+                    data: series,
+                    color: Highcharts.theme.colors[ color]
+                }
+            ]
+        });
+    }
+
+    function create_gene_chart(title, target, min, data, color) {
+        $(target).highcharts({
+            chart: {
+                type: 'bar', height: 300
+            },
+            title: {
+                text: title
+            },
+            subtitle: {
+                text: 'Single Genes'
+            },
+            xAxis: {
+                categories: cats
+            },
+            yAxis: {
+                min: min,
+                title: {
+                    text: 'Total Genes'
+                }
+            },
+            legend: {
+                reversed: true
+            },
+            plotOptions: { bar: { pointWidth: 5 }},
+            series: [
+                {
+                    name: 'Single Genes',
+                    data: data,
+                    color: Highcharts.theme.colors[ color]
+                }
+            ]
+        });
+    }
+
+    function create_time_chart(title, target, data, color) {
+        $(target).highcharts({
+            chart: {
+                type: 'bar', height: 300
+            },
+            title: {
+                text: title
+            },
+            subtitle: {
+                text: 'Wall Time'
+            },
+            xAxis: {
+                categories: cats
+            },
+            yAxis: {
+                title: {
+                    text: 'Total Time'
+                },
+                type: 'datetime',
+                labels: {
+                    formatter: function () {
+                        return timeFormat(this.value);
+                    }}
+            },
+            tooltip: {
+                formatter: function() {
+                    return timeFormat(this.y);
+                }
+            },
+            legend: {
+                reversed: true
+            },
+            plotOptions: { bar: { pointWidth: 5 }},
+            series: [
+                {
+                    name: 'Total Time',
+                    data: data,
+                    color: Highcharts.theme.colors[ color]
+                }
+            ]
+        });
+    }
+
+    function create_memory_chart(title, target, data, color) {
+        $(target).highcharts({
+            chart: {
+                type: 'bar', height: 300
+            },
+            title: {
+                text: title
+            },
+            subtitle: {
+                text: 'Memory'
+            },
+            xAxis: {
+                categories: cats
+            },
+            yAxis: {
+                title: {
+                    text: 'Memory'
+                }
+            },
+            legend: {
+                reversed: true
+            },
+            plotOptions: { bar: { pointWidth: 5 }},
+            series: [
+                {
+                    name: 'Memory',
+                    data: data,
+                    color: Highcharts.theme.colors[ color]
+                }
+            ]
+        });
+    }
+
+    function create_charts(data) {
+        var title = data['title'];
+        var prefix = data['prefix'];
+        var color = data['color'];
+        create_detonate_chart(title, prefix, data['detonate_min'], data['detonate'], color);
+        create_gene_chart(title, prefix + '_genes', data['single_genes_min'], data['single_genes'], color);
+        create_time_chart(title, prefix + '_time', data['wall_time'], color);
+        create_memory_chart(title, prefix + '_mem', data['max_mem'], color);
+    }
+    $(function () {
+        var droso = { detonate : [2477687900, 2485538966, 2487213098, 2489302722, 2467311010, 2466633020, 2469774184],
+            detonate_min : 2440000000,
+            single_genes : [6641, 6621, 6618, 6634, 6462, 6568, 6517],
+            single_genes_min : 6000,
+            wall_time : [40440000,35880000,34500000,12120000,11280000,16860000,18780000],
+            max_mem : [22671159296,22671159296,20337782784,2.27E+10,2.27E+10,2.16E+10,2.16E+10],
+            prefix: '#fly',
+            title : 'D. melanogaster',
+            color : 2};
+
+        var mouse = { detonate : [3732546751, 3739526586, 3730722453, 3742756640, 3711692016, 3691985845, 3709380976],
+            detonate_min : 3640000000,
+            single_genes : [7854, 7846, 7845, 7854, 7533, 7758, 7757],
+            single_genes_min : 7000,
+            wall_time : [70320000,63480000,62400000,18780000, 23400000,29640000,16440000],
+            max_mem : [60745121792,60776148992,60478222336,6.05E+10,6.01E+10,6.04E+10,60389638144,],
+            prefix: '#mouse',
+            title : 'M. muscula',
+            color : 1};
+
+        var schizo = { detonate : [2104252611, 2125204094, 2115915016, 2107772409, 2082603842, 2123921952, 2123442573],
+            detonate_min : 2000000000,
+            single_genes : [4129, 3872, 3865, 3892, 4097, 4101, 4095],
+            single_genes_min : 3500,
+            wall_time : [182940000,141960000,112920000,129180000,141780000,153960000, 130620000 ],
+            max_mem : [26864455680, 27495628800, 27495641088, 27495518208, 27495788544, 24502489088],
+            prefix: '#yeast',
+            title : 'S. pombe',
+            color : 0};
+
+        create_charts(droso);
+        create_charts(mouse);
+        create_charts(schizo);
+
+    });
+
+</script>
+</body>
+</html>

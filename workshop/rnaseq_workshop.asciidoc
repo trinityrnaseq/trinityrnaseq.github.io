@@ -2,7 +2,7 @@
 
 Do you want to learn the basics of how to analyze RNA-Seq data, including genome-based and genome-free transcript reconstruction and differential expression analysis?  Below, we provide materials to help get you started. A VirtualBox virtual machine image is provided that includes several popular tools for analyzing RNA-Seq, including Tuxedo for genome-based and Trinity for genome-free RNA-Seq studies, and small sample RNA-Seq data sets.  Hands-on tutorials are provided to guide users in a step-by-step analysis of these data.
 
-The slides from the lecture part of the workshop are available ftp://ftp.broad.mit.edu/pub/users/bhaas/rnaseq_workshop/rnaseq_workshop_slides_20131022.pdf[here].
+The slides from the lecture part of the workshop are available ftp://ftp.broad.mit.edu/pub/users/bhaas/rnaseq_workshop/rnaseq_workshop_2014/rnaseq_workshop_slides.pdf[here].
 
 == The tutorials are based on the following Nature Protocol papers ==
 
@@ -15,9 +15,9 @@ The slides from the lecture part of the workshop are available ftp://ftp.broad.m
 == To complete either the Trinity or Tuxedo workshop, you must do the following ==
 
 - Install Virtualbox from http://virtualbox.org[http://virtualbox.org]
-- Download the ftp://ftp.broadinstitute.org/pub/users/bhaas/rnaseq_workshop/Ubuntu_RNASeqWorkshop.ova[Ubuntu Linux image with pre-installed software and data].
-- Install the Ubuntu image following ftp://ftp.broadinstitute.org/pub/users/bhaas/rnaseq_workshop/virtualbox_setup.pdf[these instructions].
-- Run through the ftp://ftp.broadinstitute.org/pub/users/bhaas/rnaseq_workshop/Trinity_workshop_activities.pdf[Trinity Tutorial] and/or the ftp://ftp.broadinstitute.org/pub/users/bhaas/rnaseq_workshop/Tuxedo_workshop_activities.pdf[Tuxedo Tutorial] provided.
+- Download the ftp://ftp.broadinstitute.org/pub/users/bhaas/rnaseq_workshop/rnaseq_workshop_2014/TrinityWorkshopVM_2014.ova[Ubuntu Linux image with pre-installed software and data].
+- Install the Ubuntu image following ftp://ftp.broadinstitute.org/pub/users/bhaas/rnaseq_workshop/rnaseq_workshop_2014/virtualbox_setup.pdf[these instructions].
+- Run through the ftp://ftp.broadinstitute.org/pub/users/bhaas/rnaseq_workshop/rnaseq_workshop_2014/Trinity_workshop_activities.pdf[Trinity Tutorial] and/or the ftp://ftp.broadinstitute.org/pub/users/bhaas/rnaseq_workshop/rnaseq_workshop_2014/Tuxedo_workshop_activities.pdf[Tuxedo Tutorial] provided.
 
 
 == System requirements ==
@@ -41,3 +41,4 @@ The slides from the lecture part of the workshop are available ftp://ftp.broad.m
 - Oct 24, 2013 http://meetings.cshl.edu/courses/2013/c-info13.shtml[ Programming for Biology course at CSHL]
 - Nov 2013  University of Virginia
 - Dec 2, 2013  http://www.broadinstitute.org/partnerships/education/broade/broad-workshops[BroadE], Broad Institute
+- Oct 23, 2014 http://meetings.cshl.edu/courses/2014/c-info14.shtml[Programming for Biology Course at CSHL]
