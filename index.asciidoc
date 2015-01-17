@@ -3,8 +3,10 @@
 image::images/TrinityCompositeLogo.png["Trinity_logo", align="center"]
 
 [NOTE]
-.Breaking News
+.Breaking News for 2015
 ===============================================
+- Jan, 2015: Trinity moves to GITHUB. The new Trinity website is now trinityrnaseq.github.io[trinityrnaseq.github.io]
+- Jan, 2015: Trinity user support and announcements will now occur through our Trinityrnaseq-users Google group: https://groups.google.com/forum/#!forum/trinityrnaseq-users[https://groups.google.com/forum/#!forum/trinityrnaseq-users].
 - Jan, 2015: Trinity assembly services are now publicly accessible via the https://galaxy.ncgas-trinity.indiana.edu/root[Trinity NCGAS Galaxy Portal]. Simply upload your fastq files and run!  This is our initial offering as part of a larger effort to build and release a Cancer Transcriptome Analysis Toolkit using Trinity, as described in the short video below: 
 ++++
 <iframe title="YouTube video player" class="youtube-player" type="text/html" 
@@ -13,7 +15,7 @@ frameborder="0" allowFullScreen></iframe>
 ++++
 
 
--  We now include support for Gene Ontology functional enrichment using link:analysis/run_GOseq.html[GOseq and Trinotate].
+- Jan, 2015:  We now include support for Gene Ontology functional enrichment using link:analysis/run_GOseq.html[GOseq and Trinotate].
 
 ===============================================
 
