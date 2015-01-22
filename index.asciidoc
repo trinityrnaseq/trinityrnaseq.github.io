@@ -524,7 +524,7 @@ Visit the link:trinity_faq.html[Trinity FAQ] page.
 
 Questions, suggestions, comments, etc?
 
-Join and add discussions at the Trinityrnaseq-users Google group: https://groups.google.com/forum/#!forum/trinityrnaseq-users[https://groups.google.com/forum/#!forum/trinityrnaseq-users].
+Join and add discussions at the Trinityrnaseq-users Google group: https://groups.google.com/forum/\#!forum/trinityrnaseq-users[https://groups.google.com/forum/#!forum/trinityrnaseq-users].
 
 
 [[referencing_trinity]]
