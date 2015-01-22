@@ -23,7 +23,7 @@ frameborder="0" allowFullScreen></iframe>
 
 Trinity assembles transcript sequences from Illumina RNA-Seq data.
 
-Download Trinity http://link[here].
+Download Trinity https://github.com/trinityrnaseq/trinityrnaseq/releases[here].
 
 Build Trinity by typing 'make' in the base installation directory.
 
