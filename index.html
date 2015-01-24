@@ -816,7 +816,7 @@ Jan, 2015:  We now include support for Gene Ontology functional enrichment using
 </li>
 </ul></div>
 <div class="paragraph"><p>Trinity was published in <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3571712/">Nature Biotechnology</a>.  Our protocol for transcriptome assembly and downstream analysis is now published in <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3875132/">Nature Protocols</a></p></div>
-<div class="paragraph"><p>The Trinity software package can be downloaded <a href="https://sourceforge.net/projects/trinityrnaseq/files/">here</a>.</p></div>
+<div class="paragraph"><p>The Trinity software package can be downloaded <a href="https://github.com/trinityrnaseq/trinityrnaseq/releases">here</a>.</p></div>
 <div class="paragraph"><p><a href="http://www.broadinstitute.org/partnerships/education/broade/trinity-screencast">Screencast videos</a> are available to introduce you to Trinity and its various components. Also, hands-on tutorials for Trinity and Tuxedo are available as part of our <a href="rnaseq_workshop.html">RNA-Seq Workshop</a>.</p></div>
 </div>
 </div>
@@ -963,7 +963,36 @@ Jan, 2015:  We now include support for Gene Ontology functional enrichment using
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_local_installation_of_trinity_on_a_high_memory_linux_server">Local Installation of Trinity on a High-memory Linux Server</h3>
-<div class="paragraph"><p>After <a href="https://sourceforge.net/projects/trinityrnaseq/files/">downloading</a> the sofware to a Linux server, simply type <em>make</em> in the base installation directory.  This should build Inchworm and Chrysalis, both written in C++.  Butterfly should not require any special compilation, as its written in Java and already provided as portable precompiled software.</p></div>
+<div class="paragraph"><p>After <a href="https://github.com/trinityrnaseq/trinityrnaseq/releases">downloading</a> the sofware to a Linux server, simply type</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>make</code></pre>
+</div></div>
+<div class="paragraph"><p>in the base installation directory.  This should build Inchworm and Chrysalis, both written in C++.  Butterfly should not require any special compilation, as its written in Java and already provided as portable precompiled software.</p></div>
+<div class="paragraph"><p>Afterwards, you may want to build the additional plugin components that provide support for downstream analyses (such as abundance estimation using RSEM), in which case you would then type:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>make plugins</code></pre>
+</div></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph"><p>If you encounter any errors in building the RSEM software, simply</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>cd trinity-plugins/tmp.rsem</code></pre>
+</div></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>make</code></pre>
+</div></div>
+<div class="paragraph"><p>and assuming that succeeds, you can then cd back to the main Trinity installation directory and retype <em>make plugins</em> to continue the remaining build.</p></div>
+</td>
+</tr></table>
+</div>
 <div class="paragraph"><p>Trinity has been tested and is supported on Linux.</p></div>
 </div>
 </div>
@@ -1570,7 +1599,7 @@ Henschel R, Lieber M, Wu L, Nista, PM, Haas BJ, LeDuc R.  Trinity RNA-Seq assemb
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-01-21 21:03:53 EST
+Last updated 2015-01-24 10:22:15 EST
 </div>
 </div>
 </body>

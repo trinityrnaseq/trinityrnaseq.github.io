@@ -46,7 +46,7 @@ Trinity, developed at the http://www.broadinstitute.org[Broad Institute] and the
 
 Trinity was published in http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3571712/[Nature Biotechnology].  Our protocol for transcriptome assembly and downstream analysis is now published in http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3875132/[Nature Protocols]
 
-The Trinity software package can be downloaded https://sourceforge.net/projects/trinityrnaseq/files/[here].
+The Trinity software package can be downloaded https://github.com/trinityrnaseq/trinityrnaseq/releases[here].
 
 http://www.broadinstitute.org/partnerships/education/broade/trinity-screencast[Screencast videos] are available to introduce you to Trinity and its various components. Also, hands-on tutorials for Trinity and Tuxedo are available as part of our link:rnaseq_workshop.html[RNA-Seq Workshop].
 
@@ -87,9 +87,29 @@ http://www.broadinstitute.org/partnerships/education/broade/trinity-screencast[S
 
 === Local Installation of Trinity on a High-memory Linux Server ===
 
-After https://sourceforge.net/projects/trinityrnaseq/files/[downloading] the sofware to a Linux server, simply type 'make' in the base installation directory.  This should build Inchworm and Chrysalis, both written in C++.  Butterfly should not require any special compilation, as its written in Java and already provided as portable precompiled software.
+After https://github.com/trinityrnaseq/trinityrnaseq/releases[downloading] the sofware to a Linux server, simply type 
+   
+   make 
+
+in the base installation directory.  This should build Inchworm and Chrysalis, both written in C++.  Butterfly should not require any special compilation, as its written in Java and already provided as portable precompiled software.
+
+Afterwards, you may want to build the additional plugin components that provide support for downstream analyses (such as abundance estimation using RSEM), in which case you would then type:
+
+   make plugins
+
+[NOTE]
+==================
+If you encounter any errors in building the RSEM software, simply
+
+   cd trinity-plugins/tmp.rsem
+
+   make
+
+and assuming that succeeds, you can then cd back to the main Trinity installation directory and retype 'make plugins' to continue the remaining build.
+==================
 
 Trinity has been tested and is supported on Linux.
+
 
 [[Computing_Grid]]
 == Adapting Trinity to a computing grid for parallel processing of naively parallel steps ==
