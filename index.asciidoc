@@ -48,7 +48,7 @@ Trinity was published in http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3571712/[Na
 
 The Trinity software package can be downloaded https://github.com/trinityrnaseq/trinityrnaseq/releases[here].
 
-http://www.broadinstitute.org/partnerships/education/broade/trinity-screencast[Screencast videos] are available to introduce you to Trinity and its various components. Also, hands-on tutorials for Trinity and Tuxedo are available as part of our link:rnaseq_workshop/rnaseq_workshop.html[RNA-Seq Workshop].
+http://www.broadinstitute.org/partnerships/education/broade/trinity-screencast[Screencast videos] are available to introduce you to Trinity and its various components. Also, hands-on tutorials for Trinity and Tuxedo are available as part of our link:workshop/rnaseq_workshop.html[RNA-Seq Workshop].
 
 
 
