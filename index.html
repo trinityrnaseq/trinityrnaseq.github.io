@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
-<meta name="generator" content="AsciiDoc 8.6.9" />
+<meta name="generator" content="AsciiDoc 8.6.8" />
 <title>RNA-Seq De novo Assembly Using Trinity</title>
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
@@ -94,9 +94,7 @@ ul > li > * { color: black; }
   padding: 0;
   margin: 0;
 }
-pre {
-  white-space: pre-wrap;
-}
+
 
 #author {
   color: #527bbd;
@@ -225,7 +223,7 @@ div.exampleblock > div.content {
 }
 
 div.imageblock div.content { padding-left: 0; }
-span.image img { border-style: none; vertical-align: text-bottom; }
+span.image img { border-style: none; }
 a.image:visited { color: white; }
 
 dl {
@@ -1131,11 +1129,11 @@ Trinity is available on XSEDE&#8217;s Blacklight server at the <a href="http://w
 #                            provied in Gb of RAM, ie.  '--max_memory 10G'
 #
 #  If paired reads:
-#      --left  &lt;string&gt;    :left reads, one or more (separated by space)
-#      --right &lt;string&gt;    :right reads, one or more (separated by space)
+#      --left  &lt;string&gt;    :left reads, one or more file names (separated by commas, not spaces)
+#      --right &lt;string&gt;    :right reads, one or more file names (separated by commas, not spaces)
 #
 #  Or, if unpaired reads:
-#      --single &lt;string&gt;   :single reads, one or more (note, if single file contains pairs, can use flag: --run_as_paired )
+#      --single &lt;string&gt;   :single reads, one or more file names, comma-delimited (note, if single file contains pairs, can use flag: --run_as_paired )
 #
 ####################################
 ##  Misc:  #########################
@@ -1602,7 +1600,7 @@ Henschel R, Lieber M, Wu L, Nista, PM, Haas BJ, LeDuc R.  Trinity RNA-Seq assemb
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-02-21 10:51:12 EST
+Last updated 2015-02-26 12:57:19 EST
 </div>
 </div>
 </body>
