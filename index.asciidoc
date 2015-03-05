@@ -93,7 +93,7 @@ After https://github.com/trinityrnaseq/trinityrnaseq/releases[downloading] the s
    
    make 
 
-in the base installation directory.  This should build Inchworm and Chrysalis, both written in C++.  Butterfly should not require any special compilation, as its written in Java and already provided as portable precompiled software.
+in the base installation directory.  This should build Inchworm and Chrysalis, both written in C++.  Butterfly should not require any special compilation, as its written in Java and already provided as portable precompiled software, but *Java-1.7* is required.
 
 Afterwards, you may want to build the additional plugin components that provide support for downstream analyses (such as abundance estimation using RSEM), in which case you would then type:
 
