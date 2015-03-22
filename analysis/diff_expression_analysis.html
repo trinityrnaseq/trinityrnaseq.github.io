@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
-<meta name="generator" content="AsciiDoc 8.6.8" />
+<meta name="generator" content="AsciiDoc 8.6.9" />
 <title>Identification and Analysis of Differentially Expressed Trinity Genes and Transcripts</title>
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
@@ -94,7 +94,9 @@ ul > li > * { color: black; }
   padding: 0;
   margin: 0;
 }
-
+pre {
+  white-space: pre-wrap;
+}
 
 #author {
   color: #527bbd;
@@ -223,7 +225,7 @@ div.exampleblock > div.content {
 }
 
 div.imageblock div.content { padding-left: 0; }
-span.image img { border-style: none; }
+span.image img { border-style: none; vertical-align: text-bottom; }
 a.image:visited { color: white; }
 
 dl {
@@ -967,7 +969,7 @@ conditionC   condC-rep2</code></pre>
 <div class="paragraph"><p>Using edgeR <strong>with</strong> replicates:</p></div>
 <div class="literalblock">
 <div class="content">
-<pre><code>$TRINITY_HOME/Analysis/DifferentialExpression/run_DE_analysis.pl --matrix SP2.rnaseq.counts.matrix --method edgeR --samples_file samples_described.txt</code></pre>
+<pre><code>$TRINITY_HOME/Analysis/DifferentialExpression/run_DE_analysis.pl --matrix counts.matrix --method edgeR --samples_file samples_described.txt</code></pre>
 </div></div>
 <div class="admonitionblock">
 <table><tr>
@@ -1111,7 +1113,7 @@ conditionC   condC-rep2</code></pre>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-03-16 20:02:10 EDT
+Last updated 2015-03-21 22:23:45 EDT
 </div>
 </div>
 </body>

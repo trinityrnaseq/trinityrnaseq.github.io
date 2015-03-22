@@ -177,7 +177,7 @@ where condA-rep1, condA-rep2, condB-rep1, etc..., are all column names in the 'c
 
 Using edgeR *with* replicates:
 
-  $TRINITY_HOME/Analysis/DifferentialExpression/run_DE_analysis.pl --matrix SP2.rnaseq.counts.matrix --method edgeR --samples_file samples_described.txt 
+  $TRINITY_HOME/Analysis/DifferentialExpression/run_DE_analysis.pl --matrix counts.matrix --method edgeR --samples_file samples_described.txt 
     
 
 [NOTE]
