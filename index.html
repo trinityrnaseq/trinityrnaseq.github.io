@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
-<meta name="generator" content="AsciiDoc 8.6.8" />
+<meta name="generator" content="AsciiDoc 8.6.9" />
 <title>RNA-Seq De novo Assembly Using Trinity</title>
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
@@ -94,7 +94,9 @@ ul > li > * { color: black; }
   padding: 0;
   margin: 0;
 }
-
+pre {
+  white-space: pre-wrap;
+}
 
 #author {
   color: #527bbd;
@@ -223,7 +225,7 @@ div.exampleblock > div.content {
 }
 
 div.imageblock div.content { padding-left: 0; }
-span.image img { border-style: none; }
+span.image img { border-style: none; vertical-align: text-bottom; }
 a.image:visited { color: white; }
 
 dl {
@@ -817,6 +819,7 @@ Jan, 2015:  We now include support for Gene Ontology functional enrichment using
 </ul></div>
 <div class="paragraph"><p>Trinity was published in <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3571712/">Nature Biotechnology</a>.  Our protocol for transcriptome assembly and downstream analysis is now published in <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3875132/">Nature Protocols</a></p></div>
 <div class="paragraph"><p>The Trinity software package can be downloaded <a href="https://github.com/trinityrnaseq/trinityrnaseq/releases">here</a>.</p></div>
+<div class="paragraph"><p><a href="http://trinityrnaseq.github.io/performance/">Runtime and transcript reconstruction performance stats</a> are available for current and previous releases.</p></div>
 <div class="paragraph"><p><a href="http://www.broadinstitute.org/partnerships/education/broade/trinity-screencast">Screencast videos</a> are available to introduce you to Trinity and its various components. Also, hands-on tutorials for Trinity and Tuxedo are available as part of our <a href="workshop/rnaseq_workshop.html">RNA-Seq Workshop</a>.</p></div>
 </div>
 </div>
@@ -968,7 +971,7 @@ Jan, 2015:  We now include support for Gene Ontology functional enrichment using
 <div class="content">
 <pre><code>make</code></pre>
 </div></div>
-<div class="paragraph"><p>in the base installation directory.  This should build Inchworm and Chrysalis, both written in C++.  Butterfly should not require any special compilation, as its written in Java and already provided as portable precompiled software.</p></div>
+<div class="paragraph"><p>in the base installation directory.  This should build Inchworm and Chrysalis, both written in C++.  Butterfly should not require any special compilation, as its written in Java and already provided as portable precompiled software, but <strong>Java-1.7</strong> is required.</p></div>
 <div class="paragraph"><p>Afterwards, you may want to build the additional plugin components that provide support for downstream analyses (such as abundance estimation using RSEM), in which case you would then type:</p></div>
 <div class="literalblock">
 <div class="content">
@@ -1128,11 +1131,11 @@ Trinity is available on XSEDE&#8217;s Blacklight server at the <a href="http://w
 #                            provied in Gb of RAM, ie.  '--max_memory 10G'
 #
 #  If paired reads:
-#      --left  &lt;string&gt;    :left reads, one or more (separated by space)
-#      --right &lt;string&gt;    :right reads, one or more (separated by space)
+#      --left  &lt;string&gt;    :left reads, one or more file names (separated by commas, not spaces)
+#      --right &lt;string&gt;    :right reads, one or more file names (separated by commas, not spaces)
 #
 #  Or, if unpaired reads:
-#      --single &lt;string&gt;   :single reads, one or more (note, if single file contains pairs, can use flag: --run_as_paired )
+#      --single &lt;string&gt;   :single reads, one or more file names, comma-delimited (note, if single file contains pairs, can use flag: --run_as_paired )
 #
 ####################################
 ##  Misc:  #########################
@@ -1305,7 +1308,7 @@ by setting the <em>--CPU option</em>, you are indicating the maximum number of t
 <pre><code>################################################################################
 #### Quality Trimming Options ####
 #
-#  --quality_trimming_params &lt;string&gt;   defaults to: "ILLUMINACLIP:TruSeq3-PE.fa:2:30:10 SLIDINGWINDOW:4:5 LEADING:5 TRAILING:5 MINLEN:25"
+#  --quality_trimming_params &lt;string&gt;   defaults to: "LEADING:5 TRAILING:5 MINLEN:36"
 #
 ################################################################################</code></pre>
 </div></div>
@@ -1599,7 +1602,7 @@ Henschel R, Lieber M, Wu L, Nista, PM, Haas BJ, LeDuc R.  Trinity RNA-Seq assemb
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-01-30 23:38:13 EST
+Last updated 2015-03-05 18:07:37 EST
 </div>
 </div>
 </body>

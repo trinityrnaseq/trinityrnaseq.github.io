@@ -48,6 +48,8 @@ Trinity was published in http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3571712/[Na
 
 The Trinity software package can be downloaded https://github.com/trinityrnaseq/trinityrnaseq/releases[here].
 
+http://trinityrnaseq.github.io/performance/[Runtime and transcript reconstruction performance stats] are available for current and previous releases.
+
 http://www.broadinstitute.org/partnerships/education/broade/trinity-screencast[Screencast videos] are available to introduce you to Trinity and its various components. Also, hands-on tutorials for Trinity and Tuxedo are available as part of our link:workshop/rnaseq_workshop.html[RNA-Seq Workshop].
 
 
@@ -91,7 +93,7 @@ After https://github.com/trinityrnaseq/trinityrnaseq/releases[downloading] the s
    
    make 
 
-in the base installation directory.  This should build Inchworm and Chrysalis, both written in C++.  Butterfly should not require any special compilation, as its written in Java and already provided as portable precompiled software.
+in the base installation directory.  This should build Inchworm and Chrysalis, both written in C++.  Butterfly should not require any special compilation, as its written in Java and already provided as portable precompiled software, but *Java-1.7* is required.
 
 Afterwards, you may want to build the additional plugin components that provide support for downstream analyses (such as abundance estimation using RSEM), in which case you would then type:
 
@@ -219,11 +221,11 @@ Usage info is as follows:
  #                            provied in Gb of RAM, ie.  '--max_memory 10G'
  #
  #  If paired reads:
- #      --left  <string>    :left reads, one or more (separated by space)
- #      --right <string>    :right reads, one or more (separated by space)
+ #      --left  <string>    :left reads, one or more file names (separated by commas, not spaces)
+ #      --right <string>    :right reads, one or more file names (separated by commas, not spaces)
  #
  #  Or, if unpaired reads:
- #      --single <string>   :single reads, one or more (note, if single file contains pairs, can use flag: --run_as_paired )
+ #      --single <string>   :single reads, one or more file names, comma-delimited (note, if single file contains pairs, can use flag: --run_as_paired )
  #
  ####################################
  ##  Misc:  #########################
