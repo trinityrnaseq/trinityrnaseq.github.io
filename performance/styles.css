@@ -77,3 +77,7 @@ img.background {
 span.parameter {
     font-weight: bold;
 }
+
+span.species {
+    font-style: italic;
+}
