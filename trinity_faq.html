@@ -740,6 +740,11 @@ asciidoc.install();
 <div class="ulist"><ul>
 <li>
 <p>
+<a href="#ques_why_so_many_transcripts">There are too many transcripts! What do I do?</a>
+</p>
+</li>
+<li>
+<p>
 <a href="#ques_comp_resources_required">What computing resources are required?</a>
 </p>
 </li>
@@ -781,6 +786,44 @@ asciidoc.install();
 <li>
 <p>
 <a href="#ques_combine_SS_w_DS_reads">Can I combine strand-specific and non-strand-specific reads?</a>
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ques_why_so_many_transcripts">There are too many transcripts!  What do I do?</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Welcome to RNA-Seq de novo assembly!  :)  There are several aspects of de novo assembled transcripts to be aware of:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>Lots</strong> of transcripts is the rule rather than the exception.
+</p>
+</li>
+<li>
+<p>
+Most of the transcripts are very lowly expressed, and the deeper you sequence and the more complex your genome, the larger the number of lowly expressed transcripts you will be able to assemble.  Biological relevance of the lowly expressed transcripts could be questionable - some are bound to be very relevant.
+</p>
+</li>
+<li>
+<p>
+There&#8217;s really no good reason to filter them out.  They can be <em>passengers</em> throughout all of your data analyses, and if any of them are important, they&#8217;ll ideally surface in the relevant study.   You can put them all through Trinotate.github.io for annotation/analysis, and you can put them through DE studies just fine (those with insufficent reads will get naturally filtered out during DE studies).  If the read counts are few or lacking, they simply won&#8217;t surface as significant DE entries, but if there&#8217;s protein homology or other interesting features, you&#8217;ll continue to capture this info.
+</p>
+</li>
+<li>
+<p>
+If you want to guestimate <em>how many expressed genes/transcripts do I really have?</em>, then examine <a href="abundance_estimation.html#how_many_expr">counts of transcripts or genes vs. min expression thresholds</a>. This will enable you to count the number that reflect the majority of the reads, excluding counting those that have little read support.  The entries with &gt;= ~1 fpkm or tpm tend to be heavily enriched for transcripts that correspond to what we typically think of as <em>genes</em> in the pre-RNA-Seq era, and what typically are awarded annotation status in genome annotation.
+</p>
+</li>
+<li>
+<p>
+If for some reason you do want to filter out those transcripts that have little read support, you can <a href="abundance_estimation.html#filtering_transcripts">filter them based on the RSEM abundance estimates</a>.
+</p>
+</li>
+<li>
+<p>
+If you&#8217;re concerned about having too many isoforms for a given gene, you can use the filtering method above to remove isoforms that are weakly expressed compared to more dominant isoforms.  Also, you can simply perform DE analysis at the <em>gene</em> level in addition to the <em>isoform</em> level, so as to increase your power for DE analysis.  Other methods such as <a href="http://genomebiology.com/2014/15/7/410">Corset</a> can also be used to regroup relevant transcripts into <em>gene</em> clusters.
 </p>
 </li>
 </ul></div>
@@ -859,7 +902,7 @@ asciidoc.install();
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-03-17 17:47:18 EDT
+Last updated 2015-04-16 13:42:45 EDT
 </div>
 </div>
 </body>
