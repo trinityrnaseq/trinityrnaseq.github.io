@@ -21,7 +21,7 @@
 <body>
 <div class="navbar">
     <ul>
-        <li><a href="http://trinityrnaseq.sourceforge.net/">Trinity</a></li>
+        <li><a href="http://trinityrnaseq.github.io/">Trinity</a></li>
         <li><a href="index.html">Performance</a></li>
         <li><a href="requirements.html">Requirements</a></li>
         <li><a href="#">Benchmarks</a></li>
@@ -32,7 +32,22 @@
 <h2>Benchmarks</h2>
 <p>Trinity run-time depends on a number of factors, including the number of reads to be assembled and the
     complexity of the transcript graphs. The assembly from start to finish can take anywhere from ~1/2 hour to
-    1 hour per million reads</p>
+    2 hours per million reads per available CPU.</p>
+<p>The modern Trinity assembly operates in two distinct phases:
+    <ol><li> Read Clustering </li>
+    <li>Read Assembly</li></ol>
+    The Read Clustering phase can be done by de novo read clustering (default) or in a genome-guided way
+    (given a coordinate-sorted bam file). The Read Assembly phase involves executing the complete Trinity process on
+    each cluster of reads. For the de novo read clustering phase, existing Trinity components are used (Inchworm and Chrysalis),
+    but that process will likely be replaced by an alternative mechanism in some future release. However,
+    Inchworm and Chrysalis will continue to be core components of the Read Assembly phase.</p>
+<figure>
+    <div id="chart206"></div>
+    <figcaption>Trinity assembly time on artificial read sets of various sizes. In each case, the assembly was
+        performed using de novo clustering, 16 CPU's, a max_memory parameter of 20G, and by writing files to memory
+        rather than to the file system.</figcaption>
+</figure>
+<hr />
 <p>The performance of Trinity is measured using three
     <a href="http://sourceforge.net/projects/trinityrnaseq/files/misc/">Trinity Test Sets</a>,
     all of which may be downloaded from the Trinity web site. Each set comprises 50 million short-read paired-end
@@ -58,5 +73,75 @@ and also in more detail based on the number of cores available and the amount of
 <em>Memory Usage</em> is analyzed to determine the maximum amount of memory that is used by Trinity at any one moment.
     If the
 amount of memory can be kept to a minimum, smaller, less powerful machines can be used to process data sets.</p>
+<script type="application/javascript">
+    $(function () {
+        $('#chart206').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Trinity v.2.0.6'
+            },
+            subtitle: {
+                text: 'Runtime by read count'
+            },
+            xAxis: {
+                categories: ['8M reads', '25M reads', '41M reads', '60M reads']
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Hours'
+                },
+                stackLabels: {
+                    enabled: true,
+                    style: {
+                        fontWeight: 'bold',
+                        color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                    },
+                    format: '{total} hours'
+                }
+            },
+            legend: {
+                align: 'right',
+                x: -30,
+                verticalAlign: 'top',
+                y: 25,
+                floating: true,
+                backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+                borderColor: '#CCC',
+                borderWidth: 1,
+                shadow: false
+            },
+            tooltip: {
+                formatter: function () {
+                    return '<b>' + this.x + '</b><br/>' +
+                            this.series.name + ': ' + this.y + ' hrs<br/>' +
+                            'Total: ' + this.point.stackTotal;
+                }
+            },
+            plotOptions: {
+                column: {
+                    stacking: 'normal',
+                    dataLabels: {
+                        enabled: true,
+                        color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+                        style: {
+                            textShadow: '0 0 3px black'
+                        }
+                    }
+                }
+            },
+            series: [{
+                name: 'Read Assembly',
+                data: [.75, 1, 1.25, 1.5]
+            },
+                {
+                    name: 'Read Clustering',
+                    data: [.25, .75, 1.25, 1.75]
+                }]
+        });
+    });
+</script>
 </body>
 </html>

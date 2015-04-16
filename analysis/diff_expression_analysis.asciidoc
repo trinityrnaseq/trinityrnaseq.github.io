@@ -177,7 +177,7 @@ where condA-rep1, condA-rep2, condB-rep1, etc..., are all column names in the 'c
 
 Using edgeR *with* replicates:
 
-  $TRINITY_HOME/Analysis/DifferentialExpression/run_DE_analysis.pl --matrix SP2.rnaseq.counts.matrix --method edgeR --samples_file samples_described.txt 
+  $TRINITY_HOME/Analysis/DifferentialExpression/run_DE_analysis.pl --matrix counts.matrix --method edgeR --samples_file samples_described.txt 
     
 
 [NOTE]
@@ -224,7 +224,9 @@ An initial step in analyzing differential expression is to extract those transcr
 
 For example:
 
-  $TRINITY_HOME/Analysis/DifferentialExpression/analyze_diff_expr.pl --matrix matrix.TMM_normalized.FPKM -P 1e-3 -C 2   
+  cd edgeR/
+  
+  $TRINITY_HOME/Analysis/DifferentialExpression/analyze_diff_expr.pl --matrix ../matrix.TMM_normalized.FPKM -P 1e-3 -C 2   
 
 which will extract all genes that have P-values at most 1e-3 and are at least 2^2 fold differentially expressed. The FPKM normalized data points for these genes will be retrieved, and written to a file: diffExpr.P${Pvalue}_C{$fold_change}.matrix . These data will then be clustered using R, after first being log2-transformed, and mean-centered, generating a heatmap file: diffExpr.P${Pvalue}_C{$fold_change}.matrix.heatmap.pdf, as shown below:
 
