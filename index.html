@@ -1364,15 +1364,15 @@ by setting the <em>--CPU option</em>, you are indicating the maximum number of t
 <div class="paragraph"><p>Trinity groups transcripts into clusters based on shared sequence content. Such a transcript cluster is very loosely referred to as a <em>gene</em>. This information is encoded in the Trinity fasta accession.  An example Fasta entry for one of the transcripts is formatted like so:</p></div>
 <div class="literalblock">
 <div class="content">
-<pre><code>&gt;c115_g5_i1 len=247 path=[31015:0-148 23018:149-246]
+<pre><code>&gt;TR1000|c115_g5_i1 len=247 path=[31015:0-148 23018:149-246]
 AATCTTTTTTGGTATTGGCAGTACTGTGCTCTGGGTAGTGATTAGGGCAAAAGAAGACAC
 ACAATAAAGAACCAGGTGTTAGACGTCAGCAAGTCAAGGCCTTGGTTCTCAGCAGACAGA
 AGACAGCCCTTCTCAATCCTCATCCCTTCCCTGAACAGACATGTCTTCTGCAAGCTTCTC
 CAAGTCAGTTGTTCACAGGAACATCATCAGAATAAATTTGAAATTATGATTAGTATCTGA
 TAAAGCA</code></pre>
 </div></div>
-<div class="paragraph"><p>The accession encodes the Trinity <em>gene</em> and <em>isoform</em> information. In the example above, the accession <em>c115_g5_i1</em> indicates Trinity read cluster <em>c115</em>, gene <em>g5</em>, and isoform <em>i1</em>.  Because a given run of trinity involves many many clusters of reads, each of which are assembled separately, and because the <em>gene</em> numberings are unique within a given processed read cluster, the <em>gene</em> identifier should be considered an aggregate of the read cluster and corresponding gene identifier, which in this case would be <em>c115_g5</em>.</p></div>
-<div class="paragraph"><p>So, in summary, the above example corresponds to <em>gene id: c115_g5</em> encoding <em>isoform id: c115_g5_i1</em>.</p></div>
+<div class="paragraph"><p>The accession encodes the Trinity <em>gene</em> and <em>isoform</em> information. In the example above, the accession <em>TR1000|c115_g5_i1</em> indicates Trinity read cluster <em>TR1000|c115</em>, gene <em>g5</em>, and isoform <em>i1</em>.  Because a given run of trinity involves many many clusters of reads, each of which are assembled separately, and because the <em>gene</em> numberings are unique within a given processed read cluster, the <em>gene</em> identifier should be considered an aggregate of the read cluster and corresponding gene identifier, which in this case would be <em>TR1000|c115_g5</em>.</p></div>
+<div class="paragraph"><p>So, in summary, the above example corresponds to <em>gene id: TR1000|c115_g5</em> encoding <em>isoform id: TR1000|c115_g5_i1</em>.</p></div>
 <div class="paragraph"><p>Obtain basic stats for the number of <em>genes</em> and <em>isoforms</em> and contiguity of the assembly by running:</p></div>
 <div class="literalblock">
 <div class="content">
@@ -1602,7 +1602,7 @@ Henschel R, Lieber M, Wu L, Nista, PM, Haas BJ, LeDuc R.  Trinity RNA-Seq assemb
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-03-05 18:07:37 EST
+Last updated 2015-05-02 13:20:07 AEST
 </div>
 </div>
 </body>
