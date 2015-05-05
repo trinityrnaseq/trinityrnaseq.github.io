@@ -256,9 +256,9 @@ Run the script below to automatically split the data set into a sets of transcri
  ###################################################################################
 
 
-For example:
+For example, cutting at 50% the tree height:
 
-  $TRINITY_HOME/Analysis/DifferentialExpression/define_clusters_by_cutting_tree.pl --Ptree $percent_tree_height
+  $TRINITY_HOME/Analysis/DifferentialExpression/define_clusters_by_cutting_tree.pl --Ptree 50 -R all.RData
 
 
 A directory will be created called: 'diffExpr.P0.001_C2.matrix.R.all.RData.clusters_fixed_P_20/' and contain the expression matrix for each of the clusters (log2-transformed, median centered).
