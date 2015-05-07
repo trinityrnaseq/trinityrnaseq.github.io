@@ -250,7 +250,7 @@ The above methods for quantitation rely on sets of properly paired reads.  Howev
                   --target Trinity.fasta --aligner bowtie -- -p 4 --all --best --strata -m 300
 
 
-As usual, if you have strand-specific RNA-Seq data, indicate this with the '--SS_lib_type' parameter.
+As usual, if you have strand-specific RNA-Seq data, indicate this with the '--SS_lib_type' parameter, and put this parameter before the '--' above, since all the parameters after '--' are applied to the bowtie aligner.
 
 An output directory 'bowtie_out' is created and should include the files:
 
