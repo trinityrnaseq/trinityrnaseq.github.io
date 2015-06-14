@@ -998,26 +998,38 @@ conditionC   condC-rep2</code></pre>
 #
 # Required:
 #
-#  --matrix    matrix.normalized.FPKM
+#  --matrix &lt;string&gt;       matrix.normalized.FPKM
 #
 # Optional:
 #
-#  -P          p-value cutoff for FDR  (default: 0.001)
+#  -P &lt;float&gt;             p-value cutoff for FDR  (default: 0.001)
 #
-#  -C          min abs(log2(a/b)) fold change (default: 2  (meaning 2^(2) or 4-fold).
+#  -C &lt;float&gt;             min abs(log2(a/b)) fold change (default: 2  (meaning 2^(2) or 4-fold).
 #
-#  --output    prefix for output file (default: "diffExpr.P${Pvalue}_C${C})
-#
-#  Clustering methods:
-#
-#  --gene_dist &lt;string&gt;        euclidean, pearson, spearman,   (default: euclidean)
-#                              maximum, manhattan, canberra, binary, minkowski
-#
-#  --gene_clust &lt;string&gt;       ward, single, complete, average, mcquitty, median, centroid (default: complete)
+#  --output &lt;float&gt;       prefix for output file (default: "diffExpr.P${Pvalue}_C${C})
 #
 #
 #
-####################################################################################</code></pre>
+#
+# Misc:
+#
+#  --samples &lt;string&gt;                     sample-to-replicate mappings (provided to run_DE_analysis.pl)
+#
+#  --max_DE_genes_per_comparison &lt;int&gt;    extract only up to the top number of DE features within each pairwise comparison.
+#                                         This is useful when you have massive numbers of DE features but still want to make
+#                                         useful heatmaps and other plots with more manageable numbers of data points.
+#
+#  --order_columns_by_samples_file        instead of clustering samples or replicates hierarchically based on gene expression patterns,
+#                                         order columns according to order in the --samples file.
+#
+#  --max_genes_clust &lt;int&gt;                default: 10000  (if more than that, heatmaps are not generated, since too time consuming)
+#
+#  --examine_GO_enrichment                run GO enrichment analysis
+#       --GO_annots &lt;string&gt;              GO annotations file
+#       --gene_lengths &lt;string&gt;           lengths of genes file
+#
+#
+##############################################################</code></pre>
 </div></div>
 <div class="paragraph"><p>For example:</p></div>
 <div class="literalblock">
@@ -1033,6 +1045,10 @@ conditionC   condC-rep2</code></pre>
 <img src="../images/diff_expr/clustered_heatmap.png" alt="heatmap" />
 </span></p></div>
 <div class="paragraph"><p>The above is mostly just a visual reference. To more seriously study and define your gene clusters, you will need to interact with the data as described below. The clusters and all required data for interrogating and defining clusters is all saved with an R-session, locally with the file <em>all.RData</em>. This will be leveraged as described below.</p></div>
+</div>
+<div class="sect2">
+<h3 id="GOseq_DE_genes">GO-Seq on DE genes</h3>
+<div class="paragraph"><p>Before running GO-Seq, you must follow the relevant <a href="run_GOseq.html">Trinotate protocol</a> to generate the GO assignments leveraged by this process. Then, you can run the above <em>analyze_diff_expr.pl</em> script with the --examine_GO_enrichment parameter and specify --GO_annots and --gene_lengths parameters accordingly.  Each of the pairwise DE analysis results will be analyzed for enriched and depleted GO categories for the genes that are upregulated or downregulated in the context of each of the comparisons.  See the *enriched and *depleted result files for details.</p></div>
 </div>
 <div class="sect2">
 <h3 id="expr_clustering">Automatically Partitioning Genes into Expression Clusters</h3>
@@ -1117,7 +1133,7 @@ conditionC   condC-rep2</code></pre>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-05-05 15:38:30 AEST
+Last updated 2015-06-14 10:07:34 EDT
 </div>
 </div>
 </body>
