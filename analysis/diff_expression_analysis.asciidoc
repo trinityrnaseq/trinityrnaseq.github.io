@@ -18,6 +18,7 @@ If you have biological replicates, align each replicate set of reads and estimat
 ** <<with_bio_replicates, Identifying DE features: With biological replicates>>
 * <<DE_analysis, Analyzing the Differentially Expressed Transcripts>>
 ** <<extract_and_cluster, Extracting and clustering differentially expressed transcripts>>
+** <<GOseq_DE_genes, GO-Seq gene ontology enrichment on DE genes>>
 ** <<expr_clustering, Automatically partitioning genes into expression clusters>>
 ** <<manually_define_clusters, Manually defining gene clusters>>
 
@@ -248,7 +249,7 @@ image:../images/diff_expr/clustered_heatmap.png[heatmap]
 The above is mostly just a visual reference. To more seriously study and define your gene clusters, you will need to interact with the data as described below. The clusters and all required data for interrogating and defining clusters is all saved with an R-session, locally with the file 'all.RData'. This will be leveraged as described below.
 
 [[GOseq_DE_genes]]
-=== GO-Seq on DE genes ===
+=== GO-Seq gene ontology enrichment on DE genes ===
 
 Before running GO-Seq, you must follow the relevant link:run_GOseq.html[Trinotate protocol] to generate the GO assignments leveraged by this process. Then, you can run the above 'analyze_diff_expr.pl' script with the --examine_GO_enrichment parameter and specify --GO_annots and --gene_lengths parameters accordingly.  Each of the pairwise DE analysis results will be analyzed for enriched and depleted GO categories for the genes that are upregulated or downregulated in the context of each of the comparisons.  See the *enriched and *depleted result files for details.
 

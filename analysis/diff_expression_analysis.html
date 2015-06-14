@@ -789,6 +789,11 @@ asciidoc.install();
 </li>
 <li>
 <p>
+<a href="#GOseq_DE_genes">GO-Seq gene ontology enrichment on DE genes</a>
+</p>
+</li>
+<li>
+<p>
 <a href="#expr_clustering">Automatically partitioning genes into expression clusters</a>
 </p>
 </li>
@@ -1047,7 +1052,7 @@ conditionC   condC-rep2</code></pre>
 <div class="paragraph"><p>The above is mostly just a visual reference. To more seriously study and define your gene clusters, you will need to interact with the data as described below. The clusters and all required data for interrogating and defining clusters is all saved with an R-session, locally with the file <em>all.RData</em>. This will be leveraged as described below.</p></div>
 </div>
 <div class="sect2">
-<h3 id="GOseq_DE_genes">GO-Seq on DE genes</h3>
+<h3 id="GOseq_DE_genes">GO-Seq gene ontology enrichment on DE genes</h3>
 <div class="paragraph"><p>Before running GO-Seq, you must follow the relevant <a href="run_GOseq.html">Trinotate protocol</a> to generate the GO assignments leveraged by this process. Then, you can run the above <em>analyze_diff_expr.pl</em> script with the --examine_GO_enrichment parameter and specify --GO_annots and --gene_lengths parameters accordingly.  Each of the pairwise DE analysis results will be analyzed for enriched and depleted GO categories for the genes that are upregulated or downregulated in the context of each of the comparisons.  See the *enriched and *depleted result files for details.</p></div>
 </div>
 <div class="sect2">
@@ -1133,7 +1138,7 @@ conditionC   condC-rep2</code></pre>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-06-14 10:07:34 EDT
+Last updated 2015-06-14 10:19:27 EDT
 </div>
 </div>
 </body>
