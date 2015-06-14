@@ -79,7 +79,7 @@ Two outputs will be generated, one containing the enriched categories, and anoth
 
 == Example Data ==
 
-See TRINITY_HOME/sample_data/test_GOSeq_trinotate_pipe/Spombe/
+See 'TRINITY_HOME/sample_data/test_GOSeq_trinotate_pipe/Spombe/'
 which includes sample input data and a 'runMe.sh' script for execution.
 
 
