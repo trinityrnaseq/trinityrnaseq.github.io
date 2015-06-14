@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
-<meta name="generator" content="AsciiDoc 8.6.8" />
+<meta name="generator" content="AsciiDoc 8.6.9" />
 <title>Gene Ontology Enrichment using Trinotate and GOseq</title>
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
@@ -94,7 +94,9 @@ ul > li > * { color: black; }
   padding: 0;
   margin: 0;
 }
-
+pre {
+  white-space: pre-wrap;
+}
 
 #author {
   color: #527bbd;
@@ -223,7 +225,7 @@ div.exampleblock > div.content {
 }
 
 div.imageblock div.content { padding-left: 0; }
-span.image img { border-style: none; }
+span.image img { border-style: none; vertical-align: text-bottom; }
 a.image:visited { color: white; }
 
 dl {
@@ -779,17 +781,17 @@ asciidoc.install();
 <div class="paragraph"><p>The <em>factor_labeling.txt</em> file should be of format:</p></div>
 <div class="literalblock">
 <div class="content">
-<pre><code>gene_id (tab) factor</code></pre>
+<pre><code>factor (tab) gene_id</code></pre>
 </div></div>
-<div class="paragraph"><p>where factor is a string describing that subset of genes.  (Note, future versions will require formatting <em>factor (tab) gene_id</em> instead).</p></div>
+<div class="paragraph"><p>where factor is a string describing that subset of genes.</p></div>
 <div class="paragraph"><p>For example:</p></div>
 <div class="literalblock">
 <div class="content">
-<pre><code>my_gene_A (tab) diff_expressed_cond_X_Y
-my_gene_B (tab) diff_expressed_cond_X_Y
+<pre><code>diff_expressed_cond_X_Y (tab) my_gene_A
+diff_expressed_cond_X_Y (tab) my_gene_B
 ...
-my_gene_M (tab) diff_cond_W_Z
-my_gene_N (tab) diff_cond_W_Z
+diff_cond_W_Z (tab) my_gene_M
+diff_cond_W_Z (tab) my_gene_N
 ...</code></pre>
 </div></div>
 <div class="paragraph"><p>You can come up with whatever gene subset you want and call it whatever you want.  The enrichment tests will be performed separately for
@@ -830,11 +832,18 @@ GO:0070887      0.00026865285434211     0.999935263149842       12      216     
 </div></div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_example_data">Example Data</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>See TRINITY_HOME/sample_data/test_GOSeq_trinotate_pipe/Spombe/
+which includes sample input data and a <em>runMe.sh</em> script for execution.</p></div>
+</div>
+</div>
 </div>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-01-15 07:33:55 EST
+Last updated 2015-06-14 09:34:21 EDT
 </div>
 </div>
 </body>

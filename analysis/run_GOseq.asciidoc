@@ -30,17 +30,17 @@ Note, the above script is here in the Trinity software package (not Trinotate).
 
 The 'factor_labeling.txt' file should be of format:
 
-     gene_id (tab) factor
+     factor (tab) gene_id 
 
-where factor is a string describing that subset of genes.  (Note, future versions will require formatting 'factor (tab) gene_id' instead).
+where factor is a string describing that subset of genes.
 
 For example:
 
-     my_gene_A (tab) diff_expressed_cond_X_Y
-     my_gene_B (tab) diff_expressed_cond_X_Y
+     diff_expressed_cond_X_Y (tab) my_gene_A 
+     diff_expressed_cond_X_Y (tab) my_gene_B 
      ...
-     my_gene_M (tab) diff_cond_W_Z
-     my_gene_N (tab) diff_cond_W_Z
+     diff_cond_W_Z (tab) my_gene_M
+     diff_cond_W_Z (tab) my_gene_N
      ...
 
 You can come up with whatever gene subset you want and call it whatever you want.  The enrichment tests will be performed separately for 
@@ -75,4 +75,11 @@ Two outputs will be generated, one containing the enriched categories, and anoth
   GO:0004601      0.000248703909891837    0.999994839511817       3       8       0.176369334253296       MF peroxidase activity
   GO:0016684      0.000248703909891837    0.999994839511817       3       8       0.176369334253296       MF oxidoreductase activity, acting on peroxide as acceptor
   GO:0070887      0.00026865285434211     0.999935263149842       12      216     0.176907904584279       BP cellular response to chemical stimulus
+
+
+== Example Data ==
+
+See TRINITY_HOME/sample_data/test_GOSeq_trinotate_pipe/Spombe/
+which includes sample input data and a 'runMe.sh' script for execution.
+
 
