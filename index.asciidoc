@@ -46,7 +46,7 @@ Trinity, developed at the http://www.broadinstitute.org[Broad Institute] and the
 
 Trinity was published in http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3571712/[Nature Biotechnology].  Our protocol for transcriptome assembly and downstream analysis is now published in http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3875132/[Nature Protocols]
 
-The Trinity software package can be downloaded https://github.com/trinityrnaseq/trinityrnaseq/releases[here].
+The Trinity software package can be downloaded https://github.com/trinityrnaseq/trinityrnaseq/releases[here on GitHub]. Legacy versions (pre-2015) are still available at http://sourceforge.net/projects/trinityrnaseq/files/PREV_CONTENTS/previous_releases/[Sourceforge].
 
 http://trinityrnaseq.github.io/performance/[Runtime and transcript reconstruction performance stats] are available for current and previous releases.
 
