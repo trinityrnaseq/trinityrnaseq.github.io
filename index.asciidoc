@@ -110,6 +110,13 @@ If you encounter any errors in building the RSEM software, simply
 and assuming that succeeds, you can then cd back to the main Trinity installation directory and retype 'make plugins' to continue the remaining build.
 ==================
 
+Additional tools required for running Trinity include:
+
+- http://bowtie-bio.sourceforge.net/index.shtml[bowtie-1]
+- http://sourceforge.net/projects/samtools/files/samtools/0.1.19/[samtools v0.1.19], note that other newer versions of samtools may result in performance problems on large data sets.
+
+
+
 Trinity has been tested and is supported on Linux.
 
 

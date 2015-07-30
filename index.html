@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
-<meta name="generator" content="AsciiDoc 8.6.9" />
+<meta name="generator" content="AsciiDoc 8.6.8" />
 <title>RNA-Seq De novo Assembly Using Trinity</title>
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
@@ -94,9 +94,7 @@ ul > li > * { color: black; }
   padding: 0;
   margin: 0;
 }
-pre {
-  white-space: pre-wrap;
-}
+
 
 #author {
   color: #527bbd;
@@ -225,7 +223,7 @@ div.exampleblock > div.content {
 }
 
 div.imageblock div.content { padding-left: 0; }
-span.image img { border-style: none; vertical-align: text-bottom; }
+span.image img { border-style: none; }
 a.image:visited { color: white; }
 
 dl {
@@ -996,6 +994,19 @@ Jan, 2015:  We now include support for Gene Ontology functional enrichment using
 </td>
 </tr></table>
 </div>
+<div class="paragraph"><p>Additional tools required for running Trinity include:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="http://bowtie-bio.sourceforge.net/index.shtml">bowtie-1</a>
+</p>
+</li>
+<li>
+<p>
+<a href="http://sourceforge.net/projects/samtools/files/samtools/0.1.19/">samtools v0.1.19</a>, note that other newer versions of samtools may result in performance problems on large data sets.
+</p>
+</li>
+</ul></div>
 <div class="paragraph"><p>Trinity has been tested and is supported on Linux.</p></div>
 </div>
 </div>
@@ -1602,7 +1613,7 @@ Henschel R, Lieber M, Wu L, Nista, PM, Haas BJ, LeDuc R.  Trinity RNA-Seq assemb
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-06-24 13:12:18 EDT
+Last updated 2015-07-30 09:23:39 EDT
 </div>
 </div>
 </body>
