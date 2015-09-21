@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
-<meta name="generator" content="AsciiDoc 8.6.8" />
+<meta name="generator" content="AsciiDoc 8.6.9" />
 <title>Trinity: Frequently Asked Questions</title>
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
@@ -94,7 +94,9 @@ ul > li > * { color: black; }
   padding: 0;
   margin: 0;
 }
-
+pre {
+  white-space: pre-wrap;
+}
 
 #author {
   color: #527bbd;
@@ -223,7 +225,7 @@ div.exampleblock > div.content {
 }
 
 div.imageblock div.content { padding-left: 0; }
-span.image img { border-style: none; }
+span.image img { border-style: none; vertical-align: text-bottom; }
 a.image:visited { color: white; }
 
 dl {
@@ -755,6 +757,11 @@ asciidoc.install();
 </li>
 <li>
 <p>
+<a href="#ques_sra_fq_conversion">How do I use reads I downloaded from SRA?</a>
+</p>
+</li>
+<li>
+<p>
 <a href="#ques_computing_grid">How can I run this in parallel on a computing grid?</a>
 </p>
 </li>
@@ -842,6 +849,18 @@ If you&#8217;re concerned about having too many isoforms for a given gene, you c
 </div>
 </div>
 <div class="sect1">
+<h2 id="ques_sra_fq_conversion">How do I use reads I downloaded from SRA?</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>RNA-Seq data downloaded from SRA tends to exist in a .sra file that needs to be converted to fastq file format.  This can be done using the <a href="http://www.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?cmd=show&amp;f=software&amp;m=software&amp;s=software">SRA Toolkit</a> like so:</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.8
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>  SRA_TOOLKIT/fastq-dump --defline-seq <span style="color: #FF0000">'@$sn[_$rn]/$ri'</span> --split-files file<span style="color: #990000">.</span>sra</tt></pre></div></div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="ques_computing_grid">How can I run this in parallel on a computing grid?</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>The initial Inchworm and Chrysalis steps currently need to be run on a single server, however parts of Chrysalis and all of Butterfly can be run as naive parallel processes on a computing grid. Both SGE and LSF are currently supported. Configuring Trinity for leveraging these grid-computing platforms is described <a href="index.html#Computing_Grid">here</a>.</p></div>
@@ -902,7 +921,7 @@ If you&#8217;re concerned about having too many isoforms for a given gene, you c
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-04-16 13:42:45 EDT
+Last updated 2015-09-21 13:52:29 EDT
 </div>
 </div>
 </body>
