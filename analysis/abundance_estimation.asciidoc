@@ -97,6 +97,8 @@ If you have strand-specific data, be sure to include the '--SS_lib_type' paramet
 [NOTE]
 It is useful to first run 'align_and_estimate_abundance.pl' to only prep your reference database for alignment, using '--prep_reference', and then subsequently running it on each of your sets of reads in parallel to obtain sample-specific abundance estimates.
 
+[NOTE]
+If you quality-trimmed your reads using the --trimmomatic parameter in Trinity, you should consider using the corresponding quality-trimmed reads for the abundance estimation process outlined here.
 
 
 [[alignment_output]]
