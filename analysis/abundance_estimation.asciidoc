@@ -68,11 +68,15 @@ The Trinity toolkit comes with a script to faciliate this process:
  #  --output_prefix <string>         prefix for output files.  Defaults to --est_method setting.
  #
  #
+ #  --coordsort_bam                  provide coord-sorted bam in addition to the default (unsorted) bam.
+ #
  #  --show_full_usage_info           provide more detailed usage info for customizing the alignment or abundance estimation parameters.
  #
  #############################
  #  RSEM opts:
  #  --fragment_length <int>         optionally specify fragment length (not seq length, but frag size ie. 300) for SE reads.
+ #
+ #  --include_rsem_bam              provide the RSEM enhanced bam file including posterior probabilities of read assignments.
  #
  #########################################################################
  #
@@ -90,7 +94,8 @@ The Trinity toolkit comes with a script to faciliate this process:
  #
  #    ./align_and_estimate_abundance.pl --transcripts Trinity.fasta --seqType fq --left reads_1.fq --right reads_2.fq --est_method RSEM --aln_method bowtie --trinity_mode --prep_reference
  #
- #########################################################################
+ ######################################################################### 
+
 
 If you have strand-specific data, be sure to include the '--SS_lib_type' parameter.
 
