@@ -56,8 +56,8 @@ http://www.broadinstitute.org/partnerships/education/broade/trinity-screencast[S
 * <<Downstream_analyses, Post-assembly Transcriptome Analysis>>
 ** link:analysis/abundance_estimation.html[Abundance Estimation using RSEM or eXpress, and Visualization using IGV]
 ** link:analysis/diff_expression_analysis.html[Differential Expression Analysis using Bioconductor]
-** link:analysis/extract_proteins_from_trinity_transcripts.html[Protein-coding Region Identification Using TransDecoder]
-** http://trinotate.sf.net[Functional Annotation Using Trinotate]
+** http://transdecoder.github.io[Protein-coding Region Identification Using TransDecoder]
+** http://trinotate.github.io[Functional Annotation Using Trinotate]
 ** link:analysis/run_GOseq.html[Gene Ontology functional category enrichment using GOseq and Trinotate]
 ** link:analysis/full_length_transcript_analysis.html[Full-length Transcript Analysis]
 * link:advanced_trinity_guide.html[Advanced Guide to Trinity]
@@ -96,9 +96,6 @@ and assuming that succeeds, you can then cd back to the main Trinity installatio
 Additional tools required for running Trinity include:
 
 - http://bowtie-bio.sourceforge.net/index.shtml[bowtie-1]
-- http://sourceforge.net/projects/samtools/files/samtools/0.1.19/[samtools v0.1.19], note that other newer versions of samtools may result in performance problems on large data sets.
-
-
 
 Trinity has been tested and is supported on Linux.
 
@@ -395,7 +392,7 @@ If you specify --grid_conf <string>, then the commands in this second phase will
 [[genome_annotation]]
 === Comprehensive transcriptome-based genome annotation using Trinity and PASA ===
 
-The Trinity-reconstructed transcripts can be used to annotate genomes using PASA.  Documentation for this is provided on the PASA website under http://pasa.sourceforge.net/#A_ComprehensiveTranscriptome[Build a Comprehensive Transcriptome Database Using Genome-guided and De novo RNA-Seq Assembly] link.
+The Trinity-reconstructed transcripts can be used to annotate genomes using PASA.  Documentation for this is provided on the PASA website under http://pasapipeline.github.io/#A_ComprehensiveTranscriptome[Build a Comprehensive Transcriptome Database Using Genome-guided and De novo RNA-Seq Assembly] link.
 
 [[trinity_output]]
 == Output of Trinity ==
@@ -508,8 +505,8 @@ The following downstream analyses are supported as part of Trinity:
 
 - link:analysis/abundance_estimation.html[Abundance estimation using RSEM or eXpress, and visualization using IGV].
 - link:analysis/diff_expression_analysis.html[Using EdgeR and Bioconductor for analyzing differentially expressed transcripts].
-- link:analysis/extract_proteins_from_trinity_transcripts.html[Extract likely protein-coding regions from Trinity transcripts using TransDecoder].
-- http://trinotate.sf.net[Functionally annotate transcripts and coding regions with Trinotate].
+- http://transdecoder.github.io[Extract likely protein-coding regions from Trinity transcripts using TransDecoder].
+- http://trinotate.github.io[Functionally annotate transcripts and coding regions with Trinotate].
 - link:analysis/full_length_transcript_analysis.html[Full-length transcript analysis for model and non-model transcriptomes]
 
 [[advanced_guide]]
