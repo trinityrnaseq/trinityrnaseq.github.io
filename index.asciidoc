@@ -553,7 +553,7 @@ Protocol for using Trinity for de novo transcriptome assembly and downstream ana
 Eccles D, Li B, Lieber M, Macmanes MD, Ott M, Orvis J, Pochet N, Strozzi F, Weeks
 N, Westerman R, William T, Dewey CN, Henschel R, Leduc RD, Friedman N, Regev A.
 De novo transcript sequence reconstruction from RNA-seq using the Trinity
-platform for reference generation and analysis. http://www.nature.com/nprot/journal/v8/n8/full/nprot.2013.084.html[Nat Protoc. 2013 Aug;8(8):1494-512.] doi: 10.1038/nprot.2013.084. Epub 2013 Jul 11. PubMed PMID:
+platform for reference generation and analysis. http://www.nature.com/nprot/journal/v8/n8/full/nprot.2013.084.html[Nat Protoc. 2013 Aug;8(8):1494-512.] http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3875132/[Open Access in PMC] doi: 10.1038/nprot.2013.084. Epub 2013 Jul 11. PubMed PMID:
 23845962.
 
 
