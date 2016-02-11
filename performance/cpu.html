@@ -41,7 +41,7 @@ The next version of Trinity will enable this. For now, if you go in and search o
 <h2>CPU Usage Over Time</h2>
 <p>The Trinity pipeline consists of a series of executables, many of which run simultaneously. The charts
 below show the amount of CPU consumed by the individual processes over the course of a test run. The tests
-were performed on a single node with four eight-core processors for a total of 32 cores, and 500 gigabytes of memory.</p>
+were performed on a single node with two eight-core processors for a total of 16 cores, and 500 gigabytes of memory.</p>
 <h2>Drosophila Data Set</h2>
 <p>The drosophila test was completed on a high-memory cluster in slightly less than five hours of wall time.<br />
 </p>
@@ -56,27 +56,24 @@ Command line: <span class="commandline">Trinity --seqType fa --JM 20G --output .
 <div id="droso" class="chart"></div>
 <hr />
 <h2>Mouse Data Set</h2>
-<p>The mouse test ran to completion in slightly more than eight hours of wall time.<br />
 <ul>
     <li>Total length of sequence: 4,001,038,088 bp</li>
     <li>Total number of sequences:      52,645,238</li>
     <li>GC %:                           48 %</li>
 </ul>
-Command line: <span class="commandline">Trinity --seqType fq --JM 20G --SS_lib_type RF --output ./trinity_out  --CPU 32 --monitoring --left
-    reads.left.fq --right reads.right.fq</span>
+Command line: <span class="commandline">Trinity --seqType fa --max_memory 120G --SS_lib_type RF --bflyCalculateCPU
+    --output trinity_out_Droso_2.1.1 --CPU 16 --monitoring --left reads.left.fa --right reads.right.fa</span>
 </p>
 <div id="mouse" class="chart"></div>
 <h2>Pombe Data Set</h2>
-<p>The S. Pombe test consists of paired-end reads, including quality scores, with a length of 68.
-    Due to the large size of the data set, jaccard clipping was employed. The run was completed in slightly less
-    than 43 hours.<br />
+<p>The S. Pombe test consists of paired-end reads, including quality scores, with a length of 68.<br />
 <ul>
     <li>Total length of sequence: 3,400,000,000 bp</li>
     <li>Total number of sequences:      50,000,000</li>
     <li>GC %:                           48 %</li>
 </ul>
-    Command line: <span class="commandline">Trinity --seqType fq --JM 50G --SS_lib_type RF --jaccard_clip --bflyCalculateCPU
-        --output ./trinity_out --CPU 32 --monitoring --left  reads.left.fq --right reads.right.fq</span>
+    Command line: <span class="commandline">Trinity --seqType fq --max_memory 120G --SS_lib_type RF --bflyCalculateCPU
+    --output trinity_out_Schizo_2.1.1 --CPU 16 --monitoring --left reads.left.fq --right reads.right.fq</span>
 </p>
 
 
@@ -90,9 +87,12 @@ function timeFormat(ms) {
     hours = (x-minutes)/60;
     return (hours < 10 ? '0' : '') + hours + ':' + (minutes < 10 ? '0' : '') + minutes;
 }
+var seq = ["Trinity", "collectl", "fastool", "cat", "jellyfish", "inchworm", "bowtie-build", "bowtie",
+    "samtools_sort", "samtools_view", "scaffold_iworm_contigs", "GraphFromFasta", "ReadsToTrnscripts",
+    "sort", "ParaFly", "Butterfly", "QuantifyGraph", "CreateIwormFastaBundle", "FastaToDebruijn", "find"]
 $(function () {
 
-    $('#schizo').highcharts({
+    var c = $('#schizo').highcharts({
         chart: {
             type: 'line'
         },
@@ -123,6 +123,14 @@ $(function () {
         },
         series: schizo_cpu
     });
+
+    var chart = c.highcharts();
+    chart.series.forEach(function(series)
+    {
+        series.options.color = Highcharts.theme.colors[seq.indexOf(series.name) % Highcharts.theme.colors.length];
+        series.update(series.options);
+    });
+
 });
 
 
@@ -130,7 +138,7 @@ $(function () {
 <script type="text/javascript">
 $(function () {
 
-    $('#mouse').highcharts({
+    var c = $('#mouse').highcharts({
         chart: {
             type: 'line'
         },
@@ -162,6 +170,14 @@ $(function () {
 
         series: mouse_cpu
     });
+
+    var chart = c.highcharts();
+    chart.series.forEach(function(series)
+    {
+        series.options.color = Highcharts.theme.colors[seq.indexOf(series.name) % Highcharts.theme.colors.length];
+        series.update(series.options);
+    });
+
 });
 
 
@@ -169,7 +185,7 @@ $(function () {
 <script type="text/javascript">
 $(function () {
 
-    $('#droso').highcharts({
+    var c = $('#droso').highcharts({
         chart: {
             type: 'line'
         },
@@ -201,6 +217,15 @@ $(function () {
 
         series: droso_cpu
     });
+
+    var chart = c.highcharts();
+    chart.series.forEach(function(series)
+    {
+        series.options.color = Highcharts.theme.colors[seq.indexOf(series.name) % Highcharts.theme.colors.length];
+        series.update(series.options);
+    });
+//    chart.series[0].options.color = "#008800";
+//    chart.series[0].update(chart.series[0].options);
 });
 
 

@@ -70,24 +70,23 @@
         Normalization requires that the reads in the left.fq file are identically ordered as those in the right.fq file.
     </p>
 
-    <p>Finally, note that the <span class="parameter">--JM</span> parameter refers to "Jellyfish Memory" and not "Java
-        Memory". As Jellyfish runs only a single instance, changing this parameter will probably not greatly affect the
-        overall memory required.</p>
+    <p>The <span class="parameter">--max_memory</span> parameter gives the largest amount of memory of which Trinity
+    may take advantage. This is mostly seen in sorting. Note that unless the
+        <span class="parameter">--bflyHeapSpaceMax</span> parameter is given, <span class="parameter">--max_memory</span>
+        does not affect the number of Phase II sessions that may run.</p>
 
 </div>
 <h2>Drosophila Data Set</h2>
-<p>The drosophila test was completed on a high-memory cluster in slightly less than five hours of wall time. The test
-    was performed on a single node with four eight-core processors for a total of 32 cores, and 500 gigabytes of
-    memory. Note the command line has been manipulated to minimize memory usage: the maximum amount of memory in
-    use at any one time is 23GB.
+<p>
 </p>
 <ul>
 <li>Total length of sequence: 3,189,642,961 bp</li>
     <li>Total number of sequences:      50,000,000</li>
     <li>GC %:                           53.39 %</li>
 </ul>
-Command line: <span class="commandline">Trinity --seqType fa --JM 20G --output ./trinity_out --CPU 32 --bflyCPU 2
-    --monitoring --left  reads.left.fa --right reads.right.fa</span>
+Command line: <span class="commandline">Trinity --seqType fa --max_memory 120G --SS_lib_type RF --bflyCalculateCPU
+    --output trinity_out_Droso_2.1.1 --CPU 16 --monitoring --left reads.left.fa --right reads.right.fa
+</span>
 <div id="droso_bflycpu" class="chart"></div>
 
 <p>
@@ -102,8 +101,9 @@ Command line: <span class="commandline">Trinity --seqType fa --JM 20G --output .
     <li>Total number of sequences:      52,645,238</li>
     <li>GC %:                           48 %</li>
 </ul>
-Command line: <span class="commandline">Trinity --seqType fq --JM 20G --SS_lib_type RF --output ./trinity_out  --CPU 32
-    --monitoring --left reads.left.fq --right reads.right.fq</span>
+Command line: <span class="commandline">Trinity --seqType fq --max_memory 120G --SS_lib_type RF --bflyCalculateCPU
+    --output trinity_out_Mouse_2.1.1 --CPU 16 --monitoring
+    --left reads.left.fq --right reads.right.fq</span>
 </p>
 <div id="mouse" class="chart"></div>
 <h2>Pombe Data Set</h2>
@@ -114,15 +114,8 @@ Command line: <span class="commandline">Trinity --seqType fq --JM 20G --SS_lib_t
     <li>Total number of sequences:      50,000,000</li>
     <li>GC %:                           48 %</li>
 </ul>
-Command line: <span class="commandline">Trinity --seqType fq
-           --JM 20G
-           --SS_lib_type RF
-           --output ./trinity_out
-           --CPU 32
-           --bflyCPU 2
-           --monitoring
-           --left  reads.left.fq
-           --right reads.right.fq</span>
+Command line: <span class="commandline">Trinity --seqType fq --max_memory 120G --SS_lib_type RF --bflyCalculateCPU
+    --output trinity_out_Schizo_2.1.1 --CPU 16 --monitoring --left reads.left.fq --right reads.right.fq</span>
 </p>
 
 

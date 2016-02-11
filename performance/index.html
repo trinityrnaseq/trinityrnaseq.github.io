@@ -28,13 +28,16 @@
 </div>
 <img class="background" src="/images/TrinityCompositeLogo.png" />
 <h1>Performance</h1>
+<p>All runs were performed using Trinity 2.1.1 with 120G of RAM, 16 CPU's, and the --bflyCalculateCPU parameter. Each
+    data set consists of approximately 50 million reads taken from the described organism.
+    Tests were performed on Indiana University's Karst cluster, which consists of IBM NeXtScale nx360 M4 servers,
+    each equipped with two Intel Xeon E5-2650 v2 8-core processors.
+    Tests were performed on nodes with 512GB of memory.
+</p>
 <h2>Transcript Reconstruction Performance</h2>
-<p>Trinity assemblies from several versions were analyzed to find the number of single genes, and also
-    given an overall evaluation score using the
-    <a href="http://deweylab.biostat.wisc.edu/detonate/">Detonate</a> assembly evaluation tool
-    <sup><a href="#reference1">1</a></sup>, which gives a rating to the assembly based on the
-    likelihood of its being perfectly correct. Result for the seven most recent versions of Trinity
-    are show below. The values are given as log probabilities, so the shorter bars are the best scores.
+<p>Since Trinity attempts to reconstruct RNA transcripts, not a genome, there is no single sequence for what Trinity
+    calls a gene. A Trinity gene is a collection of related transcripts. In a de novo assembly, the transcripts are
+    related by having shared kmers during the assembly stage.
 </p>
 <table style="width:90%">
     <tr>
@@ -43,7 +46,7 @@
         <td id="mouse_genes" style="width: 30%"></td>
     </tr>
     </table>
-<table style="width:90%">
+<table style="width:90%; display: none">
     <tr>
         <td id="fly" style="width: 30%"></td>
         <td id="yeast" style="width: 30%"></td>
@@ -81,8 +84,12 @@
 1. <cite>Bo Li, Nathanael Fillmore, Yongsheng Bai, Mike Collins, James A. Thompson, Ron Stewart, Colin N. Dewey.
     Evaluation of de novo transcriptome assemblies from RNA-Seq data.</cite>
 <script type="application/javascript">
+    function LightenDarkenColor(col,amt) {
+        col = parseInt(col.substring(1),16);
+        return '#' + ((((col & 0x0000FF) + amt) | ((((col>> 8) & 0x00FF) + amt) << 8) | (((col >> 16) + amt) << 16)).toString(16));
+    }
 
-    const cats = ['2012 Oct', '2013 Feb', '2013 Aug', '2013 Nov', '2014 Apr', '2014 Jul', 'v2.0.3', 'v2.1.1'];
+    const cats = ['2013 Feb', '2013 Aug', '2013 Nov', '2014 Apr', '2014 Jul', 'v2.0.6', 'v2.1.1'];
 
     function timeFormat(ms) {
         x = ms / 1000;
@@ -140,7 +147,7 @@
         });
     }
 
-    function create_gene_chart(title, target, min, data, color) {
+    function create_gene_chart(title, target, min, gene_data, transcript_data, color) {
         $(target).highcharts({
             chart: {
                 type: 'bar', height: 300
@@ -149,16 +156,13 @@
                 text: title
             },
             subtitle: {
-                text: 'Single Genes'
+                text: 'Gene and Transcript Counts'
             },
             xAxis: {
                 categories: cats
             },
             yAxis: {
                 min: min,
-                title: {
-                    text: 'Total Genes'
-                }
             },
             legend: {
                 reversed: true
@@ -166,8 +170,13 @@
             plotOptions: { bar: { pointWidth: 5 }},
             series: [
                 {
-                    name: 'Single Genes',
-                    data: data,
+                    name: 'Transcript Count',
+                    data: transcript_data,
+                    color: LightenDarkenColor(Highcharts.theme.colors[color], -10)
+                },
+                {
+                    name: '"Gene" Count',
+                    data: gene_data,
                     color: Highcharts.theme.colors[ color]
                 }
             ]
@@ -255,37 +264,41 @@
         var prefix = data['prefix'];
         var color = data['color'];
         create_detonate_chart(title, prefix, data['detonate_min'], data['detonate'], color);
-        create_gene_chart(title, prefix + '_genes', data['single_genes_min'], data['single_genes'], color);
+        create_gene_chart(title, prefix + '_genes', data['gene_count_min'], data['gene_count'], data['total_transcripts'], color);
         create_time_chart(title, prefix + '_time', data['wall_time'], color);
         create_memory_chart(title, prefix + '_mem', data['max_mem'], color);
     }
     $(function () {
-        var droso = { detonate : [2477687900, 2485538966, 2487213098, 2489302722, 2467311010, 2466633020, 2454696110, 2450730901],
+        var droso = { detonate : [],
             detonate_min : 2400000000,
-            single_genes : [6641, 6621, 6618, 6634, 6462, 6568, 6827, 6822],
-            single_genes_min : 6000,
-            wall_time : [40440000,35880000,34500000,12120000,11280000,16860000,18360000, 8955000],
-            max_mem : [22671159296,22671159296,20337782784,2.27E+10,2.27E+10,2.16E+10, 21582594048],
+            gene_count : [44481, 44465,	44494, 45172, 45165, 50156],
+            gene_count_min : 6000,
+            total_transcripts : [55569, 55550, 58950, 51622, 53646, 55066],
+            gene_count_min : 6000,
+            wall_time : [12223000.00, 11717000.00, 8740000.00, 8970000.00, 14992000.00, 20004000.00],
+            max_mem : [137915011072, 137905659904, 137906634752, 137915211776, 133894221824, 133892780032],
             prefix: '#fly',
             title : 'D. melanogaster',
             color : 2};
 
-        var mouse = { detonate : [3732546751, 3739526586, 3730722453, 3742756640, 3711692016, 3691985845, 3650552031, 3659883662],
+        var mouse = { detonate : [],
             detonate_min : 3500000000,
-            single_genes : [7854, 7846, 7845, 7854, 7533, 7758, 7875, 7574],
-            single_genes_min : 7000,
-            wall_time : [70320000,63480000,62400000,18780000, 23400000,29640000,34380000, 16500000],
-            max_mem : [60745121792,60776148992,60478222336,6.05E+10,6.01E+10,6.04E+10, 60414083072],
+            gene_count : [55420,55496, 55580, 56749, 56992, 60618, 69390],
+            gene_count_min : 7000,
+            total_transcripts : [80703, 80825, 90847, 67311, 72918, 71536, 80496],
+            wall_time : [17044000.00, 16076000.00, 12769000.00, 13740000.00, 24187000.00, 23370000.00, 16453000.00],
+            max_mem : [129778188288, 129768828928, 129769803776, 129160675328, 129160695808, 129153875968, 129153675264],
             prefix: '#mouse',
             title : 'M. muscula',
             color : 1};
 
-        var schizo = { detonate : [2104252611, 2125204094, 2115915016, 2107772409, 2082603842, 2123921952, 2074031459, 2073767990],
+        var schizo = { detonate : [],
             detonate_min : 2000000000,
-            single_genes : [4129, 3872, 3865, 3892, 4097, 4101, 3902, 3867],
-            single_genes_min : 3500,
-            wall_time : [27060000, 13980000, 6060000, 6120000, 7020000, 11220000, 9060000, 6840000],
-            max_mem : [26864455680, 27495628800, 27495641088, 27495518208, 27495788544, 24502489088, 21584687104],
+            gene_count : [11550, 11552, 11559, 11651, 11651, 13519, 14533],
+            gene_count_min : 3500,
+            total_transcripts : [13767, 13778, 14158, 13328, 13328, 14504, 15498],
+            wall_time : [7380000.00, 7022000.00, 6123000.00, 6269000.00, 11245000.00, 9585000.00, 7322000.00],
+            max_mem : [129778192384, 129768816640, 129769799680, 129168748544, 129160683520, 129153863680, 129153675264],
             prefix: '#yeast',
             title : 'S. pombe',
             color : 0};
