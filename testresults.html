@@ -1,0 +1,345 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>
+                    Xunit Test Results - For: </title>
+<style type="text/css">
+
+                    .testcases {
+                       border: 1px solid black;
+                       padding: 10px;
+                     }
+
+                    .filters {
+                        margin: 10px 0 0 0;
+                     }
+
+                    .failed {
+                        display:block;
+                    }
+
+                   .failed a {
+                        color: red;
+                        font-weight: bold;
+                    }
+
+                    .passed {
+                        display: block;
+                    }
+
+                   .passed a {
+                        color: green;
+                        font-weight: bold;
+                    }
+
+                    .passed-message {
+                        border: 1px solid green;
+                    }
+                    .error-message {
+                        border: 1px solid red;
+                    }
+
+
+                </style>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script><script type="text/javascript">
+                  $(document).ready(function() {
+                  $(".display-message").click(function() {
+
+                  });
+                        $(".filter").change(function(event) {
+                            var self = $(this);
+                            $('.filter option:selected').each(function() {
+                                $('.testcases div').show();
+                                if ( $(this).val() != 'all' ) {
+                                    $('.testcases div[class != "' + $(this).val() + '"][class!="error-message"]').each(function() {
+                                    $(this).hide();
+                                    });
+                                }
+                            });
+                        });
+                    });
+                </script>
+</head>
+<body>
+<h3 class="divided"><b>Results for nosetests</b></h3>
+<div class="container">
+            Tests run: <a href="#all"><b>38</b></a>
+            Failures: <a href="#failures"><b>3</b></a>,
+            Skipped: <a href="#skipped"><b>0</b></a>,
+            Errors: <a href="#errors"><b>10</b></a><div class="filters">
+<label for="filter">Filter Test cases:</label><select id="filter" class="filter"><option name="all" value="all" selected>All</option>
+<option name="passed" value="passed">Passed</option>
+<option name="failed" value="failed">Failed</option></select>
+</div>
+<hr>
+</div>
+<div class="testcases">
+<div class="passed">
+<pre><b>Class:</b>test_prep.TestTrinity</pre>
+<pre><b>Test Name:</b>test_fasta</pre>
+<pre><b>Running Time:</b>1.339</pre>
+<pre><b>State:</b><a>Passed</a></pre>
+<hr>
+</div>
+<div class="passed">
+<pre><b>Class:</b>test_prep.TestTrinity</pre>
+<pre><b>Test Name:</b>test_fasta_gz</pre>
+<pre><b>Running Time:</b>1.673</pre>
+<pre><b>State:</b><a>Passed</a></pre>
+<hr>
+</div>
+<div class="failed">
+<pre><b>Class:</b>test_prep.TestTrinity</pre>
+<pre><b>Test Name:</b>test_fasta_gz_paired</pre>
+<pre><b>Running Time:</b>0.271</pre>
+<pre><b>State:</b><a>Failed</a></pre>
+<hr>
+</div>
+<div class="failed">
+<pre><b>Class:</b>test_prep.TestTrinity</pre>
+<pre><b>Test Name:</b>test_fasta_multiple_files_paired</pre>
+<pre><b>Running Time:</b>0.266</pre>
+<pre><b>State:</b><a>Failed</a></pre>
+<hr>
+</div>
+<div class="passed">
+<pre><b>Class:</b>test_prep.TestTrinity</pre>
+<pre><b>Test Name:</b>test_fasta_multiple_files_single</pre>
+<pre><b>Running Time:</b>1.983</pre>
+<pre><b>State:</b><a>Passed</a></pre>
+<hr>
+</div>
+<div class="passed">
+<pre><b>Class:</b>test_prep.TestTrinity</pre>
+<pre><b>Test Name:</b>test_fasta_multiple_files_single_reverse</pre>
+<pre><b>Running Time:</b>2.535</pre>
+<pre><b>State:</b><a>Passed</a></pre>
+<hr>
+</div>
+<div class="failed">
+<pre><b>Class:</b>test_prep.TestTrinity</pre>
+<pre><b>Test Name:</b>test_fasta_paired</pre>
+<pre><b>Running Time:</b>0.268</pre>
+<pre><b>State:</b><a>Failed</a></pre>
+<hr>
+</div>
+<div class="passed">
+<pre><b>Class:</b>test_prep.TestTrinity</pre>
+<pre><b>Test Name:</b>test_fastq</pre>
+<pre><b>Running Time:</b>1.535</pre>
+<pre><b>State:</b><a>Passed</a></pre>
+<hr>
+</div>
+<div class="passed">
+<pre><b>Class:</b>test_prep.TestTrinity</pre>
+<pre><b>Test Name:</b>test_fastq_bz2</pre>
+<pre><b>Running Time:</b>1.730</pre>
+<pre><b>State:</b><a>Passed</a></pre>
+<hr>
+</div>
+<div class="passed">
+<pre><b>Class:</b>test_prep.TestTrinity</pre>
+<pre><b>Test Name:</b>test_fastq_gz</pre>
+<pre><b>Running Time:</b>1.443</pre>
+<pre><b>State:</b><a>Passed</a></pre>
+<hr>
+</div>
+<div class="failed">
+<pre><b>Class:</b>test_prep.TestTrinity</pre>
+<pre><b>Test Name:</b>test_fastq_multiple_files_paired</pre>
+<pre><b>Running Time:</b>0.254</pre>
+<pre><b>State:</b><a>Failed</a></pre>
+<hr>
+</div>
+<div class="failed">
+<pre><b>Class:</b>test_prep.TestTrinity</pre>
+<pre><b>Test Name:</b>test_fastq_multiple_files_paired_reverse</pre>
+<pre><b>Running Time:</b>0.275</pre>
+<pre><b>State:</b><a>Failed</a></pre>
+<hr>
+</div>
+<div class="passed">
+<pre><b>Class:</b>test_prep.TestTrinity</pre>
+<pre><b>Test Name:</b>test_fastq_multiple_files_single</pre>
+<pre><b>Running Time:</b>2.200</pre>
+<pre><b>State:</b><a>Passed</a></pre>
+<hr>
+</div>
+<div class="passed">
+<pre><b>Class:</b>test_prep.TestTrinity</pre>
+<pre><b>Test Name:</b>test_fastq_multiple_files_single_bz2</pre>
+<pre><b>Running Time:</b>2.449</pre>
+<pre><b>State:</b><a>Passed</a></pre>
+<hr>
+</div>
+<div class="passed">
+<pre><b>Class:</b>test_prep.TestTrinity</pre>
+<pre><b>Test Name:</b>test_fastq_multiple_files_single_reverse</pre>
+<pre><b>Running Time:</b>2.051</pre>
+<pre><b>State:</b><a>Passed</a></pre>
+<hr>
+</div>
+<div class="failed">
+<pre><b>Class:</b>test_prep.TestTrinity</pre>
+<pre><b>Test Name:</b>test_paired_fastq</pre>
+<pre><b>Running Time:</b>0.249</pre>
+<pre><b>State:</b><a>Failed</a></pre>
+<hr>
+</div>
+<div class="failed">
+<pre><b>Class:</b>test_prep.TestTrinity</pre>
+<pre><b>Test Name:</b>test_paired_fastq_gz</pre>
+<pre><b>Running Time:</b>0.238</pre>
+<pre><b>State:</b><a>Failed</a></pre>
+<hr>
+</div>
+<div class="failed">
+<pre><b>Class:</b>test_prep.TestTrinity</pre>
+<pre><b>Test Name:</b>test_paired_sequences_have_1_or_2_extension</pre>
+<pre><b>Running Time:</b>0.259</pre>
+<pre><b>State:</b><a>Failed</a></pre>
+<hr>
+</div>
+<div class="passed">
+<pre><b>Class:</b>tests.TestTrinity</pre>
+<pre><b>Test Name:</b>test_Inchworm_handles_compressed_files</pre>
+<pre><b>Running Time:</b>6.373</pre>
+<pre><b>State:</b><a>Passed</a></pre>
+<hr>
+</div>
+<div class="passed">
+<pre><b>Class:</b>tests.TestTrinity</pre>
+<pre><b>Test Name:</b>test_cite</pre>
+<pre><b>Running Time:</b>0.104</pre>
+<pre><b>State:</b><a>Passed</a></pre>
+<hr>
+</div>
+<div class="passed">
+<pre><b>Class:</b>tests.TestTrinity</pre>
+<pre><b>Test Name:</b>test_cleanup_removes_temp_files</pre>
+<pre><b>Running Time:</b>5.594</pre>
+<pre><b>State:</b><a>Passed</a></pre>
+<hr>
+</div>
+<div class="failed">
+<pre><b>Class:</b>tests.TestTrinity</pre>
+<pre><b>Test Name:</b>test_invalid_option_error</pre>
+<pre><b>Running Time:</b>0.116</pre>
+<pre><b>State:</b><a>Failed</a></pre>
+<hr>
+</div>
+<div class="passed">
+<pre><b>Class:</b>tests.TestTrinity</pre>
+<pre><b>Test Name:</b>test_no_JM_specified_error</pre>
+<pre><b>Running Time:</b>0.131</pre>
+<pre><b>State:</b><a>Passed</a></pre>
+<hr>
+</div>
+<div class="passed">
+<pre><b>Class:</b>tests.TestTrinity</pre>
+<pre><b>Test Name:</b>test_no_bowtie</pre>
+<pre><b>Running Time:</b>47.261</pre>
+<pre><b>State:</b><a>Passed</a></pre>
+<hr>
+</div>
+<div class="failed">
+<pre><b>Class:</b>tests.TestTrinity</pre>
+<pre><b>Test Name:</b>test_no_cleanup_leaves_temp_files</pre>
+<pre><b>Running Time:</b>0.604</pre>
+<pre><b>State:</b><a>Failed</a></pre>
+<hr>
+</div>
+<div class="passed">
+<pre><b>Class:</b>tests.TestTrinity</pre>
+<pre><b>Test Name:</b>test_no_distributed_trinity_exec</pre>
+<pre><b>Running Time:</b>10.502</pre>
+<pre><b>State:</b><a>Passed</a></pre>
+<hr>
+</div>
+<div class="passed">
+<pre><b>Class:</b>tests.TestTrinity</pre>
+<pre><b>Test Name:</b>test_no_run_chrysalis</pre>
+<pre><b>Running Time:</b>5.905</pre>
+<pre><b>State:</b><a>Passed</a></pre>
+<hr>
+</div>
+<div class="passed">
+<pre><b>Class:</b>tests.TestTrinity</pre>
+<pre><b>Test Name:</b>test_no_run_inchworm</pre>
+<pre><b>Running Time:</b>5.508</pre>
+<pre><b>State:</b><a>Passed</a></pre>
+<hr>
+</div>
+<div class="passed">
+<pre><b>Class:</b>tests.TestTrinity</pre>
+<pre><b>Test Name:</b>test_output_correctly_changes_dir</pre>
+<pre><b>Running Time:</b>49.502</pre>
+<pre><b>State:</b><a>Passed</a></pre>
+<hr>
+</div>
+<div class="failed">
+<pre><b>Class:</b>tests.TestTrinity</pre>
+<pre><b>Test Name:</b>test_sample_data_seq_count</pre>
+<pre><b>Running Time:</b>0.594</pre>
+<pre><b>State:</b><a>Failed</a></pre>
+<hr>
+</div>
+<div class="failed">
+<pre><b>Class:</b>tests.TestTrinity</pre>
+<pre><b>Test Name:</b>test_sample_data_trimmed_and_normalized</pre>
+<pre><b>Running Time:</b>0.568</pre>
+<pre><b>State:</b><a>Failed</a></pre>
+<hr>
+</div>
+<div class="passed">
+<pre><b>Class:</b>tests.TestTrinity</pre>
+<pre><b>Test Name:</b>test_scaffold_iworm_contigs</pre>
+<pre><b>Running Time:</b>0.192</pre>
+<pre><b>State:</b><a>Passed</a></pre>
+<hr>
+</div>
+<div class="passed">
+<pre><b>Class:</b>tests.TestTrinity</pre>
+<pre><b>Test Name:</b>test_set_no_cleanup_and_full_cleanup_error</pre>
+<pre><b>Running Time:</b>0.128</pre>
+<pre><b>State:</b><a>Passed</a></pre>
+<hr>
+</div>
+<div class="passed">
+<pre><b>Class:</b>tests.TestTrinity</pre>
+<pre><b>Test Name:</b>test_show_full_usage_info</pre>
+<pre><b>Running Time:</b>0.123</pre>
+<pre><b>State:</b><a>Passed</a></pre>
+<hr>
+</div>
+<div class="passed">
+<pre><b>Class:</b>tests.TestTrinity</pre>
+<pre><b>Test Name:</b>test_single_end_with_fa_and_reverse</pre>
+<pre><b>Running Time:</b>52.335</pre>
+<pre><b>State:</b><a>Passed</a></pre>
+<hr>
+</div>
+<div class="passed">
+<pre><b>Class:</b>tests.TestTrinity</pre>
+<pre><b>Test Name:</b>test_single_end_with_fq</pre>
+<pre><b>Running Time:</b>60.459</pre>
+<pre><b>State:</b><a>Passed</a></pre>
+<hr>
+</div>
+<div class="passed">
+<pre><b>Class:</b>tests.TestTrinity</pre>
+<pre><b>Test Name:</b>test_single_end_with_rf_lib_type_error</pre>
+<pre><b>Running Time:</b>0.157</pre>
+<pre><b>State:</b><a>Passed</a></pre>
+<hr>
+</div>
+<div class="failed">
+<pre><b>Class:</b>tests.TestTrinity</pre>
+<pre><b>Test Name:</b>test_version</pre>
+<pre><b>Running Time:</b>0.475</pre>
+<pre><b>State:</b><a>Failed</a></pre>
+<hr>
+</div>
+</div>
+</body>
+</html>
