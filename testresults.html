@@ -1,345 +1,502 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<!DOCTYPE html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>
-                    Xunit Test Results - For: </title>
-<style type="text/css">
+    <title>Unit Test Report</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
-                    .testcases {
-                       border: 1px solid black;
-                       padding: 10px;
-                     }
+<style>
+body {
+    font-family: Calibri, "Trebuchet MS", sans-serif;
+}
+* {
+    word-break: break-all;
+}
+table, td, th, .dataid {
+    border: 1px solid #aaa;
+    border-collapse: collapse;
+    background: #fff;
+}
+section {
+    background: rgba(0, 0, 0, 0.05);
+    margin: 2ex;
+    padding: 1ex;
+    border: 1px solid #999;
+    border-radius: 5px;
+}
+h1 {
+    font-size: 130%;
+}
+h2 {
+    font-size: 120%;
+}
+h3 {
+    font-size: 100%;
+}
+h4 {
+    font-size: 85%;
+}
+h1, h2, h3, h4, a[href] {
+    cursor: pointer;
+    color: #0074d9;
+    text-decoration: none;
+}
+h3 strong, a.failed {
+    color: #ff4136;
+}
+.failed {
+    color: #ff4136;
+}
+a.success {
+    color: #3d9970;
+}
+pre {
+    font-family: 'Consolas', 'Deja Vu Sans Mono',
+                 'Bitstream Vera Sans Mono', 'Monaco',
+                 'Courier New', monospace;
+}
 
-                    .filters {
-                        margin: 10px 0 0 0;
-                     }
+.test-details,
+.traceback {
+    display: none;
+}
+section:target .test-details {
+    display: block;
+}
 
-                    .failed {
-                        display:block;
-                    }
-
-                   .failed a {
-                        color: red;
-                        font-weight: bold;
-                    }
-
-                    .passed {
-                        display: block;
-                    }
-
-                   .passed a {
-                        color: green;
-                        font-weight: bold;
-                    }
-
-                    .passed-message {
-                        border: 1px solid green;
-                    }
-                    .error-message {
-                        border: 1px solid red;
-                    }
-
-
-                </style>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script><script type="text/javascript">
-                  $(document).ready(function() {
-                  $(".display-message").click(function() {
-
-                  });
-                        $(".filter").change(function(event) {
-                            var self = $(this);
-                            $('.filter option:selected').each(function() {
-                                $('.testcases div').show();
-                                if ( $(this).val() != 'all' ) {
-                                    $('.testcases div[class != "' + $(this).val() + '"][class!="error-message"]').each(function() {
-                                    $(this).hide();
-                                    });
-                                }
-                            });
-                        });
-                    });
-                </script>
+</style>
 </head>
 <body>
-<h3 class="divided"><b>Results for nosetests</b></h3>
-<div class="container">
-            Tests run: <a href="#all"><b>38</b></a>
-            Failures: <a href="#failures"><b>3</b></a>,
-            Skipped: <a href="#skipped"><b>0</b></a>,
-            Errors: <a href="#errors"><b>10</b></a><div class="filters">
-<label for="filter">Filter Test cases:</label><select id="filter" class="filter"><option name="all" value="all" selected>All</option>
-<option name="passed" value="passed">Passed</option>
-<option name="failed" value="failed">Failed</option></select>
-</div>
-<hr>
-</div>
-<div class="testcases">
-<div class="passed">
-<pre><b>Class:</b>test_prep.TestTrinity</pre>
-<pre><b>Test Name:</b>test_fasta</pre>
-<pre><b>Running Time:</b>1.339</pre>
-<pre><b>State:</b><a>Passed</a></pre>
-<hr>
-</div>
-<div class="passed">
-<pre><b>Class:</b>test_prep.TestTrinity</pre>
-<pre><b>Test Name:</b>test_fasta_gz</pre>
-<pre><b>Running Time:</b>1.673</pre>
-<pre><b>State:</b><a>Passed</a></pre>
-<hr>
-</div>
-<div class="failed">
-<pre><b>Class:</b>test_prep.TestTrinity</pre>
-<pre><b>Test Name:</b>test_fasta_gz_paired</pre>
-<pre><b>Running Time:</b>0.271</pre>
-<pre><b>State:</b><a>Failed</a></pre>
-<hr>
-</div>
-<div class="failed">
-<pre><b>Class:</b>test_prep.TestTrinity</pre>
-<pre><b>Test Name:</b>test_fasta_multiple_files_paired</pre>
-<pre><b>Running Time:</b>0.266</pre>
-<pre><b>State:</b><a>Failed</a></pre>
-<hr>
-</div>
-<div class="passed">
-<pre><b>Class:</b>test_prep.TestTrinity</pre>
-<pre><b>Test Name:</b>test_fasta_multiple_files_single</pre>
-<pre><b>Running Time:</b>1.983</pre>
-<pre><b>State:</b><a>Passed</a></pre>
-<hr>
-</div>
-<div class="passed">
-<pre><b>Class:</b>test_prep.TestTrinity</pre>
-<pre><b>Test Name:</b>test_fasta_multiple_files_single_reverse</pre>
-<pre><b>Running Time:</b>2.535</pre>
-<pre><b>State:</b><a>Passed</a></pre>
-<hr>
-</div>
-<div class="failed">
-<pre><b>Class:</b>test_prep.TestTrinity</pre>
-<pre><b>Test Name:</b>test_fasta_paired</pre>
-<pre><b>Running Time:</b>0.268</pre>
-<pre><b>State:</b><a>Failed</a></pre>
-<hr>
-</div>
-<div class="passed">
-<pre><b>Class:</b>test_prep.TestTrinity</pre>
-<pre><b>Test Name:</b>test_fastq</pre>
-<pre><b>Running Time:</b>1.535</pre>
-<pre><b>State:</b><a>Passed</a></pre>
-<hr>
-</div>
-<div class="passed">
-<pre><b>Class:</b>test_prep.TestTrinity</pre>
-<pre><b>Test Name:</b>test_fastq_bz2</pre>
-<pre><b>Running Time:</b>1.730</pre>
-<pre><b>State:</b><a>Passed</a></pre>
-<hr>
-</div>
-<div class="passed">
-<pre><b>Class:</b>test_prep.TestTrinity</pre>
-<pre><b>Test Name:</b>test_fastq_gz</pre>
-<pre><b>Running Time:</b>1.443</pre>
-<pre><b>State:</b><a>Passed</a></pre>
-<hr>
-</div>
-<div class="failed">
-<pre><b>Class:</b>test_prep.TestTrinity</pre>
-<pre><b>Test Name:</b>test_fastq_multiple_files_paired</pre>
-<pre><b>Running Time:</b>0.254</pre>
-<pre><b>State:</b><a>Failed</a></pre>
-<hr>
-</div>
-<div class="failed">
-<pre><b>Class:</b>test_prep.TestTrinity</pre>
-<pre><b>Test Name:</b>test_fastq_multiple_files_paired_reverse</pre>
-<pre><b>Running Time:</b>0.275</pre>
-<pre><b>State:</b><a>Failed</a></pre>
-<hr>
-</div>
-<div class="passed">
-<pre><b>Class:</b>test_prep.TestTrinity</pre>
-<pre><b>Test Name:</b>test_fastq_multiple_files_single</pre>
-<pre><b>Running Time:</b>2.200</pre>
-<pre><b>State:</b><a>Passed</a></pre>
-<hr>
-</div>
-<div class="passed">
-<pre><b>Class:</b>test_prep.TestTrinity</pre>
-<pre><b>Test Name:</b>test_fastq_multiple_files_single_bz2</pre>
-<pre><b>Running Time:</b>2.449</pre>
-<pre><b>State:</b><a>Passed</a></pre>
-<hr>
-</div>
-<div class="passed">
-<pre><b>Class:</b>test_prep.TestTrinity</pre>
-<pre><b>Test Name:</b>test_fastq_multiple_files_single_reverse</pre>
-<pre><b>Running Time:</b>2.051</pre>
-<pre><b>State:</b><a>Passed</a></pre>
-<hr>
-</div>
-<div class="failed">
-<pre><b>Class:</b>test_prep.TestTrinity</pre>
-<pre><b>Test Name:</b>test_paired_fastq</pre>
-<pre><b>Running Time:</b>0.249</pre>
-<pre><b>State:</b><a>Failed</a></pre>
-<hr>
-</div>
-<div class="failed">
-<pre><b>Class:</b>test_prep.TestTrinity</pre>
-<pre><b>Test Name:</b>test_paired_fastq_gz</pre>
-<pre><b>Running Time:</b>0.238</pre>
-<pre><b>State:</b><a>Failed</a></pre>
-<hr>
-</div>
-<div class="failed">
-<pre><b>Class:</b>test_prep.TestTrinity</pre>
-<pre><b>Test Name:</b>test_paired_sequences_have_1_or_2_extension</pre>
-<pre><b>Running Time:</b>0.259</pre>
-<pre><b>State:</b><a>Failed</a></pre>
-<hr>
-</div>
-<div class="passed">
-<pre><b>Class:</b>tests.TestTrinity</pre>
-<pre><b>Test Name:</b>test_Inchworm_handles_compressed_files</pre>
-<pre><b>Running Time:</b>6.373</pre>
-<pre><b>State:</b><a>Passed</a></pre>
-<hr>
-</div>
-<div class="passed">
-<pre><b>Class:</b>tests.TestTrinity</pre>
-<pre><b>Test Name:</b>test_cite</pre>
-<pre><b>Running Time:</b>0.104</pre>
-<pre><b>State:</b><a>Passed</a></pre>
-<hr>
-</div>
-<div class="passed">
-<pre><b>Class:</b>tests.TestTrinity</pre>
-<pre><b>Test Name:</b>test_cleanup_removes_temp_files</pre>
-<pre><b>Running Time:</b>5.594</pre>
-<pre><b>State:</b><a>Passed</a></pre>
-<hr>
-</div>
-<div class="failed">
-<pre><b>Class:</b>tests.TestTrinity</pre>
-<pre><b>Test Name:</b>test_invalid_option_error</pre>
-<pre><b>Running Time:</b>0.116</pre>
-<pre><b>State:</b><a>Failed</a></pre>
-<hr>
-</div>
-<div class="passed">
-<pre><b>Class:</b>tests.TestTrinity</pre>
-<pre><b>Test Name:</b>test_no_JM_specified_error</pre>
-<pre><b>Running Time:</b>0.131</pre>
-<pre><b>State:</b><a>Passed</a></pre>
-<hr>
-</div>
-<div class="passed">
-<pre><b>Class:</b>tests.TestTrinity</pre>
-<pre><b>Test Name:</b>test_no_bowtie</pre>
-<pre><b>Running Time:</b>47.261</pre>
-<pre><b>State:</b><a>Passed</a></pre>
-<hr>
-</div>
-<div class="failed">
-<pre><b>Class:</b>tests.TestTrinity</pre>
-<pre><b>Test Name:</b>test_no_cleanup_leaves_temp_files</pre>
-<pre><b>Running Time:</b>0.604</pre>
-<pre><b>State:</b><a>Failed</a></pre>
-<hr>
-</div>
-<div class="passed">
-<pre><b>Class:</b>tests.TestTrinity</pre>
-<pre><b>Test Name:</b>test_no_distributed_trinity_exec</pre>
-<pre><b>Running Time:</b>10.502</pre>
-<pre><b>State:</b><a>Passed</a></pre>
-<hr>
-</div>
-<div class="passed">
-<pre><b>Class:</b>tests.TestTrinity</pre>
-<pre><b>Test Name:</b>test_no_run_chrysalis</pre>
-<pre><b>Running Time:</b>5.905</pre>
-<pre><b>State:</b><a>Passed</a></pre>
-<hr>
-</div>
-<div class="passed">
-<pre><b>Class:</b>tests.TestTrinity</pre>
-<pre><b>Test Name:</b>test_no_run_inchworm</pre>
-<pre><b>Running Time:</b>5.508</pre>
-<pre><b>State:</b><a>Passed</a></pre>
-<hr>
-</div>
-<div class="passed">
-<pre><b>Class:</b>tests.TestTrinity</pre>
-<pre><b>Test Name:</b>test_output_correctly_changes_dir</pre>
-<pre><b>Running Time:</b>49.502</pre>
-<pre><b>State:</b><a>Passed</a></pre>
-<hr>
-</div>
-<div class="failed">
-<pre><b>Class:</b>tests.TestTrinity</pre>
-<pre><b>Test Name:</b>test_sample_data_seq_count</pre>
-<pre><b>Running Time:</b>0.594</pre>
-<pre><b>State:</b><a>Failed</a></pre>
-<hr>
-</div>
-<div class="failed">
-<pre><b>Class:</b>tests.TestTrinity</pre>
-<pre><b>Test Name:</b>test_sample_data_trimmed_and_normalized</pre>
-<pre><b>Running Time:</b>0.568</pre>
-<pre><b>State:</b><a>Failed</a></pre>
-<hr>
-</div>
-<div class="passed">
-<pre><b>Class:</b>tests.TestTrinity</pre>
-<pre><b>Test Name:</b>test_scaffold_iworm_contigs</pre>
-<pre><b>Running Time:</b>0.192</pre>
-<pre><b>State:</b><a>Passed</a></pre>
-<hr>
-</div>
-<div class="passed">
-<pre><b>Class:</b>tests.TestTrinity</pre>
-<pre><b>Test Name:</b>test_set_no_cleanup_and_full_cleanup_error</pre>
-<pre><b>Running Time:</b>0.128</pre>
-<pre><b>State:</b><a>Passed</a></pre>
-<hr>
-</div>
-<div class="passed">
-<pre><b>Class:</b>tests.TestTrinity</pre>
-<pre><b>Test Name:</b>test_show_full_usage_info</pre>
-<pre><b>Running Time:</b>0.123</pre>
-<pre><b>State:</b><a>Passed</a></pre>
-<hr>
-</div>
-<div class="passed">
-<pre><b>Class:</b>tests.TestTrinity</pre>
-<pre><b>Test Name:</b>test_single_end_with_fa_and_reverse</pre>
-<pre><b>Running Time:</b>52.335</pre>
-<pre><b>State:</b><a>Passed</a></pre>
-<hr>
-</div>
-<div class="passed">
-<pre><b>Class:</b>tests.TestTrinity</pre>
-<pre><b>Test Name:</b>test_single_end_with_fq</pre>
-<pre><b>Running Time:</b>60.459</pre>
-<pre><b>State:</b><a>Passed</a></pre>
-<hr>
-</div>
-<div class="passed">
-<pre><b>Class:</b>tests.TestTrinity</pre>
-<pre><b>Test Name:</b>test_single_end_with_rf_lib_type_error</pre>
-<pre><b>Running Time:</b>0.157</pre>
-<pre><b>State:</b><a>Passed</a></pre>
-<hr>
-</div>
-<div class="failed">
-<pre><b>Class:</b>tests.TestTrinity</pre>
-<pre><b>Test Name:</b>test_version</pre>
-<pre><b>Running Time:</b>0.475</pre>
-<pre><b>State:</b><a>Failed</a></pre>
-<hr>
-</div>
-</div>
+    <h1>Overview</h1>
+    <section>
+        <table>
+            <tr>
+                <th>Class</th>
+                <th class="failed">Fail</th>
+                <th class="failed">Error</th>
+                <th>Skip</th>
+                <th>Success</th>
+                <th>Total</th>
+            </tr>
+                <tr>
+                    <td>tests.TestTrinity</td>
+                    <td class="failed">3</td>
+                    <td class="failed">2</td>
+                    <td>0</td>
+                    <td>15</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>test_prep.TestTrinityPrepFlag</td>
+                    <td>0</td>
+                    <td class="failed">8</td>
+                    <td>0</td>
+                    <td>10</td>
+                    <td>18</td>
+                </tr>
+            <tr>
+                <td><strong>Total</strong></td>
+                <td class="failed">3</td>
+                <td class="failed">10</td>
+                <td>0</td>
+                <td>25</td>
+                <td>38</td>
+            </tr>
+        </table>
+    </section>
+    <h1>Failure details</h1>
+            <section>
+                <h2>tests.TestTrinity (3 failures, 2 errors)</h2>
+                <div>
+                        <section id="tests.TestTrinity:test_invalid_option_error">
+                            <h3>test_invalid_option_error: <strong>exceptions.AssertionError</strong></h3>
+                            <div class="test-details">
+                                <h4>Traceback</h4>
+                                <pre class="traceback">Traceback (most recent call last):
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
+    testMethod()
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/tests.py", line 183, in test_invalid_option_error
+    self.assertTrue("Error, do not understand options: --squidward" in error)
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 420, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true
+-------------------- >> begin captured stdout << ---------------------
+Invalid options result in an error
+
+--------------------- >> end captured stdout << ----------------------
+</pre>
+                                <h4>Details</h4>
+                                <pre>False is not true
+-------------------- >> begin captured stdout << ---------------------
+Invalid options result in an error
+
+--------------------- >> end captured stdout << ----------------------</pre>
+                            </div>
+                        </section>
+                        <section id="tests.TestTrinity:test_no_cleanup_leaves_temp_files">
+                            <h3>test_no_cleanup_leaves_temp_files: <strong>exceptions.AssertionError</strong></h3>
+                            <div class="test-details">
+                                <h4>Traceback</h4>
+                                <pre class="traceback">Traceback (most recent call last):
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
+    testMethod()
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/tests.py", line 54, in test_no_cleanup_leaves_temp_files
+    self.assertTrue(os.path.exists("trinity_out_dir/%s" % f), msg="%s not found with no_cleanup" % f)
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 420, in assertTrue
+    raise self.failureException(msg)
+AssertionError: both.fa not found with no_cleanup
+-------------------- >> begin captured stdout << ---------------------
+The --no_cleanup flag should ensure that the output directory is left behind
+Command line: Trinity --seqType fq --max_memory 2G --left reads.left.fq.gz,reads2.left.fq.gz --right reads.right.fq.gz,reads2.right.fq.gz --SS_lib_type RF --CPU 4 --no_cleanup
+
+--------------------- >> end captured stdout << ----------------------
+</pre>
+                                <h4>Details</h4>
+                                <pre>both.fa not found with no_cleanup
+-------------------- >> begin captured stdout << ---------------------
+The --no_cleanup flag should ensure that the output directory is left behind
+Command line: Trinity --seqType fq --max_memory 2G --left reads.left.fq.gz,reads2.left.fq.gz --right reads.right.fq.gz,reads2.right.fq.gz --SS_lib_type RF --CPU 4 --no_cleanup
+
+--------------------- >> end captured stdout << ----------------------</pre>
+                            </div>
+                        </section>
+                        <section id="tests.TestTrinity:test_sample_data_seq_count">
+                            <h3>test_sample_data_seq_count: <strong>exceptions.IOError</strong></h3>
+                            <div class="test-details">
+                                <h4>Traceback</h4>
+                                <pre class="traceback">Traceback (most recent call last):
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
+    testMethod()
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/tests.py", line 35, in test_sample_data_seq_count
+    handle = open("trinity_out_dir/Trinity.fasta", "rU")
+IOError: [Errno 2] No such file or directory: 'trinity_out_dir/Trinity.fasta'
+-------------------- >> begin captured stdout << ---------------------
+When assembling the sample data, the number of sequences assembled should be between 75 and 100
+Command line: Trinity --seqType fq --max_memory 2G --left reads.left.fq.gz,reads2.left.fq.gz --right reads.right.fq.gz,reads2.right.fq.gz --SS_lib_type RF --CPU 4 --no_cleanup
+
+--------------------- >> end captured stdout << ----------------------
+</pre>
+                                <h4>Details</h4>
+                                <pre>[Errno 2] No such file or directory: 'trinity_out_dir/Trinity.fasta'
+-------------------- >> begin captured stdout << ---------------------
+When assembling the sample data, the number of sequences assembled should be between 75 and 100
+Command line: Trinity --seqType fq --max_memory 2G --left reads.left.fq.gz,reads2.left.fq.gz --right reads.right.fq.gz,reads2.right.fq.gz --SS_lib_type RF --CPU 4 --no_cleanup
+
+--------------------- >> end captured stdout << ----------------------</pre>
+                            </div>
+                        </section>
+                        <section id="tests.TestTrinity:test_sample_data_trimmed_and_normalized">
+                            <h3>test_sample_data_trimmed_and_normalized: <strong>exceptions.IOError</strong></h3>
+                            <div class="test-details">
+                                <h4>Traceback</h4>
+                                <pre class="traceback">Traceback (most recent call last):
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
+    testMethod()
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/tests.py", line 44, in test_sample_data_trimmed_and_normalized
+    handle = open("trinity_out_dir/Trinity.fasta", "rU")
+IOError: [Errno 2] No such file or directory: 'trinity_out_dir/Trinity.fasta'
+-------------------- >> begin captured stdout << ---------------------
+When assembling the sample data with the --trimmomatic --normalize_reads flags, the number of sequences assembled should be between 75 and 85
+Command line: Trinity --seqType fq --max_memory 2G --left reads.left.fq.gz,reads2.left.fq.gz --right reads.right.fq.gz,reads2.right.fq.gz --SS_lib_type RF --CPU 4 --trimmomatic --normalize_reads --no_cleanup
+
+--------------------- >> end captured stdout << ----------------------
+</pre>
+                                <h4>Details</h4>
+                                <pre>[Errno 2] No such file or directory: 'trinity_out_dir/Trinity.fasta'
+-------------------- >> begin captured stdout << ---------------------
+When assembling the sample data with the --trimmomatic --normalize_reads flags, the number of sequences assembled should be between 75 and 85
+Command line: Trinity --seqType fq --max_memory 2G --left reads.left.fq.gz,reads2.left.fq.gz --right reads.right.fq.gz,reads2.right.fq.gz --SS_lib_type RF --CPU 4 --trimmomatic --normalize_reads --no_cleanup
+
+--------------------- >> end captured stdout << ----------------------</pre>
+                            </div>
+                        </section>
+                        <section id="tests.TestTrinity:test_version">
+                            <h3>test_version: <strong>exceptions.AssertionError</strong></h3>
+                            <div class="test-details">
+                                <h4>Traceback</h4>
+                                <pre class="traceback">Traceback (most recent call last):
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
+    testMethod()
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/tests.py", line 159, in test_version
+    self.assertTrue('Trinity version: __TRINITY_VERSION_TAG__' in e.output)
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 420, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true
+-------------------- >> begin captured stdout << ---------------------
+Version flag should return version information
+
+--------------------- >> end captured stdout << ----------------------
+</pre>
+                                <h4>Details</h4>
+                                <pre>False is not true
+-------------------- >> begin captured stdout << ---------------------
+Version flag should return version information
+
+--------------------- >> end captured stdout << ----------------------</pre>
+                            </div>
+                        </section>
+                </div>
+            </section>
+            <section>
+                <h2>test_prep.TestTrinityPrepFlag (0 failures, 8 errors)</h2>
+                <div>
+                        <section id="test_prep.TestTrinityPrepFlag:test_fasta_gz_paired">
+                            <h3>test_fasta_gz_paired: <strong>exceptions.IOError</strong></h3>
+                            <div class="test-details">
+                                <h4>Traceback</h4>
+                                <pre class="traceback">Traceback (most recent call last):
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
+    testMethod()
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 93, in test_fasta_gz_paired
+    self.assertEquals(61150, self.count_seqs(), "Unexpected sequence count")
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
+    handle = open("trinity_out_dir/both.fa", "rU")
+IOError: [Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
+-------------------- >> begin captured stdout << ---------------------
+Command line: Trinity --left left1.fa.gz --right right1.fa.gz --prep --seqType fa --max_memory 2G --no_version_check
+
+--------------------- >> end captured stdout << ----------------------
+</pre>
+                                <h4>Details</h4>
+                                <pre>[Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
+-------------------- >> begin captured stdout << ---------------------
+Command line: Trinity --left left1.fa.gz --right right1.fa.gz --prep --seqType fa --max_memory 2G --no_version_check
+
+--------------------- >> end captured stdout << ----------------------</pre>
+                            </div>
+                        </section>
+                        <section id="test_prep.TestTrinityPrepFlag:test_fasta_multiple_files_paired">
+                            <h3>test_fasta_multiple_files_paired: <strong>exceptions.IOError</strong></h3>
+                            <div class="test-details">
+                                <h4>Traceback</h4>
+                                <pre class="traceback">Traceback (most recent call last):
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
+    testMethod()
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 101, in test_fasta_multiple_files_paired
+    self.assertEquals(122300, self.count_seqs(), "Unexpected sequence count")
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
+    handle = open("trinity_out_dir/both.fa", "rU")
+IOError: [Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
+-------------------- >> begin captured stdout << ---------------------
+Command line: Trinity --left left1.fa,left1.fa.gz --right right1.fa,right1.fa.gz --prep --seqType fa --max_memory 2G --no_version_check --SS_lib_type RF
+
+--------------------- >> end captured stdout << ----------------------
+</pre>
+                                <h4>Details</h4>
+                                <pre>[Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
+-------------------- >> begin captured stdout << ---------------------
+Command line: Trinity --left left1.fa,left1.fa.gz --right right1.fa,right1.fa.gz --prep --seqType fa --max_memory 2G --no_version_check --SS_lib_type RF
+
+--------------------- >> end captured stdout << ----------------------</pre>
+                            </div>
+                        </section>
+                        <section id="test_prep.TestTrinityPrepFlag:test_fasta_paired">
+                            <h3>test_fasta_paired: <strong>exceptions.IOError</strong></h3>
+                            <div class="test-details">
+                                <h4>Traceback</h4>
+                                <pre class="traceback">Traceback (most recent call last):
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
+    testMethod()
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 85, in test_fasta_paired
+    self.assertEquals(61150, self.count_seqs(), "Unexpected sequence count")
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
+    handle = open("trinity_out_dir/both.fa", "rU")
+IOError: [Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
+-------------------- >> begin captured stdout << ---------------------
+Command line: Trinity --left left1.fa --right right1.fa --prep --seqType fa --max_memory 2G --no_version_check
+
+--------------------- >> end captured stdout << ----------------------
+</pre>
+                                <h4>Details</h4>
+                                <pre>[Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
+-------------------- >> begin captured stdout << ---------------------
+Command line: Trinity --left left1.fa --right right1.fa --prep --seqType fa --max_memory 2G --no_version_check
+
+--------------------- >> end captured stdout << ----------------------</pre>
+                            </div>
+                        </section>
+                        <section id="test_prep.TestTrinityPrepFlag:test_fastq_multiple_files_paired">
+                            <h3>test_fastq_multiple_files_paired: <strong>exceptions.IOError</strong></h3>
+                            <div class="test-details">
+                                <h4>Traceback</h4>
+                                <pre class="traceback">Traceback (most recent call last):
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
+    testMethod()
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 77, in test_fastq_multiple_files_paired
+    self.assertEquals(122300, self.count_seqs(), "Unexpected sequence count")
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
+    handle = open("trinity_out_dir/both.fa", "rU")
+IOError: [Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
+-------------------- >> begin captured stdout << ---------------------
+Command line: Trinity --left left1.fq,left1.fq.gz --right right1.fq,right1.fq.gz --prep --seqType fq --max_memory 2G --no_version_check
+
+--------------------- >> end captured stdout << ----------------------
+</pre>
+                                <h4>Details</h4>
+                                <pre>[Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
+-------------------- >> begin captured stdout << ---------------------
+Command line: Trinity --left left1.fq,left1.fq.gz --right right1.fq,right1.fq.gz --prep --seqType fq --max_memory 2G --no_version_check
+
+--------------------- >> end captured stdout << ----------------------</pre>
+                            </div>
+                        </section>
+                        <section id="test_prep.TestTrinityPrepFlag:test_fastq_multiple_files_paired_reverse">
+                            <h3>test_fastq_multiple_files_paired_reverse: <strong>exceptions.IOError</strong></h3>
+                            <div class="test-details">
+                                <h4>Traceback</h4>
+                                <pre class="traceback">Traceback (most recent call last):
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
+    testMethod()
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 81, in test_fastq_multiple_files_paired_reverse
+    self.assertEquals(122300, self.count_seqs(), "Unexpected sequence count")
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
+    handle = open("trinity_out_dir/both.fa", "rU")
+IOError: [Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
+-------------------- >> begin captured stdout << ---------------------
+Command line: Trinity --left left1.fq,left1.fq.gz --right right1.fq,right1.fq.gz --prep --seqType fq --max_memory 2G --no_version_check --SS_lib_type RF
+
+--------------------- >> end captured stdout << ----------------------
+</pre>
+                                <h4>Details</h4>
+                                <pre>[Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
+-------------------- >> begin captured stdout << ---------------------
+Command line: Trinity --left left1.fq,left1.fq.gz --right right1.fq,right1.fq.gz --prep --seqType fq --max_memory 2G --no_version_check --SS_lib_type RF
+
+--------------------- >> end captured stdout << ----------------------</pre>
+                            </div>
+                        </section>
+                        <section id="test_prep.TestTrinityPrepFlag:test_paired_fastq">
+                            <h3>test_paired_fastq: <strong>exceptions.IOError</strong></h3>
+                            <div class="test-details">
+                                <h4>Traceback</h4>
+                                <pre class="traceback">Traceback (most recent call last):
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
+    testMethod()
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 69, in test_paired_fastq
+    self.assertEquals(61150, self.count_seqs(), "Unexpected sequence count")
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
+    handle = open("trinity_out_dir/both.fa", "rU")
+IOError: [Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
+-------------------- >> begin captured stdout << ---------------------
+Command line: Trinity --left left1.fq --right right1.fq --prep --seqType fq --max_memory 2G --no_version_check
+
+--------------------- >> end captured stdout << ----------------------
+</pre>
+                                <h4>Details</h4>
+                                <pre>[Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
+-------------------- >> begin captured stdout << ---------------------
+Command line: Trinity --left left1.fq --right right1.fq --prep --seqType fq --max_memory 2G --no_version_check
+
+--------------------- >> end captured stdout << ----------------------</pre>
+                            </div>
+                        </section>
+                        <section id="test_prep.TestTrinityPrepFlag:test_paired_fastq_gz">
+                            <h3>test_paired_fastq_gz: <strong>exceptions.IOError</strong></h3>
+                            <div class="test-details">
+                                <h4>Traceback</h4>
+                                <pre class="traceback">Traceback (most recent call last):
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
+    testMethod()
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 73, in test_paired_fastq_gz
+    self.assertEquals(61150, self.count_seqs(), "Unexpected sequence count")
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
+    handle = open("trinity_out_dir/both.fa", "rU")
+IOError: [Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
+-------------------- >> begin captured stdout << ---------------------
+Command line: Trinity --left left1.fq.gz --right right1.fq.gz --prep --seqType fq --max_memory 2G --no_version_check
+
+--------------------- >> end captured stdout << ----------------------
+</pre>
+                                <h4>Details</h4>
+                                <pre>[Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
+-------------------- >> begin captured stdout << ---------------------
+Command line: Trinity --left left1.fq.gz --right right1.fq.gz --prep --seqType fq --max_memory 2G --no_version_check
+
+--------------------- >> end captured stdout << ----------------------</pre>
+                            </div>
+                        </section>
+                        <section id="test_prep.TestTrinityPrepFlag:test_paired_sequences_have_1_or_2_extension">
+                            <h3>test_paired_sequences_have_1_or_2_extension: <strong>exceptions.IOError</strong></h3>
+                            <div class="test-details">
+                                <h4>Traceback</h4>
+                                <pre class="traceback">Traceback (most recent call last):
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
+    testMethod()
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 89, in test_paired_sequences_have_1_or_2_extension
+    self.assertEquals(0, self.count_bad_endings(), "Found sequences with bad endings")
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 132, in count_bad_endings
+    handle = open("trinity_out_dir/both.fa", "rU")
+IOError: [Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
+-------------------- >> begin captured stdout << ---------------------
+Command line: Trinity --left sra_test.fq --right sra_test2.fq --prep --seqType fq --max_memory 2G --no_version_check
+
+--------------------- >> end captured stdout << ----------------------
+</pre>
+                                <h4>Details</h4>
+                                <pre>[Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
+-------------------- >> begin captured stdout << ---------------------
+Command line: Trinity --left sra_test.fq --right sra_test2.fq --prep --seqType fq --max_memory 2G --no_version_check
+
+--------------------- >> end captured stdout << ----------------------</pre>
+                            </div>
+                        </section>
+                </div>
+            </section>
+
+    <h1>All tests</h1>
+    <section>
+        <h2>tests.TestTrinity (3 failures, 2 errors)</h2>
+        <ul>
+                <li><a class="success">test_Inchworm_handles_compressed_files</a></li>
+                <li><a class="success">test_cite</a></li>
+                <li><a class="success">test_cleanup_removes_temp_files</a></li>
+                <li><a class="failed" href="#tests.TestTrinity:test_invalid_option_error">test_invalid_option_error</a></li>
+                <li><a class="success">test_no_JM_specified_error</a></li>
+                <li><a class="success">test_no_bowtie</a></li>
+                <li><a class="failed" href="#tests.TestTrinity:test_no_cleanup_leaves_temp_files">test_no_cleanup_leaves_temp_files</a></li>
+                <li><a class="success">test_no_distributed_trinity_exec</a></li>
+                <li><a class="success">test_no_run_chrysalis</a></li>
+                <li><a class="success">test_no_run_inchworm</a></li>
+                <li><a class="success">test_output_correctly_changes_dir</a></li>
+                <li><a class="failed" href="#tests.TestTrinity:test_sample_data_seq_count">test_sample_data_seq_count</a></li>
+                <li><a class="failed" href="#tests.TestTrinity:test_sample_data_trimmed_and_normalized">test_sample_data_trimmed_and_normalized</a></li>
+                <li><a class="success">test_scaffold_iworm_contigs</a></li>
+                <li><a class="success">test_set_no_cleanup_and_full_cleanup_error</a></li>
+                <li><a class="success">test_show_full_usage_info</a></li>
+                <li><a class="success">test_single_end_with_fa_and_reverse</a></li>
+                <li><a class="success">test_single_end_with_fq</a></li>
+                <li><a class="success">test_single_end_with_rf_lib_type_error</a></li>
+                <li><a class="failed" href="#tests.TestTrinity:test_version">test_version</a></li>
+        </ul>
+    </section>
+    <section>
+        <h2>test_prep.TestTrinityPrepFlag (0 failures, 8 errors)</h2>
+        <ul>
+                <li><a class="success">test_fasta</a></li>
+                <li><a class="success">test_fasta_gz</a></li>
+                <li><a class="failed" href="#test_prep.TestTrinityPrepFlag:test_fasta_gz_paired">test_fasta_gz_paired</a></li>
+                <li><a class="failed" href="#test_prep.TestTrinityPrepFlag:test_fasta_multiple_files_paired">test_fasta_multiple_files_paired</a></li>
+                <li><a class="success">test_fasta_multiple_files_single</a></li>
+                <li><a class="success">test_fasta_multiple_files_single_reverse</a></li>
+                <li><a class="failed" href="#test_prep.TestTrinityPrepFlag:test_fasta_paired">test_fasta_paired</a></li>
+                <li><a class="success">test_fastq</a></li>
+                <li><a class="success">test_fastq_bz2</a></li>
+                <li><a class="success">test_fastq_gz</a></li>
+                <li><a class="failed" href="#test_prep.TestTrinityPrepFlag:test_fastq_multiple_files_paired">test_fastq_multiple_files_paired</a></li>
+                <li><a class="failed" href="#test_prep.TestTrinityPrepFlag:test_fastq_multiple_files_paired_reverse">test_fastq_multiple_files_paired_reverse</a></li>
+                <li><a class="success">test_fastq_multiple_files_single</a></li>
+                <li><a class="success">test_fastq_multiple_files_single_bz2</a></li>
+                <li><a class="success">test_fastq_multiple_files_single_reverse</a></li>
+                <li><a class="failed" href="#test_prep.TestTrinityPrepFlag:test_paired_fastq">test_paired_fastq</a></li>
+                <li><a class="failed" href="#test_prep.TestTrinityPrepFlag:test_paired_fastq_gz">test_paired_fastq_gz</a></li>
+                <li><a class="failed" href="#test_prep.TestTrinityPrepFlag:test_paired_sequences_have_1_or_2_extension">test_paired_sequences_have_1_or_2_extension</a></li>
+        </ul>
+    </section>
 </body>
+<script>
+    Array.prototype.forEach.call(document.querySelectorAll('h1, h2, h3, h4'), function(el) {
+        el.addEventListener('click', function() {
+            el.nextElementSibling.style.display = document.defaultView.getComputedStyle(el.nextElementSibling).display == 'none' ? 'block' : 'none';
+        })
+    })
+</script>
 </html>
