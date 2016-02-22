@@ -46,7 +46,7 @@
         <td id="mouse_genes" style="width: 30%"></td>
     </tr>
     </table>
-<table style="width:90%; display: none">
+<table style="width:90%">
     <tr>
         <td id="fly" style="width: 30%"></td>
         <td id="yeast" style="width: 30%"></td>
@@ -269,7 +269,7 @@
         create_memory_chart(title, prefix + '_mem', data['max_mem'], color);
     }
     $(function () {
-        var droso = { detonate : [],
+        var droso = { detonate : [2505042892, 2506637187, 2510591687, 2476429902, 2487879464, 2461149402, 2457674377],
             detonate_min : 2400000000,
             gene_count : [44481, 44465,	44494, 45172, 45165, 50156],
             gene_count_min : 6000,
@@ -281,7 +281,7 @@
             title : 'D. melanogaster',
             color : 2};
 
-        var mouse = { detonate : [],
+        var mouse = { detonate : [3740144504, 3727712340, 3738177439, 3698945681, 3690981994, 3652310504, 3639739766],
             detonate_min : 3500000000,
             gene_count : [55420,55496, 55580, 56749, 56992, 60618, 69390],
             gene_count_min : 7000,
@@ -292,7 +292,7 @@
             title : 'M. muscula',
             color : 1};
 
-        var schizo = { detonate : [],
+        var schizo = { detonate : [2124269914, 2114808563, 2110474455, 2096633690, 2136157533, 2076441834, 2071793893],
             detonate_min : 2000000000,
             gene_count : [11550, 11552, 11559, 11651, 11651, 13519, 14533],
             gene_count_min : 3500,
