@@ -67,7 +67,7 @@ section:target .test-details {
 </head>
 <body>
     <h1>Trinity Automated Test Results</h1>
-    <h2>2016-03-16 05:00</h2>
+    <h2>2016-04-15 13:28</h2>
     <section>
         <table>
             <tr>
@@ -80,10 +80,10 @@ section:target .test-details {
             </tr>
                 <tr>
                     <td>sample_data_tests.TestTrinitySampleData</td>
-                    <td class="failed">4</td>
+                    <td class="failed">3</td>
                     <td>0</td>
                     <td>0</td>
-                    <td>3</td>
+                    <td>4</td>
                     <td>7</td>
                 </tr>
                 <tr>
@@ -104,35 +104,18 @@ section:target .test-details {
                 </tr>
             <tr>
                 <td><strong>Total</strong></td>
-                <td class="failed">5</td>
+                <td class="failed">4</td>
                 <td class="failed">1</td>
                 <td>0</td>
-                <td>39</td>
+                <td>40</td>
                 <td>45</td>
             </tr>
         </table>
     </section>
     <h1>Failure details</h1>
             <section>
-                <h2>sample_data_tests.TestTrinitySampleData (4 failures, 0 errors)</h2>
+                <h2>sample_data_tests.TestTrinitySampleData (3 failures, 0 errors)</h2>
                 <div>
-                        <section id="sample_data_tests.TestTrinitySampleData:test_DE_analysis_EdgeR">
-                            <h3>test_DE_analysis_EdgeR: <strong>exceptions.AssertionError</strong></h3>
-                            <div class="test-details">
-                                <h4>Traceback</h4>
-                                <pre class="traceback">Traceback (most recent call last):
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
-    testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/sample_data_tests.py", line 38, in test_DE_analysis_EdgeR
-    self.assertTrue(os.path.isfile(check_file))
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 420, in assertTrue
-    raise self.failureException(msg)
-AssertionError: False is not true
-</pre>
-                                <h4>Details</h4>
-                                <pre>False is not true</pre>
-                            </div>
-                        </section>
                         <section id="sample_data_tests.TestTrinitySampleData:test_align_and_estimate_abundance">
                             <h3>test_align_and_estimate_abundance: <strong>exceptions.AssertionError</strong></h3>
                             <div class="test-details">
@@ -178,10 +161,10 @@ AssertionError: False is not true
     self.assertTrue(60 <= seq_count <= 65, msg='Found %s sequences' % seq_count)
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 420, in assertTrue
     raise self.failureException(msg)
-AssertionError: Found 58 sequences
+AssertionError: Found 56 sequences
 </pre>
                                 <h4>Details</h4>
-                                <pre>Found 58 sequences</pre>
+                                <pre>Found 56 sequences</pre>
                             </div>
                         </section>
                 </div>
@@ -248,9 +231,9 @@ Version flag should return version information
 
     <h1>All tests</h1>
     <section>
-        <h2>sample_data_tests.TestTrinitySampleData (4 failures, 0 errors)</h2>
+        <h2>sample_data_tests.TestTrinitySampleData (3 failures, 0 errors)</h2>
         <ul>
-                <li><a class="failed" href="#sample_data_tests.TestTrinitySampleData:test_DE_analysis_EdgeR">test_DE_analysis_EdgeR</a></li>
+                <li><a class="success">test_DE_analysis_EdgeR</a></li>
                 <li><a class="failed" href="#sample_data_tests.TestTrinitySampleData:test_align_and_estimate_abundance">test_align_and_estimate_abundance</a></li>
                 <li><a class="failed" href="#sample_data_tests.TestTrinitySampleData:test_full_edgeR_pipeline">test_full_edgeR_pipeline</a></li>
                 <li><a class="success">test_genome_guided</a></li>
