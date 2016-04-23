@@ -67,7 +67,7 @@ section:target .test-details {
 </head>
 <body>
     <h1>Trinity Automated Test Results</h1>
-    <h2>2016-04-15 13:28</h2>
+    <h2>2016-04-23 11:02</h2>
     <section>
         <table>
             <tr>
@@ -80,10 +80,10 @@ section:target .test-details {
             </tr>
                 <tr>
                     <td>sample_data_tests.TestTrinitySampleData</td>
-                    <td class="failed">3</td>
+                    <td class="failed">1</td>
                     <td>0</td>
                     <td>0</td>
-                    <td>4</td>
+                    <td>6</td>
                     <td>7</td>
                 </tr>
                 <tr>
@@ -104,67 +104,33 @@ section:target .test-details {
                 </tr>
             <tr>
                 <td><strong>Total</strong></td>
-                <td class="failed">4</td>
+                <td class="failed">2</td>
                 <td class="failed">1</td>
                 <td>0</td>
-                <td>40</td>
+                <td>42</td>
                 <td>45</td>
             </tr>
         </table>
     </section>
     <h1>Failure details</h1>
             <section>
-                <h2>sample_data_tests.TestTrinitySampleData (3 failures, 0 errors)</h2>
+                <h2>sample_data_tests.TestTrinitySampleData (1 failures, 0 errors)</h2>
                 <div>
-                        <section id="sample_data_tests.TestTrinitySampleData:test_align_and_estimate_abundance">
-                            <h3>test_align_and_estimate_abundance: <strong>exceptions.AssertionError</strong></h3>
+                        <section id="sample_data_tests.TestTrinitySampleData:test_trinity_assembly">
+                            <h3>test_trinity_assembly: <strong>exceptions.AssertionError</strong></h3>
                             <div class="test-details">
                                 <h4>Traceback</h4>
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/sample_data_tests.py", line 42, in test_align_and_estimate_abundance
-    self.assertTrue(os.path.isfile(check_file))
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/sample_data_tests.py", line 34, in test_trinity_assembly
+    self.assertTrue(100 <= seq_count <= 120, msg='Found %s sequences' % seq_count)
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 420, in assertTrue
     raise self.failureException(msg)
-AssertionError: False is not true
+AssertionError: Found 122 sequences
 </pre>
                                 <h4>Details</h4>
-                                <pre>False is not true</pre>
-                            </div>
-                        </section>
-                        <section id="sample_data_tests.TestTrinitySampleData:test_full_edgeR_pipeline">
-                            <h3>test_full_edgeR_pipeline: <strong>exceptions.AssertionError</strong></h3>
-                            <div class="test-details">
-                                <h4>Traceback</h4>
-                                <pre class="traceback">Traceback (most recent call last):
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
-    testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/sample_data_tests.py", line 46, in test_full_edgeR_pipeline
-    self.assertTrue(os.path.isfile(check_file))
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 420, in assertTrue
-    raise self.failureException(msg)
-AssertionError: False is not true
-</pre>
-                                <h4>Details</h4>
-                                <pre>False is not true</pre>
-                            </div>
-                        </section>
-                        <section id="sample_data_tests.TestTrinitySampleData:test_paired_end_normalization">
-                            <h3>test_paired_end_normalization: <strong>exceptions.AssertionError</strong></h3>
-                            <div class="test-details">
-                                <h4>Traceback</h4>
-                                <pre class="traceback">Traceback (most recent call last):
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
-    testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/sample_data_tests.py", line 30, in test_paired_end_normalization
-    self.assertTrue(60 <= seq_count <= 65, msg='Found %s sequences' % seq_count)
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 420, in assertTrue
-    raise self.failureException(msg)
-AssertionError: Found 56 sequences
-</pre>
-                                <h4>Details</h4>
-                                <pre>Found 56 sequences</pre>
+                                <pre>Found 122 sequences</pre>
                             </div>
                         </section>
                 </div>
@@ -231,15 +197,15 @@ Version flag should return version information
 
     <h1>All tests</h1>
     <section>
-        <h2>sample_data_tests.TestTrinitySampleData (3 failures, 0 errors)</h2>
+        <h2>sample_data_tests.TestTrinitySampleData (1 failures, 0 errors)</h2>
         <ul>
                 <li><a class="success">test_DE_analysis_EdgeR</a></li>
-                <li><a class="failed" href="#sample_data_tests.TestTrinitySampleData:test_align_and_estimate_abundance">test_align_and_estimate_abundance</a></li>
-                <li><a class="failed" href="#sample_data_tests.TestTrinitySampleData:test_full_edgeR_pipeline">test_full_edgeR_pipeline</a></li>
+                <li><a class="success">test_align_and_estimate_abundance</a></li>
+                <li><a class="success">test_full_edgeR_pipeline</a></li>
                 <li><a class="success">test_genome_guided</a></li>
                 <li><a class="success">test_genome_guided_with_jaccard_clipping</a></li>
-                <li><a class="failed" href="#sample_data_tests.TestTrinitySampleData:test_paired_end_normalization">test_paired_end_normalization</a></li>
-                <li><a class="success">test_trinity_assembly</a></li>
+                <li><a class="success">test_paired_end_normalization</a></li>
+                <li><a class="failed" href="#sample_data_tests.TestTrinitySampleData:test_trinity_assembly">test_trinity_assembly</a></li>
         </ul>
     </section>
     <section>
