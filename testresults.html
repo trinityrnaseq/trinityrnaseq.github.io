@@ -67,7 +67,7 @@ section:target .test-details {
 </head>
 <body>
     <h1>Trinity Automated Test Results</h1>
-    <h2>2016-07-09 03:21</h2>
+    <h2>2016-07-30 11:55</h2>
     <section>
         <table>
             <tr>
@@ -80,10 +80,10 @@ section:target .test-details {
             </tr>
                 <tr>
                     <td>sample_data_tests.TestTrinitySampleData</td>
-                    <td class="failed">4</td>
+                    <td class="failed">3</td>
                     <td>0</td>
                     <td>0</td>
-                    <td>3</td>
+                    <td>4</td>
                     <td>7</td>
                 </tr>
                 <tr>
@@ -96,25 +96,25 @@ section:target .test-details {
                 </tr>
                 <tr>
                     <td>tests.TestTrinity</td>
-                    <td class="failed">3</td>
+                    <td class="failed">2</td>
                     <td class="failed">1</td>
                     <td>0</td>
-                    <td>17</td>
+                    <td>18</td>
                     <td>21</td>
                 </tr>
             <tr>
                 <td><strong>Total</strong></td>
-                <td class="failed">7</td>
+                <td class="failed">5</td>
                 <td class="failed">1</td>
                 <td>0</td>
-                <td>38</td>
+                <td>40</td>
                 <td>46</td>
             </tr>
         </table>
     </section>
     <h1>Failure details</h1>
             <section>
-                <h2>sample_data_tests.TestTrinitySampleData (4 failures, 0 errors)</h2>
+                <h2>sample_data_tests.TestTrinitySampleData (3 failures, 0 errors)</h2>
                 <div>
                         <section id="sample_data_tests.TestTrinitySampleData:test_align_and_estimate_abundance">
                             <h3>test_align_and_estimate_abundance: <strong>exceptions.AssertionError</strong></h3>
@@ -161,33 +161,16 @@ AssertionError: False is not true
     self.assertTrue(50 <= seq_count <= 60, msg='Found %s sequences' % seq_count)
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 420, in assertTrue
     raise self.failureException(msg)
-AssertionError: Found 62 sequences
+AssertionError: Found 64 sequences
 </pre>
                                 <h4>Details</h4>
-                                <pre>Found 62 sequences</pre>
-                            </div>
-                        </section>
-                        <section id="sample_data_tests.TestTrinitySampleData:test_paired_end_normalization">
-                            <h3>test_paired_end_normalization: <strong>exceptions.AssertionError</strong></h3>
-                            <div class="test-details">
-                                <h4>Traceback</h4>
-                                <pre class="traceback">Traceback (most recent call last):
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
-    testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/sample_data_tests.py", line 27, in test_paired_end_normalization
-    self.assertTrue(30 <= seq_count <= 40, msg='Found %s sequences' % seq_count)
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 420, in assertTrue
-    raise self.failureException(msg)
-AssertionError: Found 43 sequences
-</pre>
-                                <h4>Details</h4>
-                                <pre>Found 43 sequences</pre>
+                                <pre>Found 64 sequences</pre>
                             </div>
                         </section>
                 </div>
             </section>
             <section>
-                <h2>tests.TestTrinity (3 failures, 1 errors)</h2>
+                <h2>tests.TestTrinity (2 failures, 1 errors)</h2>
                 <div>
                         <section id="tests.TestTrinity:test_QuantifyGraph_works">
                             <h3>test_QuantifyGraph_works: <strong>exceptions.AssertionError</strong></h3>
@@ -206,33 +189,6 @@ AssertionError: QuantifyGraph failed
 </pre>
                                 <h4>Details</h4>
                                 <pre>QuantifyGraph failed</pre>
-                            </div>
-                        </section>
-                        <section id="tests.TestTrinity:test_sample_data_seq_count">
-                            <h3>test_sample_data_seq_count: <strong>exceptions.AssertionError</strong></h3>
-                            <div class="test-details">
-                                <h4>Traceback</h4>
-                                <pre class="traceback">Traceback (most recent call last):
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
-    testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/tests.py", line 39, in test_sample_data_seq_count
-    self.assertTrue(85 <= seq_count <= 110, msg='Found %s sequences' % seq_count)
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 420, in assertTrue
-    raise self.failureException(msg)
-AssertionError: Found 111 sequences
--------------------- >> begin captured stdout << ---------------------
-When assembling the sample data, the number of sequences assembled should be between 75 and 100
-Command line: Trinity --seqType fq --max_memory 2G --left reads.left.fq.gz,reads2.left.fq.gz --right reads.right.fq.gz,reads2.right.fq.gz --SS_lib_type RF --CPU 4 --no_cleanup
-
---------------------- >> end captured stdout << ----------------------
-</pre>
-                                <h4>Details</h4>
-                                <pre>Found 111 sequences
--------------------- >> begin captured stdout << ---------------------
-When assembling the sample data, the number of sequences assembled should be between 75 and 100
-Command line: Trinity --seqType fq --max_memory 2G --left reads.left.fq.gz,reads2.left.fq.gz --right reads.right.fq.gz,reads2.right.fq.gz --SS_lib_type RF --CPU 4 --no_cleanup
-
---------------------- >> end captured stdout << ----------------------</pre>
                             </div>
                         </section>
                         <section id="tests.TestTrinity:test_scaffold_iworm_contigs">
@@ -294,14 +250,14 @@ Version flag should return version information
 
     <h1>All tests</h1>
     <section>
-        <h2>sample_data_tests.TestTrinitySampleData (4 failures, 0 errors)</h2>
+        <h2>sample_data_tests.TestTrinitySampleData (3 failures, 0 errors)</h2>
         <ul>
                 <li><a class="success">test_DE_analysis_EdgeR</a></li>
                 <li><a class="failed" href="#sample_data_tests.TestTrinitySampleData:test_align_and_estimate_abundance">test_align_and_estimate_abundance</a></li>
                 <li><a class="failed" href="#sample_data_tests.TestTrinitySampleData:test_full_edgeR_pipeline">test_full_edgeR_pipeline</a></li>
                 <li><a class="failed" href="#sample_data_tests.TestTrinitySampleData:test_genome_guided">test_genome_guided</a></li>
                 <li><a class="success">test_genome_guided_with_jaccard_clipping</a></li>
-                <li><a class="failed" href="#sample_data_tests.TestTrinitySampleData:test_paired_end_normalization">test_paired_end_normalization</a></li>
+                <li><a class="success">test_paired_end_normalization</a></li>
                 <li><a class="success">test_trinity_assembly</a></li>
         </ul>
     </section>
@@ -329,7 +285,7 @@ Version flag should return version information
         </ul>
     </section>
     <section>
-        <h2>tests.TestTrinity (3 failures, 1 errors)</h2>
+        <h2>tests.TestTrinity (2 failures, 1 errors)</h2>
         <ul>
                 <li><a class="success">test_Inchworm_handles_compressed_files</a></li>
                 <li><a class="failed" href="#tests.TestTrinity:test_QuantifyGraph_works">test_QuantifyGraph_works</a></li>
@@ -343,7 +299,7 @@ Version flag should return version information
                 <li><a class="success">test_no_run_chrysalis</a></li>
                 <li><a class="success">test_no_run_inchworm</a></li>
                 <li><a class="success">test_output_correctly_changes_dir</a></li>
-                <li><a class="failed" href="#tests.TestTrinity:test_sample_data_seq_count">test_sample_data_seq_count</a></li>
+                <li><a class="success">test_sample_data_seq_count</a></li>
                 <li><a class="success">test_sample_data_trimmed_and_normalized</a></li>
                 <li><a class="failed" href="#tests.TestTrinity:test_scaffold_iworm_contigs">test_scaffold_iworm_contigs</a></li>
                 <li><a class="success">test_set_no_cleanup_and_full_cleanup_error</a></li>
