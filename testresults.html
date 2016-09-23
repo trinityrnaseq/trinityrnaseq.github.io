@@ -67,7 +67,7 @@ section:target .test-details {
 </head>
 <body>
     <h1>Trinity Automated Test Results</h1>
-    <h2>2016-09-23 10:54</h2>
+    <h2>2016-09-23 18:08</h2>
     <section>
         <table>
             <tr>
@@ -80,41 +80,41 @@ section:target .test-details {
             </tr>
                 <tr>
                     <td>sample_data_tests.TestTrinitySampleData</td>
-                    <td class="failed">4</td>
                     <td class="failed">3</td>
+                    <td class="failed">4</td>
                     <td>0</td>
                     <td>0</td>
                     <td>7</td>
                 </tr>
                 <tr>
                     <td>test_prep.TestTrinityPrepFlag</td>
-                    <td class="failed">9</td>
-                    <td class="failed">9</td>
+                    <td>0</td>
+                    <td class="failed">18</td>
                     <td>0</td>
                     <td>0</td>
                     <td>18</td>
                 </tr>
                 <tr>
                     <td>tests.TestTrinity</td>
-                    <td class="failed">5</td>
-                    <td class="failed">3</td>
+                    <td class="failed">11</td>
+                    <td class="failed">6</td>
                     <td>0</td>
-                    <td>13</td>
+                    <td>4</td>
                     <td>21</td>
                 </tr>
             <tr>
                 <td><strong>Total</strong></td>
-                <td class="failed">18</td>
-                <td class="failed">15</td>
+                <td class="failed">14</td>
+                <td class="failed">28</td>
                 <td>0</td>
-                <td>13</td>
+                <td>4</td>
                 <td>46</td>
             </tr>
         </table>
     </section>
     <h1>Failure details</h1>
             <section>
-                <h2>sample_data_tests.TestTrinitySampleData (4 failures, 3 errors)</h2>
+                <h2>sample_data_tests.TestTrinitySampleData (3 failures, 4 errors)</h2>
                 <div>
                         <section id="sample_data_tests.TestTrinitySampleData:test_DE_analysis_EdgeR">
                             <h3>test_DE_analysis_EdgeR: <strong>exceptions.AssertionError</strong></h3>
@@ -168,20 +168,20 @@ AssertionError: False is not true
                             </div>
                         </section>
                         <section id="sample_data_tests.TestTrinitySampleData:test_genome_guided">
-                            <h3>test_genome_guided: <strong>exceptions.AssertionError</strong></h3>
+                            <h3>test_genome_guided: <strong>exceptions.IOError</strong></h3>
                             <div class="test-details">
                                 <h4>Traceback</h4>
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/sample_data_tests.py", line 14, in test_genome_guided
-    self.assertTrue(50 <= seq_count <= 60, msg='Found %s sequences' % seq_count)
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 420, in assertTrue
-    raise self.failureException(msg)
-AssertionError: Found 64 sequences
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/sample_data_tests.py", line 13, in test_genome_guided
+    'Trinity-GG.fasta')
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/sample_data_tests.py", line 55, in count_sequences
+    handle = open(gg, "rU")
+IOError: [Errno 2] No such file or directory: '/N/dc2/scratch/befulton/JenkinsTest/src/sample_data/test_GenomeGuidedTrinity/test_GG_use_bam_trinity_outdir/Trinity-GG.fasta'
 </pre>
                                 <h4>Details</h4>
-                                <pre>Found 64 sequences</pre>
+                                <pre>[Errno 2] No such file or directory: '/N/dc2/scratch/befulton/JenkinsTest/src/sample_data/test_GenomeGuidedTrinity/test_GG_use_bam_trinity_outdir/Trinity-GG.fasta'</pre>
                             </div>
                         </section>
                         <section id="sample_data_tests.TestTrinitySampleData:test_genome_guided_with_jaccard_clipping">
@@ -238,10 +238,10 @@ IOError: [Errno 2] No such file or directory: '/N/dc2/scratch/befulton/JenkinsTe
                 </div>
             </section>
             <section>
-                <h2>test_prep.TestTrinityPrepFlag (9 failures, 9 errors)</h2>
+                <h2>test_prep.TestTrinityPrepFlag (0 failures, 18 errors)</h2>
                 <div>
                         <section id="test_prep.TestTrinityPrepFlag:test_fasta">
-                            <h3>test_fasta: <strong>exceptions.AssertionError</strong></h3>
+                            <h3>test_fasta: <strong>exceptions.IOError</strong></h3>
                             <div class="test-details">
                                 <h4>Traceback</h4>
                                 <pre class="traceback">Traceback (most recent call last):
@@ -249,18 +249,16 @@ IOError: [Errno 2] No such file or directory: '/N/dc2/scratch/befulton/JenkinsTe
     testMethod()
   File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 53, in test_fasta
     self.assertEquals(30575, self.count_seqs(), "Unexpected sequence count")
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 511, in assertEqual
-    assertion_func(first, second, msg=msg)
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 504, in _baseAssertEqual
-    raise self.failureException(msg)
-AssertionError: Unexpected sequence count
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
+    handle = open("trinity_out_dir/both.fa", "rU")
+IOError: [Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
 -------------------- >> begin captured stdout << ---------------------
 Command line: Trinity --single left1.fa --prep --seqType fa --max_memory 2G --no_version_check
 
 --------------------- >> end captured stdout << ----------------------
 </pre>
                                 <h4>Details</h4>
-                                <pre>Unexpected sequence count
+                                <pre>[Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
 -------------------- >> begin captured stdout << ---------------------
 Command line: Trinity --single left1.fa --prep --seqType fa --max_memory 2G --no_version_check
 
@@ -343,7 +341,7 @@ Command line: Trinity --left left1.fa,left1.fa.gz --right right1.fa,right1.fa.gz
                             </div>
                         </section>
                         <section id="test_prep.TestTrinityPrepFlag:test_fasta_multiple_files_single">
-                            <h3>test_fasta_multiple_files_single: <strong>exceptions.AssertionError</strong></h3>
+                            <h3>test_fasta_multiple_files_single: <strong>exceptions.IOError</strong></h3>
                             <div class="test-details">
                                 <h4>Traceback</h4>
                                 <pre class="traceback">Traceback (most recent call last):
@@ -351,18 +349,16 @@ Command line: Trinity --left left1.fa,left1.fa.gz --right right1.fa,right1.fa.gz
     testMethod()
   File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 61, in test_fasta_multiple_files_single
     self.assertEquals(61150, self.count_seqs(), "Unexpected sequence count")
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 511, in assertEqual
-    assertion_func(first, second, msg=msg)
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 504, in _baseAssertEqual
-    raise self.failureException(msg)
-AssertionError: Unexpected sequence count
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
+    handle = open("trinity_out_dir/both.fa", "rU")
+IOError: [Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
 -------------------- >> begin captured stdout << ---------------------
 Command line: Trinity --single left1.fa,left1.fa.gz --prep --seqType fa --max_memory 2G --no_version_check
 
 --------------------- >> end captured stdout << ----------------------
 </pre>
                                 <h4>Details</h4>
-                                <pre>Unexpected sequence count
+                                <pre>[Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
 -------------------- >> begin captured stdout << ---------------------
 Command line: Trinity --single left1.fa,left1.fa.gz --prep --seqType fa --max_memory 2G --no_version_check
 
@@ -370,7 +366,7 @@ Command line: Trinity --single left1.fa,left1.fa.gz --prep --seqType fa --max_me
                             </div>
                         </section>
                         <section id="test_prep.TestTrinityPrepFlag:test_fasta_multiple_files_single_reverse">
-                            <h3>test_fasta_multiple_files_single_reverse: <strong>exceptions.AssertionError</strong></h3>
+                            <h3>test_fasta_multiple_files_single_reverse: <strong>exceptions.IOError</strong></h3>
                             <div class="test-details">
                                 <h4>Traceback</h4>
                                 <pre class="traceback">Traceback (most recent call last):
@@ -378,18 +374,16 @@ Command line: Trinity --single left1.fa,left1.fa.gz --prep --seqType fa --max_me
     testMethod()
   File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 65, in test_fasta_multiple_files_single_reverse
     self.assertEquals(61150, self.count_seqs(), "Unexpected sequence count")
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 511, in assertEqual
-    assertion_func(first, second, msg=msg)
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 504, in _baseAssertEqual
-    raise self.failureException(msg)
-AssertionError: Unexpected sequence count
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
+    handle = open("trinity_out_dir/both.fa", "rU")
+IOError: [Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
 -------------------- >> begin captured stdout << ---------------------
 Command line: Trinity --single left1.fa,left1.fa.gz --prep --seqType fa --max_memory 2G --no_version_check --SS_lib_type R
 
 --------------------- >> end captured stdout << ----------------------
 </pre>
                                 <h4>Details</h4>
-                                <pre>Unexpected sequence count
+                                <pre>[Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
 -------------------- >> begin captured stdout << ---------------------
 Command line: Trinity --single left1.fa,left1.fa.gz --prep --seqType fa --max_memory 2G --no_version_check --SS_lib_type R
 
@@ -422,7 +416,7 @@ Command line: Trinity --left left1.fa --right right1.fa --prep --seqType fa --ma
                             </div>
                         </section>
                         <section id="test_prep.TestTrinityPrepFlag:test_fastq">
-                            <h3>test_fastq: <strong>exceptions.AssertionError</strong></h3>
+                            <h3>test_fastq: <strong>exceptions.IOError</strong></h3>
                             <div class="test-details">
                                 <h4>Traceback</h4>
                                 <pre class="traceback">Traceback (most recent call last):
@@ -430,18 +424,16 @@ Command line: Trinity --left left1.fa --right right1.fa --prep --seqType fa --ma
     testMethod()
   File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 29, in test_fastq
     self.assertEquals(30575, self.count_seqs(), "Unexpected sequence count")
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 511, in assertEqual
-    assertion_func(first, second, msg=msg)
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 504, in _baseAssertEqual
-    raise self.failureException(msg)
-AssertionError: Unexpected sequence count
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
+    handle = open("trinity_out_dir/both.fa", "rU")
+IOError: [Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
 -------------------- >> begin captured stdout << ---------------------
 Command line: Trinity --single left1.fq --prep --seqType fq --max_memory 2G --no_version_check
 
 --------------------- >> end captured stdout << ----------------------
 </pre>
                                 <h4>Details</h4>
-                                <pre>Unexpected sequence count
+                                <pre>[Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
 -------------------- >> begin captured stdout << ---------------------
 Command line: Trinity --single left1.fq --prep --seqType fq --max_memory 2G --no_version_check
 
@@ -449,7 +441,7 @@ Command line: Trinity --single left1.fq --prep --seqType fq --max_memory 2G --no
                             </div>
                         </section>
                         <section id="test_prep.TestTrinityPrepFlag:test_fastq_bz2">
-                            <h3>test_fastq_bz2: <strong>exceptions.AssertionError</strong></h3>
+                            <h3>test_fastq_bz2: <strong>exceptions.IOError</strong></h3>
                             <div class="test-details">
                                 <h4>Traceback</h4>
                                 <pre class="traceback">Traceback (most recent call last):
@@ -457,18 +449,16 @@ Command line: Trinity --single left1.fq --prep --seqType fq --max_memory 2G --no
     testMethod()
   File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 37, in test_fastq_bz2
     self.assertEquals(30575, self.count_seqs(), "Unexpected sequence count")
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 511, in assertEqual
-    assertion_func(first, second, msg=msg)
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 504, in _baseAssertEqual
-    raise self.failureException(msg)
-AssertionError: Unexpected sequence count
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
+    handle = open("trinity_out_dir/both.fa", "rU")
+IOError: [Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
 -------------------- >> begin captured stdout << ---------------------
 Command line: Trinity --single left1.fq.bz2 --prep --seqType fq --max_memory 2G --no_version_check
 
 --------------------- >> end captured stdout << ----------------------
 </pre>
                                 <h4>Details</h4>
-                                <pre>Unexpected sequence count
+                                <pre>[Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
 -------------------- >> begin captured stdout << ---------------------
 Command line: Trinity --single left1.fq.bz2 --prep --seqType fq --max_memory 2G --no_version_check
 
@@ -476,7 +466,7 @@ Command line: Trinity --single left1.fq.bz2 --prep --seqType fq --max_memory 2G 
                             </div>
                         </section>
                         <section id="test_prep.TestTrinityPrepFlag:test_fastq_gz">
-                            <h3>test_fastq_gz: <strong>exceptions.AssertionError</strong></h3>
+                            <h3>test_fastq_gz: <strong>exceptions.IOError</strong></h3>
                             <div class="test-details">
                                 <h4>Traceback</h4>
                                 <pre class="traceback">Traceback (most recent call last):
@@ -484,18 +474,16 @@ Command line: Trinity --single left1.fq.bz2 --prep --seqType fq --max_memory 2G 
     testMethod()
   File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 33, in test_fastq_gz
     self.assertEquals(30575, self.count_seqs(), "Unexpected sequence count")
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 511, in assertEqual
-    assertion_func(first, second, msg=msg)
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 504, in _baseAssertEqual
-    raise self.failureException(msg)
-AssertionError: Unexpected sequence count
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
+    handle = open("trinity_out_dir/both.fa", "rU")
+IOError: [Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
 -------------------- >> begin captured stdout << ---------------------
 Command line: Trinity --single left1.fq.gz --prep --seqType fq --max_memory 2G --no_version_check
 
 --------------------- >> end captured stdout << ----------------------
 </pre>
                                 <h4>Details</h4>
-                                <pre>Unexpected sequence count
+                                <pre>[Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
 -------------------- >> begin captured stdout << ---------------------
 Command line: Trinity --single left1.fq.gz --prep --seqType fq --max_memory 2G --no_version_check
 
@@ -553,7 +541,7 @@ Command line: Trinity --left left1.fq,left1.fq.gz --right right1.fq,right1.fq.gz
                             </div>
                         </section>
                         <section id="test_prep.TestTrinityPrepFlag:test_fastq_multiple_files_single">
-                            <h3>test_fastq_multiple_files_single: <strong>exceptions.AssertionError</strong></h3>
+                            <h3>test_fastq_multiple_files_single: <strong>exceptions.IOError</strong></h3>
                             <div class="test-details">
                                 <h4>Traceback</h4>
                                 <pre class="traceback">Traceback (most recent call last):
@@ -561,18 +549,16 @@ Command line: Trinity --left left1.fq,left1.fq.gz --right right1.fq,right1.fq.gz
     testMethod()
   File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 41, in test_fastq_multiple_files_single
     self.assertEquals(61150, self.count_seqs(), "Unexpected sequence count")
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 511, in assertEqual
-    assertion_func(first, second, msg=msg)
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 504, in _baseAssertEqual
-    raise self.failureException(msg)
-AssertionError: Unexpected sequence count
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
+    handle = open("trinity_out_dir/both.fa", "rU")
+IOError: [Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
 -------------------- >> begin captured stdout << ---------------------
 Command line: Trinity --single left1.fq,left1.fq.gz --prep --seqType fq --max_memory 2G --no_version_check
 
 --------------------- >> end captured stdout << ----------------------
 </pre>
                                 <h4>Details</h4>
-                                <pre>Unexpected sequence count
+                                <pre>[Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
 -------------------- >> begin captured stdout << ---------------------
 Command line: Trinity --single left1.fq,left1.fq.gz --prep --seqType fq --max_memory 2G --no_version_check
 
@@ -580,7 +566,7 @@ Command line: Trinity --single left1.fq,left1.fq.gz --prep --seqType fq --max_me
                             </div>
                         </section>
                         <section id="test_prep.TestTrinityPrepFlag:test_fastq_multiple_files_single_bz2">
-                            <h3>test_fastq_multiple_files_single_bz2: <strong>exceptions.AssertionError</strong></h3>
+                            <h3>test_fastq_multiple_files_single_bz2: <strong>exceptions.IOError</strong></h3>
                             <div class="test-details">
                                 <h4>Traceback</h4>
                                 <pre class="traceback">Traceback (most recent call last):
@@ -588,18 +574,16 @@ Command line: Trinity --single left1.fq,left1.fq.gz --prep --seqType fq --max_me
     testMethod()
   File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 45, in test_fastq_multiple_files_single_bz2
     self.assertEquals(61150, self.count_seqs(), "Unexpected sequence count")
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 511, in assertEqual
-    assertion_func(first, second, msg=msg)
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 504, in _baseAssertEqual
-    raise self.failureException(msg)
-AssertionError: Unexpected sequence count
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
+    handle = open("trinity_out_dir/both.fa", "rU")
+IOError: [Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
 -------------------- >> begin captured stdout << ---------------------
 Command line: Trinity --single left1.fq.bz2,left1.fq.gz --prep --seqType fq --max_memory 2G --no_version_check
 
 --------------------- >> end captured stdout << ----------------------
 </pre>
                                 <h4>Details</h4>
-                                <pre>Unexpected sequence count
+                                <pre>[Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
 -------------------- >> begin captured stdout << ---------------------
 Command line: Trinity --single left1.fq.bz2,left1.fq.gz --prep --seqType fq --max_memory 2G --no_version_check
 
@@ -607,7 +591,7 @@ Command line: Trinity --single left1.fq.bz2,left1.fq.gz --prep --seqType fq --ma
                             </div>
                         </section>
                         <section id="test_prep.TestTrinityPrepFlag:test_fastq_multiple_files_single_reverse">
-                            <h3>test_fastq_multiple_files_single_reverse: <strong>exceptions.AssertionError</strong></h3>
+                            <h3>test_fastq_multiple_files_single_reverse: <strong>exceptions.IOError</strong></h3>
                             <div class="test-details">
                                 <h4>Traceback</h4>
                                 <pre class="traceback">Traceback (most recent call last):
@@ -615,18 +599,16 @@ Command line: Trinity --single left1.fq.bz2,left1.fq.gz --prep --seqType fq --ma
     testMethod()
   File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 49, in test_fastq_multiple_files_single_reverse
     self.assertEquals(61150, self.count_seqs(), "Unexpected sequence count")
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 511, in assertEqual
-    assertion_func(first, second, msg=msg)
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 504, in _baseAssertEqual
-    raise self.failureException(msg)
-AssertionError: Unexpected sequence count
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
+    handle = open("trinity_out_dir/both.fa", "rU")
+IOError: [Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
 -------------------- >> begin captured stdout << ---------------------
 Command line: Trinity --single left1.fq,left1.fq.gz --prep --seqType fq --max_memory 2G --no_version_check --SS_lib_type R
 
 --------------------- >> end captured stdout << ----------------------
 </pre>
                                 <h4>Details</h4>
-                                <pre>Unexpected sequence count
+                                <pre>[Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
 -------------------- >> begin captured stdout << ---------------------
 Command line: Trinity --single left1.fq,left1.fq.gz --prep --seqType fq --max_memory 2G --no_version_check --SS_lib_type R
 
@@ -711,20 +693,18 @@ Command line: Trinity --left sra_test.fq --right sra_test2.fq --prep --seqType f
                 </div>
             </section>
             <section>
-                <h2>tests.TestTrinity (5 failures, 3 errors)</h2>
+                <h2>tests.TestTrinity (11 failures, 6 errors)</h2>
                 <div>
                         <section id="tests.TestTrinity:test_Inchworm_handles_compressed_files">
-                            <h3>test_Inchworm_handles_compressed_files: <strong>exceptions.AssertionError</strong></h3>
+                            <h3>test_Inchworm_handles_compressed_files: <strong>exceptions.IOError</strong></h3>
                             <div class="test-details">
                                 <h4>Traceback</h4>
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/tests.py", line 145, in test_Inchworm_handles_compressed_files
-    self.assertTrue(2850 <= num_lines <= 3100, msg='Found %s lines' % num_lines)
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 420, in assertTrue
-    raise self.failureException(msg)
-AssertionError: Found 2779 lines
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/tests.py", line 144, in test_Inchworm_handles_compressed_files
+    num_lines = sum(1 for line in open('trinity_out_dir/inchworm.K25.L25.fa'))
+IOError: [Errno 2] No such file or directory: 'trinity_out_dir/inchworm.K25.L25.fa'
 -------------------- >> begin captured stdout << ---------------------
 A compressed single file should be handlred correctly by Inchworm
 Command line: Trinity --max_memory 2G --seqType fq --single reads.left.fq.gz --SS_lib_type F --no_run_chrysalis
@@ -732,7 +712,7 @@ Command line: Trinity --max_memory 2G --seqType fq --single reads.left.fq.gz --S
 --------------------- >> end captured stdout << ----------------------
 </pre>
                                 <h4>Details</h4>
-                                <pre>Found 2779 lines
+                                <pre>[Errno 2] No such file or directory: 'trinity_out_dir/inchworm.K25.L25.fa'
 -------------------- >> begin captured stdout << ---------------------
 A compressed single file should be handlred correctly by Inchworm
 Command line: Trinity --max_memory 2G --seqType fq --single reads.left.fq.gz --SS_lib_type F --no_run_chrysalis
@@ -757,6 +737,33 @@ AssertionError: QuantifyGraph failed
 </pre>
                                 <h4>Details</h4>
                                 <pre>QuantifyGraph failed</pre>
+                            </div>
+                        </section>
+                        <section id="tests.TestTrinity:test_cite">
+                            <h3>test_cite: <strong>exceptions.TypeError</strong></h3>
+                            <div class="test-details">
+                                <h4>Traceback</h4>
+                                <pre class="traceback">Traceback (most recent call last):
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/site-packages/nose/case.py", line 133, in run
+    self.runTest(result)
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/site-packages/nose/case.py", line 151, in runTest
+    test(result)
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 391, in __call__
+    return self.run(*args, **kwds)
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 351, in run
+    result.addError(self, sys.exc_info())
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/site-packages/nose/proxy.py", line 131, in addError
+    plugins.addError(self.test, err)
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/site-packages/nose/plugins/manager.py", line 99, in __call__
+    return self.call(*arg, **kw)
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/site-packages/nose/plugins/manager.py", line 167, in simple
+    result = meth(*arg, **kw)
+  File "/N/u/befulton/Karst/.local/lib/python2.7/site-packages/nose_htmloutput/__init__.py", line 148, in addError
+    exc_val if isinstance(exc_val, exc_type) else exc_type(exc_val),
+TypeError: __init__() takes at least 3 arguments (2 given)
+</pre>
+                                <h4>Details</h4>
+                                <pre>__init__() takes at least 3 arguments (2 given)</pre>
                             </div>
                         </section>
                         <section id="tests.TestTrinity:test_cleanup_removes_temp_files">
@@ -786,6 +793,56 @@ Command line: Trinity --seqType fq --max_memory 2G --left reads.left.fq.gz,reads
 --------------------- >> end captured stdout << ----------------------</pre>
                             </div>
                         </section>
+                        <section id="tests.TestTrinity:test_invalid_option_error">
+                            <h3>test_invalid_option_error: <strong>exceptions.AssertionError</strong></h3>
+                            <div class="test-details">
+                                <h4>Traceback</h4>
+                                <pre class="traceback">Traceback (most recent call last):
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
+    testMethod()
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/tests.py", line 191, in test_invalid_option_error
+    self.assertTrue("ERROR, don't recognize parameter: --squidward" in error)
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 420, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true
+-------------------- >> begin captured stdout << ---------------------
+Invalid options result in an error
+
+--------------------- >> end captured stdout << ----------------------
+</pre>
+                                <h4>Details</h4>
+                                <pre>False is not true
+-------------------- >> begin captured stdout << ---------------------
+Invalid options result in an error
+
+--------------------- >> end captured stdout << ----------------------</pre>
+                            </div>
+                        </section>
+                        <section id="tests.TestTrinity:test_no_JM_specified_error">
+                            <h3>test_no_JM_specified_error: <strong>exceptions.AssertionError</strong></h3>
+                            <div class="test-details">
+                                <h4>Traceback</h4>
+                                <pre class="traceback">Traceback (most recent call last):
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
+    testMethod()
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/tests.py", line 186, in test_no_JM_specified_error
+    self.assertTrue("Error, must specify max memory for jellyfish to use, eg.  --max_memory 10G" in error)
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 420, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true
+-------------------- >> begin captured stdout << ---------------------
+max_memory flag is required
+
+--------------------- >> end captured stdout << ----------------------
+</pre>
+                                <h4>Details</h4>
+                                <pre>False is not true
+-------------------- >> begin captured stdout << ---------------------
+max_memory flag is required
+
+--------------------- >> end captured stdout << ----------------------</pre>
+                            </div>
+                        </section>
                         <section id="tests.TestTrinity:test_no_cleanup_leaves_temp_files">
                             <h3>test_no_cleanup_leaves_temp_files: <strong>exceptions.AssertionError</strong></h3>
                             <div class="test-details">
@@ -809,6 +866,112 @@ Command line: Trinity --seqType fq --max_memory 2G --left reads.left.fq.gz,reads
 -------------------- >> begin captured stdout << ---------------------
 The --no_cleanup flag should ensure that the output directory is left behind
 Command line: Trinity --seqType fq --max_memory 2G --left reads.left.fq.gz,reads2.left.fq.gz --right reads.right.fq.gz,reads2.right.fq.gz --SS_lib_type RF --CPU 4 --no_cleanup
+
+--------------------- >> end captured stdout << ----------------------</pre>
+                            </div>
+                        </section>
+                        <section id="tests.TestTrinity:test_no_distributed_trinity_exec">
+                            <h3>test_no_distributed_trinity_exec: <strong>exceptions.AssertionError</strong></h3>
+                            <div class="test-details">
+                                <h4>Traceback</h4>
+                                <pre class="traceback">Traceback (most recent call last):
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
+    testMethod()
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/tests.py", line 100, in test_no_distributed_trinity_exec
+    msg="Inchworm did not appear to run with no_distributed_trinity_exec flag")
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 420, in assertTrue
+    raise self.failureException(msg)
+AssertionError: Inchworm did not appear to run with no_distributed_trinity_exec flag
+-------------------- >> begin captured stdout << ---------------------
+The --no_distributed_trinity_exec flag should run Jellyfish but not create an output file
+Command line: Trinity --max_memory 2G --seqType fq --single reads.left.fq --SS_lib_type F --no_distributed_trinity_exec
+
+--------------------- >> end captured stdout << ----------------------
+</pre>
+                                <h4>Details</h4>
+                                <pre>Inchworm did not appear to run with no_distributed_trinity_exec flag
+-------------------- >> begin captured stdout << ---------------------
+The --no_distributed_trinity_exec flag should run Jellyfish but not create an output file
+Command line: Trinity --max_memory 2G --seqType fq --single reads.left.fq --SS_lib_type F --no_distributed_trinity_exec
+
+--------------------- >> end captured stdout << ----------------------</pre>
+                            </div>
+                        </section>
+                        <section id="tests.TestTrinity:test_no_run_chrysalis">
+                            <h3>test_no_run_chrysalis: <strong>exceptions.OSError</strong></h3>
+                            <div class="test-details">
+                                <h4>Traceback</h4>
+                                <pre class="traceback">Traceback (most recent call last):
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
+    testMethod()
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/tests.py", line 80, in test_no_run_chrysalis
+    self.assertEquals(0, len(os.listdir('trinity_out_dir/chrysalis')))
+OSError: [Errno 2] No such file or directory: 'trinity_out_dir/chrysalis'
+-------------------- >> begin captured stdout << ---------------------
+The --no_run_chrysalis flag should result in no chrysalis subdirectory in the output directory
+Command line: Trinity --max_memory 2G --seqType fq --single reads.left.fq --SS_lib_type F --no_run_chrysalis
+
+--------------------- >> end captured stdout << ----------------------
+</pre>
+                                <h4>Details</h4>
+                                <pre>[Errno 2] No such file or directory: 'trinity_out_dir/chrysalis'
+-------------------- >> begin captured stdout << ---------------------
+The --no_run_chrysalis flag should result in no chrysalis subdirectory in the output directory
+Command line: Trinity --max_memory 2G --seqType fq --single reads.left.fq --SS_lib_type F --no_run_chrysalis
+
+--------------------- >> end captured stdout << ----------------------</pre>
+                            </div>
+                        </section>
+                        <section id="tests.TestTrinity:test_no_run_inchworm">
+                            <h3>test_no_run_inchworm: <strong>exceptions.AssertionError</strong></h3>
+                            <div class="test-details">
+                                <h4>Traceback</h4>
+                                <pre class="traceback">Traceback (most recent call last):
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
+    testMethod()
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/tests.py", line 88, in test_no_run_inchworm
+    msg="jellyfish.kmers.fa was not created")
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 420, in assertTrue
+    raise self.failureException(msg)
+AssertionError: jellyfish.kmers.fa was not created
+-------------------- >> begin captured stdout << ---------------------
+The --no_run_inchworm flag should result in no inchworm.finished file
+Command line: Trinity --max_memory 2G --seqType fq --single reads.left.fq --SS_lib_type F --no_run_inchworm
+
+--------------------- >> end captured stdout << ----------------------
+</pre>
+                                <h4>Details</h4>
+                                <pre>jellyfish.kmers.fa was not created
+-------------------- >> begin captured stdout << ---------------------
+The --no_run_inchworm flag should result in no inchworm.finished file
+Command line: Trinity --max_memory 2G --seqType fq --single reads.left.fq --SS_lib_type F --no_run_inchworm
+
+--------------------- >> end captured stdout << ----------------------</pre>
+                            </div>
+                        </section>
+                        <section id="tests.TestTrinity:test_output_correctly_changes_dir">
+                            <h3>test_output_correctly_changes_dir: <strong>exceptions.AssertionError</strong></h3>
+                            <div class="test-details">
+                                <h4>Traceback</h4>
+                                <pre class="traceback">Traceback (most recent call last):
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
+    testMethod()
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/tests.py", line 115, in test_output_correctly_changes_dir
+    self.assertTrue(os.path.exists("trinity_test"), msg="Changed output directory but it was not created")
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 420, in assertTrue
+    raise self.failureException(msg)
+AssertionError: Changed output directory but it was not created
+-------------------- >> begin captured stdout << ---------------------
+The --output flag should change the output directory
+Command line: Trinity --max_memory 2G --seqType fq --single reads.left.fq --SS_lib_type F --output trinity_test
+
+--------------------- >> end captured stdout << ----------------------
+</pre>
+                                <h4>Details</h4>
+                                <pre>Changed output directory but it was not created
+-------------------- >> begin captured stdout << ---------------------
+The --output flag should change the output directory
+Command line: Trinity --max_memory 2G --seqType fq --single reads.left.fq --SS_lib_type F --output trinity_test
 
 --------------------- >> end captured stdout << ----------------------</pre>
                             </div>
@@ -892,6 +1055,56 @@ scaffold_iworm_contigs works as expected
 --------------------- >> end captured stdout << ----------------------</pre>
                             </div>
                         </section>
+                        <section id="tests.TestTrinity:test_set_no_cleanup_and_full_cleanup_error">
+                            <h3>test_set_no_cleanup_and_full_cleanup_error: <strong>exceptions.AssertionError</strong></h3>
+                            <div class="test-details">
+                                <h4>Traceback</h4>
+                                <pre class="traceback">Traceback (most recent call last):
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
+    testMethod()
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/tests.py", line 196, in test_set_no_cleanup_and_full_cleanup_error
+    self.assertTrue("cannot set --no_cleanup and --full_cleanup as they contradict" in error)
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 420, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true
+-------------------- >> begin captured stdout << ---------------------
+Setting no_cleanup and full_cleanup together results in an error
+
+--------------------- >> end captured stdout << ----------------------
+</pre>
+                                <h4>Details</h4>
+                                <pre>False is not true
+-------------------- >> begin captured stdout << ---------------------
+Setting no_cleanup and full_cleanup together results in an error
+
+--------------------- >> end captured stdout << ----------------------</pre>
+                            </div>
+                        </section>
+                        <section id="tests.TestTrinity:test_show_full_usage_info">
+                            <h3>test_show_full_usage_info: <strong>exceptions.AssertionError</strong></h3>
+                            <div class="test-details">
+                                <h4>Traceback</h4>
+                                <pre class="traceback">Traceback (most recent call last):
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
+    testMethod()
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/tests.py", line 176, in test_show_full_usage_info
+    self.assertTrue("Inchworm and K-mer counting-related options" in e.output)
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 420, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true
+-------------------- >> begin captured stdout << ---------------------
+show_full_usage_info flag has several option sections
+
+--------------------- >> end captured stdout << ----------------------
+</pre>
+                                <h4>Details</h4>
+                                <pre>False is not true
+-------------------- >> begin captured stdout << ---------------------
+show_full_usage_info flag has several option sections
+
+--------------------- >> end captured stdout << ----------------------</pre>
+                            </div>
+                        </section>
                         <section id="tests.TestTrinity:test_version">
                             <h3>test_version: <strong>exceptions.AssertionError</strong></h3>
                             <div class="test-details">
@@ -922,7 +1135,7 @@ Version flag should return version information
 
     <h1>All tests</h1>
     <section>
-        <h2>sample_data_tests.TestTrinitySampleData (4 failures, 3 errors)</h2>
+        <h2>sample_data_tests.TestTrinitySampleData (3 failures, 4 errors)</h2>
         <ul>
                 <li><a class="failed" href="#sample_data_tests.TestTrinitySampleData:test_DE_analysis_EdgeR">test_DE_analysis_EdgeR</a></li>
                 <li><a class="failed" href="#sample_data_tests.TestTrinitySampleData:test_align_and_estimate_abundance">test_align_and_estimate_abundance</a></li>
@@ -934,7 +1147,7 @@ Version flag should return version information
         </ul>
     </section>
     <section>
-        <h2>test_prep.TestTrinityPrepFlag (9 failures, 9 errors)</h2>
+        <h2>test_prep.TestTrinityPrepFlag (0 failures, 18 errors)</h2>
         <ul>
                 <li><a class="failed" href="#test_prep.TestTrinityPrepFlag:test_fasta">test_fasta</a></li>
                 <li><a class="failed" href="#test_prep.TestTrinityPrepFlag:test_fasta_gz">test_fasta_gz</a></li>
@@ -957,25 +1170,25 @@ Version flag should return version information
         </ul>
     </section>
     <section>
-        <h2>tests.TestTrinity (5 failures, 3 errors)</h2>
+        <h2>tests.TestTrinity (11 failures, 6 errors)</h2>
         <ul>
                 <li><a class="failed" href="#tests.TestTrinity:test_Inchworm_handles_compressed_files">test_Inchworm_handles_compressed_files</a></li>
                 <li><a class="failed" href="#tests.TestTrinity:test_QuantifyGraph_works">test_QuantifyGraph_works</a></li>
-                <li><a class="success">test_cite</a></li>
+                <li><a class="failed" href="#tests.TestTrinity:test_cite">test_cite</a></li>
                 <li><a class="failed" href="#tests.TestTrinity:test_cleanup_removes_temp_files">test_cleanup_removes_temp_files</a></li>
-                <li><a class="success">test_invalid_option_error</a></li>
-                <li><a class="success">test_no_JM_specified_error</a></li>
+                <li><a class="failed" href="#tests.TestTrinity:test_invalid_option_error">test_invalid_option_error</a></li>
+                <li><a class="failed" href="#tests.TestTrinity:test_no_JM_specified_error">test_no_JM_specified_error</a></li>
                 <li><a class="success">test_no_bowtie</a></li>
                 <li><a class="failed" href="#tests.TestTrinity:test_no_cleanup_leaves_temp_files">test_no_cleanup_leaves_temp_files</a></li>
-                <li><a class="success">test_no_distributed_trinity_exec</a></li>
-                <li><a class="success">test_no_run_chrysalis</a></li>
-                <li><a class="success">test_no_run_inchworm</a></li>
-                <li><a class="success">test_output_correctly_changes_dir</a></li>
+                <li><a class="failed" href="#tests.TestTrinity:test_no_distributed_trinity_exec">test_no_distributed_trinity_exec</a></li>
+                <li><a class="failed" href="#tests.TestTrinity:test_no_run_chrysalis">test_no_run_chrysalis</a></li>
+                <li><a class="failed" href="#tests.TestTrinity:test_no_run_inchworm">test_no_run_inchworm</a></li>
+                <li><a class="failed" href="#tests.TestTrinity:test_output_correctly_changes_dir">test_output_correctly_changes_dir</a></li>
                 <li><a class="failed" href="#tests.TestTrinity:test_sample_data_seq_count">test_sample_data_seq_count</a></li>
                 <li><a class="failed" href="#tests.TestTrinity:test_sample_data_trimmed_and_normalized">test_sample_data_trimmed_and_normalized</a></li>
                 <li><a class="failed" href="#tests.TestTrinity:test_scaffold_iworm_contigs">test_scaffold_iworm_contigs</a></li>
-                <li><a class="success">test_set_no_cleanup_and_full_cleanup_error</a></li>
-                <li><a class="success">test_show_full_usage_info</a></li>
+                <li><a class="failed" href="#tests.TestTrinity:test_set_no_cleanup_and_full_cleanup_error">test_set_no_cleanup_and_full_cleanup_error</a></li>
+                <li><a class="failed" href="#tests.TestTrinity:test_show_full_usage_info">test_show_full_usage_info</a></li>
                 <li><a class="success">test_single_end_with_fa_and_reverse</a></li>
                 <li><a class="success">test_single_end_with_fq</a></li>
                 <li><a class="success">test_single_end_with_rf_lib_type_error</a></li>
