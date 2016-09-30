@@ -67,7 +67,7 @@ section:target .test-details {
 </head>
 <body>
     <h1>Trinity Automated Test Results</h1>
-    <h2>2016-09-27 02:24</h2>
+    <h2>2016-09-29 23:36</h2>
     <section>
         <table>
             <tr>
@@ -88,10 +88,10 @@ section:target .test-details {
                 </tr>
                 <tr>
                     <td>test_prep.TestTrinityPrepFlag</td>
-                    <td class="failed">15</td>
-                    <td class="failed">3</td>
                     <td>0</td>
                     <td>0</td>
+                    <td>0</td>
+                    <td>18</td>
                     <td>18</td>
                 </tr>
                 <tr>
@@ -104,10 +104,10 @@ section:target .test-details {
                 </tr>
             <tr>
                 <td><strong>Total</strong></td>
-                <td class="failed">22</td>
-                <td class="failed">4</td>
+                <td class="failed">7</td>
+                <td class="failed">1</td>
                 <td>0</td>
-                <td>20</td>
+                <td>38</td>
                 <td>46</td>
             </tr>
         </table>
@@ -124,13 +124,13 @@ section:target .test-details {
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
   File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/sample_data_tests.py", line 38, in test_DE_analysis_EdgeR
-    self.assertTrue(os.path.isfile(check_file))
+    self.assertTrue(os.path.isfile(check_file), 'DE output file not created')
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 420, in assertTrue
     raise self.failureException(msg)
-AssertionError: False is not true
+AssertionError: DE output file not created
 </pre>
                                 <h4>Details</h4>
-                                <pre>False is not true</pre>
+                                <pre>DE output file not created</pre>
                             </div>
                         </section>
                         <section id="sample_data_tests.TestTrinitySampleData:test_align_and_estimate_abundance">
@@ -141,13 +141,13 @@ AssertionError: False is not true
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
   File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/sample_data_tests.py", line 45, in test_align_and_estimate_abundance
-    self.assertTrue(os.path.isfile(check_file))
+    self.assertTrue(os.path.isfile(check_file), 'RSEM-gene.counts.matrix not created')
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 420, in assertTrue
     raise self.failureException(msg)
-AssertionError: False is not true
+AssertionError: RSEM-gene.counts.matrix not created
 </pre>
                                 <h4>Details</h4>
-                                <pre>False is not true</pre>
+                                <pre>RSEM-gene.counts.matrix not created</pre>
                             </div>
                         </section>
                         <section id="sample_data_tests.TestTrinitySampleData:test_full_edgeR_pipeline">
@@ -158,13 +158,13 @@ AssertionError: False is not true
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
   File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/sample_data_tests.py", line 49, in test_full_edgeR_pipeline
-    self.assertTrue(os.path.isfile(check_file))
+    self.assertTrue(os.path.isfile(check_file), 'edgeR sorted BAM not created')
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 420, in assertTrue
     raise self.failureException(msg)
-AssertionError: False is not true
+AssertionError: edgeR sorted BAM not created
 </pre>
                                 <h4>Details</h4>
-                                <pre>False is not true</pre>
+                                <pre>edgeR sorted BAM not created</pre>
                             </div>
                         </section>
                         <section id="sample_data_tests.TestTrinitySampleData:test_genome_guided">
@@ -187,491 +187,6 @@ AssertionError: Found 64 sequences
                 </div>
             </section>
             <section>
-                <h2>test_prep.TestTrinityPrepFlag (15 failures, 3 errors)</h2>
-                <div>
-                        <section id="test_prep.TestTrinityPrepFlag:test_fasta">
-                            <h3>test_fasta: <strong>exceptions.AssertionError</strong></h3>
-                            <div class="test-details">
-                                <h4>Traceback</h4>
-                                <pre class="traceback">Traceback (most recent call last):
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
-    testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 53, in test_fasta
-    self.assertEquals(30575, self.count_seqs(), "Unexpected sequence count")
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 511, in assertEqual
-    assertion_func(first, second, msg=msg)
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 504, in _baseAssertEqual
-    raise self.failureException(msg)
-AssertionError: Unexpected sequence count
--------------------- >> begin captured stdout << ---------------------
-Command line: Trinity --single left1.fa --prep --seqType fa --max_memory 2G --no_version_check
-
---------------------- >> end captured stdout << ----------------------
-</pre>
-                                <h4>Details</h4>
-                                <pre>Unexpected sequence count
--------------------- >> begin captured stdout << ---------------------
-Command line: Trinity --single left1.fa --prep --seqType fa --max_memory 2G --no_version_check
-
---------------------- >> end captured stdout << ----------------------</pre>
-                            </div>
-                        </section>
-                        <section id="test_prep.TestTrinityPrepFlag:test_fasta_gz">
-                            <h3>test_fasta_gz: <strong>exceptions.IOError</strong></h3>
-                            <div class="test-details">
-                                <h4>Traceback</h4>
-                                <pre class="traceback">Traceback (most recent call last):
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
-    testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 57, in test_fasta_gz
-    self.assertEquals(30575, self.count_seqs(), "Unexpected sequence count")
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
-    handle = open("trinity_out_dir/both.fa", "rU")
-IOError: [Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
--------------------- >> begin captured stdout << ---------------------
-Command line: Trinity --single left1.fa.gz --prep --seqType fa --max_memory 2G --no_version_check
-
---------------------- >> end captured stdout << ----------------------
-</pre>
-                                <h4>Details</h4>
-                                <pre>[Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
--------------------- >> begin captured stdout << ---------------------
-Command line: Trinity --single left1.fa.gz --prep --seqType fa --max_memory 2G --no_version_check
-
---------------------- >> end captured stdout << ----------------------</pre>
-                            </div>
-                        </section>
-                        <section id="test_prep.TestTrinityPrepFlag:test_fasta_gz_paired">
-                            <h3>test_fasta_gz_paired: <strong>exceptions.IOError</strong></h3>
-                            <div class="test-details">
-                                <h4>Traceback</h4>
-                                <pre class="traceback">Traceback (most recent call last):
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
-    testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 93, in test_fasta_gz_paired
-    self.assertEquals(61150, self.count_seqs(), "Unexpected sequence count")
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
-    handle = open("trinity_out_dir/both.fa", "rU")
-IOError: [Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
--------------------- >> begin captured stdout << ---------------------
-Command line: Trinity --left left1.fa.gz --right right1.fa.gz --prep --seqType fa --max_memory 2G --no_version_check
-
---------------------- >> end captured stdout << ----------------------
-</pre>
-                                <h4>Details</h4>
-                                <pre>[Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
--------------------- >> begin captured stdout << ---------------------
-Command line: Trinity --left left1.fa.gz --right right1.fa.gz --prep --seqType fa --max_memory 2G --no_version_check
-
---------------------- >> end captured stdout << ----------------------</pre>
-                            </div>
-                        </section>
-                        <section id="test_prep.TestTrinityPrepFlag:test_fasta_multiple_files_paired">
-                            <h3>test_fasta_multiple_files_paired: <strong>exceptions.AssertionError</strong></h3>
-                            <div class="test-details">
-                                <h4>Traceback</h4>
-                                <pre class="traceback">Traceback (most recent call last):
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
-    testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 101, in test_fasta_multiple_files_paired
-    self.assertEquals(122300, self.count_seqs(), "Unexpected sequence count")
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 511, in assertEqual
-    assertion_func(first, second, msg=msg)
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 504, in _baseAssertEqual
-    raise self.failureException(msg)
-AssertionError: Unexpected sequence count
--------------------- >> begin captured stdout << ---------------------
-Command line: Trinity --left left1.fa,left1.fa.gz --right right1.fa,right1.fa.gz --prep --seqType fa --max_memory 2G --no_version_check --SS_lib_type RF
-
---------------------- >> end captured stdout << ----------------------
-</pre>
-                                <h4>Details</h4>
-                                <pre>Unexpected sequence count
--------------------- >> begin captured stdout << ---------------------
-Command line: Trinity --left left1.fa,left1.fa.gz --right right1.fa,right1.fa.gz --prep --seqType fa --max_memory 2G --no_version_check --SS_lib_type RF
-
---------------------- >> end captured stdout << ----------------------</pre>
-                            </div>
-                        </section>
-                        <section id="test_prep.TestTrinityPrepFlag:test_fasta_multiple_files_single">
-                            <h3>test_fasta_multiple_files_single: <strong>exceptions.AssertionError</strong></h3>
-                            <div class="test-details">
-                                <h4>Traceback</h4>
-                                <pre class="traceback">Traceback (most recent call last):
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
-    testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 61, in test_fasta_multiple_files_single
-    self.assertEquals(61150, self.count_seqs(), "Unexpected sequence count")
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 511, in assertEqual
-    assertion_func(first, second, msg=msg)
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 504, in _baseAssertEqual
-    raise self.failureException(msg)
-AssertionError: Unexpected sequence count
--------------------- >> begin captured stdout << ---------------------
-Command line: Trinity --single left1.fa,left1.fa.gz --prep --seqType fa --max_memory 2G --no_version_check
-
---------------------- >> end captured stdout << ----------------------
-</pre>
-                                <h4>Details</h4>
-                                <pre>Unexpected sequence count
--------------------- >> begin captured stdout << ---------------------
-Command line: Trinity --single left1.fa,left1.fa.gz --prep --seqType fa --max_memory 2G --no_version_check
-
---------------------- >> end captured stdout << ----------------------</pre>
-                            </div>
-                        </section>
-                        <section id="test_prep.TestTrinityPrepFlag:test_fasta_multiple_files_single_reverse">
-                            <h3>test_fasta_multiple_files_single_reverse: <strong>exceptions.AssertionError</strong></h3>
-                            <div class="test-details">
-                                <h4>Traceback</h4>
-                                <pre class="traceback">Traceback (most recent call last):
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
-    testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 65, in test_fasta_multiple_files_single_reverse
-    self.assertEquals(61150, self.count_seqs(), "Unexpected sequence count")
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 511, in assertEqual
-    assertion_func(first, second, msg=msg)
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 504, in _baseAssertEqual
-    raise self.failureException(msg)
-AssertionError: Unexpected sequence count
--------------------- >> begin captured stdout << ---------------------
-Command line: Trinity --single left1.fa,left1.fa.gz --prep --seqType fa --max_memory 2G --no_version_check --SS_lib_type R
-
---------------------- >> end captured stdout << ----------------------
-</pre>
-                                <h4>Details</h4>
-                                <pre>Unexpected sequence count
--------------------- >> begin captured stdout << ---------------------
-Command line: Trinity --single left1.fa,left1.fa.gz --prep --seqType fa --max_memory 2G --no_version_check --SS_lib_type R
-
---------------------- >> end captured stdout << ----------------------</pre>
-                            </div>
-                        </section>
-                        <section id="test_prep.TestTrinityPrepFlag:test_fasta_paired">
-                            <h3>test_fasta_paired: <strong>exceptions.AssertionError</strong></h3>
-                            <div class="test-details">
-                                <h4>Traceback</h4>
-                                <pre class="traceback">Traceback (most recent call last):
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
-    testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 85, in test_fasta_paired
-    self.assertEquals(61150, self.count_seqs(), "Unexpected sequence count")
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 511, in assertEqual
-    assertion_func(first, second, msg=msg)
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 504, in _baseAssertEqual
-    raise self.failureException(msg)
-AssertionError: Unexpected sequence count
--------------------- >> begin captured stdout << ---------------------
-Command line: Trinity --left left1.fa --right right1.fa --prep --seqType fa --max_memory 2G --no_version_check
-
---------------------- >> end captured stdout << ----------------------
-</pre>
-                                <h4>Details</h4>
-                                <pre>Unexpected sequence count
--------------------- >> begin captured stdout << ---------------------
-Command line: Trinity --left left1.fa --right right1.fa --prep --seqType fa --max_memory 2G --no_version_check
-
---------------------- >> end captured stdout << ----------------------</pre>
-                            </div>
-                        </section>
-                        <section id="test_prep.TestTrinityPrepFlag:test_fastq">
-                            <h3>test_fastq: <strong>exceptions.AssertionError</strong></h3>
-                            <div class="test-details">
-                                <h4>Traceback</h4>
-                                <pre class="traceback">Traceback (most recent call last):
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
-    testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 29, in test_fastq
-    self.assertEquals(30575, self.count_seqs(), "Unexpected sequence count")
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 511, in assertEqual
-    assertion_func(first, second, msg=msg)
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 504, in _baseAssertEqual
-    raise self.failureException(msg)
-AssertionError: Unexpected sequence count
--------------------- >> begin captured stdout << ---------------------
-Command line: Trinity --single left1.fq --prep --seqType fq --max_memory 2G --no_version_check
-
---------------------- >> end captured stdout << ----------------------
-</pre>
-                                <h4>Details</h4>
-                                <pre>Unexpected sequence count
--------------------- >> begin captured stdout << ---------------------
-Command line: Trinity --single left1.fq --prep --seqType fq --max_memory 2G --no_version_check
-
---------------------- >> end captured stdout << ----------------------</pre>
-                            </div>
-                        </section>
-                        <section id="test_prep.TestTrinityPrepFlag:test_fastq_bz2">
-                            <h3>test_fastq_bz2: <strong>exceptions.AssertionError</strong></h3>
-                            <div class="test-details">
-                                <h4>Traceback</h4>
-                                <pre class="traceback">Traceback (most recent call last):
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
-    testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 37, in test_fastq_bz2
-    self.assertEquals(30575, self.count_seqs(), "Unexpected sequence count")
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 511, in assertEqual
-    assertion_func(first, second, msg=msg)
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 504, in _baseAssertEqual
-    raise self.failureException(msg)
-AssertionError: Unexpected sequence count
--------------------- >> begin captured stdout << ---------------------
-Command line: Trinity --single left1.fq.bz2 --prep --seqType fq --max_memory 2G --no_version_check
-
---------------------- >> end captured stdout << ----------------------
-</pre>
-                                <h4>Details</h4>
-                                <pre>Unexpected sequence count
--------------------- >> begin captured stdout << ---------------------
-Command line: Trinity --single left1.fq.bz2 --prep --seqType fq --max_memory 2G --no_version_check
-
---------------------- >> end captured stdout << ----------------------</pre>
-                            </div>
-                        </section>
-                        <section id="test_prep.TestTrinityPrepFlag:test_fastq_gz">
-                            <h3>test_fastq_gz: <strong>exceptions.AssertionError</strong></h3>
-                            <div class="test-details">
-                                <h4>Traceback</h4>
-                                <pre class="traceback">Traceback (most recent call last):
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
-    testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 33, in test_fastq_gz
-    self.assertEquals(30575, self.count_seqs(), "Unexpected sequence count")
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 511, in assertEqual
-    assertion_func(first, second, msg=msg)
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 504, in _baseAssertEqual
-    raise self.failureException(msg)
-AssertionError: Unexpected sequence count
--------------------- >> begin captured stdout << ---------------------
-Command line: Trinity --single left1.fq.gz --prep --seqType fq --max_memory 2G --no_version_check
-
---------------------- >> end captured stdout << ----------------------
-</pre>
-                                <h4>Details</h4>
-                                <pre>Unexpected sequence count
--------------------- >> begin captured stdout << ---------------------
-Command line: Trinity --single left1.fq.gz --prep --seqType fq --max_memory 2G --no_version_check
-
---------------------- >> end captured stdout << ----------------------</pre>
-                            </div>
-                        </section>
-                        <section id="test_prep.TestTrinityPrepFlag:test_fastq_multiple_files_paired">
-                            <h3>test_fastq_multiple_files_paired: <strong>exceptions.AssertionError</strong></h3>
-                            <div class="test-details">
-                                <h4>Traceback</h4>
-                                <pre class="traceback">Traceback (most recent call last):
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
-    testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 77, in test_fastq_multiple_files_paired
-    self.assertEquals(122300, self.count_seqs(), "Unexpected sequence count")
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 511, in assertEqual
-    assertion_func(first, second, msg=msg)
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 504, in _baseAssertEqual
-    raise self.failureException(msg)
-AssertionError: Unexpected sequence count
--------------------- >> begin captured stdout << ---------------------
-Command line: Trinity --left left1.fq,left1.fq.gz --right right1.fq,right1.fq.gz --prep --seqType fq --max_memory 2G --no_version_check
-
---------------------- >> end captured stdout << ----------------------
-</pre>
-                                <h4>Details</h4>
-                                <pre>Unexpected sequence count
--------------------- >> begin captured stdout << ---------------------
-Command line: Trinity --left left1.fq,left1.fq.gz --right right1.fq,right1.fq.gz --prep --seqType fq --max_memory 2G --no_version_check
-
---------------------- >> end captured stdout << ----------------------</pre>
-                            </div>
-                        </section>
-                        <section id="test_prep.TestTrinityPrepFlag:test_fastq_multiple_files_paired_reverse">
-                            <h3>test_fastq_multiple_files_paired_reverse: <strong>exceptions.AssertionError</strong></h3>
-                            <div class="test-details">
-                                <h4>Traceback</h4>
-                                <pre class="traceback">Traceback (most recent call last):
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
-    testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 81, in test_fastq_multiple_files_paired_reverse
-    self.assertEquals(122300, self.count_seqs(), "Unexpected sequence count")
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 511, in assertEqual
-    assertion_func(first, second, msg=msg)
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 504, in _baseAssertEqual
-    raise self.failureException(msg)
-AssertionError: Unexpected sequence count
--------------------- >> begin captured stdout << ---------------------
-Command line: Trinity --left left1.fq,left1.fq.gz --right right1.fq,right1.fq.gz --prep --seqType fq --max_memory 2G --no_version_check --SS_lib_type RF
-
---------------------- >> end captured stdout << ----------------------
-</pre>
-                                <h4>Details</h4>
-                                <pre>Unexpected sequence count
--------------------- >> begin captured stdout << ---------------------
-Command line: Trinity --left left1.fq,left1.fq.gz --right right1.fq,right1.fq.gz --prep --seqType fq --max_memory 2G --no_version_check --SS_lib_type RF
-
---------------------- >> end captured stdout << ----------------------</pre>
-                            </div>
-                        </section>
-                        <section id="test_prep.TestTrinityPrepFlag:test_fastq_multiple_files_single">
-                            <h3>test_fastq_multiple_files_single: <strong>exceptions.AssertionError</strong></h3>
-                            <div class="test-details">
-                                <h4>Traceback</h4>
-                                <pre class="traceback">Traceback (most recent call last):
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
-    testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 41, in test_fastq_multiple_files_single
-    self.assertEquals(61150, self.count_seqs(), "Unexpected sequence count")
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 511, in assertEqual
-    assertion_func(first, second, msg=msg)
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 504, in _baseAssertEqual
-    raise self.failureException(msg)
-AssertionError: Unexpected sequence count
--------------------- >> begin captured stdout << ---------------------
-Command line: Trinity --single left1.fq,left1.fq.gz --prep --seqType fq --max_memory 2G --no_version_check
-
---------------------- >> end captured stdout << ----------------------
-</pre>
-                                <h4>Details</h4>
-                                <pre>Unexpected sequence count
--------------------- >> begin captured stdout << ---------------------
-Command line: Trinity --single left1.fq,left1.fq.gz --prep --seqType fq --max_memory 2G --no_version_check
-
---------------------- >> end captured stdout << ----------------------</pre>
-                            </div>
-                        </section>
-                        <section id="test_prep.TestTrinityPrepFlag:test_fastq_multiple_files_single_bz2">
-                            <h3>test_fastq_multiple_files_single_bz2: <strong>exceptions.AssertionError</strong></h3>
-                            <div class="test-details">
-                                <h4>Traceback</h4>
-                                <pre class="traceback">Traceback (most recent call last):
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
-    testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 45, in test_fastq_multiple_files_single_bz2
-    self.assertEquals(61150, self.count_seqs(), "Unexpected sequence count")
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 511, in assertEqual
-    assertion_func(first, second, msg=msg)
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 504, in _baseAssertEqual
-    raise self.failureException(msg)
-AssertionError: Unexpected sequence count
--------------------- >> begin captured stdout << ---------------------
-Command line: Trinity --single left1.fq.bz2,left1.fq.gz --prep --seqType fq --max_memory 2G --no_version_check
-
---------------------- >> end captured stdout << ----------------------
-</pre>
-                                <h4>Details</h4>
-                                <pre>Unexpected sequence count
--------------------- >> begin captured stdout << ---------------------
-Command line: Trinity --single left1.fq.bz2,left1.fq.gz --prep --seqType fq --max_memory 2G --no_version_check
-
---------------------- >> end captured stdout << ----------------------</pre>
-                            </div>
-                        </section>
-                        <section id="test_prep.TestTrinityPrepFlag:test_fastq_multiple_files_single_reverse">
-                            <h3>test_fastq_multiple_files_single_reverse: <strong>exceptions.AssertionError</strong></h3>
-                            <div class="test-details">
-                                <h4>Traceback</h4>
-                                <pre class="traceback">Traceback (most recent call last):
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
-    testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 49, in test_fastq_multiple_files_single_reverse
-    self.assertEquals(61150, self.count_seqs(), "Unexpected sequence count")
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 511, in assertEqual
-    assertion_func(first, second, msg=msg)
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 504, in _baseAssertEqual
-    raise self.failureException(msg)
-AssertionError: Unexpected sequence count
--------------------- >> begin captured stdout << ---------------------
-Command line: Trinity --single left1.fq,left1.fq.gz --prep --seqType fq --max_memory 2G --no_version_check --SS_lib_type R
-
---------------------- >> end captured stdout << ----------------------
-</pre>
-                                <h4>Details</h4>
-                                <pre>Unexpected sequence count
--------------------- >> begin captured stdout << ---------------------
-Command line: Trinity --single left1.fq,left1.fq.gz --prep --seqType fq --max_memory 2G --no_version_check --SS_lib_type R
-
---------------------- >> end captured stdout << ----------------------</pre>
-                            </div>
-                        </section>
-                        <section id="test_prep.TestTrinityPrepFlag:test_paired_fastq">
-                            <h3>test_paired_fastq: <strong>exceptions.AssertionError</strong></h3>
-                            <div class="test-details">
-                                <h4>Traceback</h4>
-                                <pre class="traceback">Traceback (most recent call last):
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
-    testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 69, in test_paired_fastq
-    self.assertEquals(61150, self.count_seqs(), "Unexpected sequence count")
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 511, in assertEqual
-    assertion_func(first, second, msg=msg)
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 504, in _baseAssertEqual
-    raise self.failureException(msg)
-AssertionError: Unexpected sequence count
--------------------- >> begin captured stdout << ---------------------
-Command line: Trinity --left left1.fq --right right1.fq --prep --seqType fq --max_memory 2G --no_version_check
-
---------------------- >> end captured stdout << ----------------------
-</pre>
-                                <h4>Details</h4>
-                                <pre>Unexpected sequence count
--------------------- >> begin captured stdout << ---------------------
-Command line: Trinity --left left1.fq --right right1.fq --prep --seqType fq --max_memory 2G --no_version_check
-
---------------------- >> end captured stdout << ----------------------</pre>
-                            </div>
-                        </section>
-                        <section id="test_prep.TestTrinityPrepFlag:test_paired_fastq_gz">
-                            <h3>test_paired_fastq_gz: <strong>exceptions.AssertionError</strong></h3>
-                            <div class="test-details">
-                                <h4>Traceback</h4>
-                                <pre class="traceback">Traceback (most recent call last):
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
-    testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 73, in test_paired_fastq_gz
-    self.assertEquals(61150, self.count_seqs(), "Unexpected sequence count")
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 511, in assertEqual
-    assertion_func(first, second, msg=msg)
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 504, in _baseAssertEqual
-    raise self.failureException(msg)
-AssertionError: Unexpected sequence count
--------------------- >> begin captured stdout << ---------------------
-Command line: Trinity --left left1.fq.gz --right right1.fq.gz --prep --seqType fq --max_memory 2G --no_version_check
-
---------------------- >> end captured stdout << ----------------------
-</pre>
-                                <h4>Details</h4>
-                                <pre>Unexpected sequence count
--------------------- >> begin captured stdout << ---------------------
-Command line: Trinity --left left1.fq.gz --right right1.fq.gz --prep --seqType fq --max_memory 2G --no_version_check
-
---------------------- >> end captured stdout << ----------------------</pre>
-                            </div>
-                        </section>
-                        <section id="test_prep.TestTrinityPrepFlag:test_paired_sequences_have_1_or_2_extension">
-                            <h3>test_paired_sequences_have_1_or_2_extension: <strong>exceptions.IOError</strong></h3>
-                            <div class="test-details">
-                                <h4>Traceback</h4>
-                                <pre class="traceback">Traceback (most recent call last):
-  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
-    testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 89, in test_paired_sequences_have_1_or_2_extension
-    self.assertEquals(0, self.count_bad_endings(), "Found sequences with bad endings")
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 132, in count_bad_endings
-    handle = open("trinity_out_dir/both.fa", "rU")
-IOError: [Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
--------------------- >> begin captured stdout << ---------------------
-Command line: Trinity --left sra_test.fq --right sra_test2.fq --prep --seqType fq --max_memory 2G --no_version_check
-
---------------------- >> end captured stdout << ----------------------
-</pre>
-                                <h4>Details</h4>
-                                <pre>[Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
--------------------- >> begin captured stdout << ---------------------
-Command line: Trinity --left sra_test.fq --right sra_test2.fq --prep --seqType fq --max_memory 2G --no_version_check
-
---------------------- >> end captured stdout << ----------------------</pre>
-                            </div>
-                        </section>
-                </div>
-            </section>
-            <section>
                 <h2>tests.TestTrinity (3 failures, 1 errors)</h2>
                 <div>
                         <section id="tests.TestTrinity:test_Inchworm_handles_compressed_files">
@@ -685,7 +200,7 @@ Command line: Trinity --left sra_test.fq --right sra_test2.fq --prep --seqType f
     self.assertTrue(2850 <= num_lines <= 3100, msg='Found %s lines' % num_lines)
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 420, in assertTrue
     raise self.failureException(msg)
-AssertionError: Found 2664 lines
+AssertionError: Found 2731 lines
 -------------------- >> begin captured stdout << ---------------------
 A compressed single file should be handlred correctly by Inchworm
 Command line: Trinity --max_memory 2G --seqType fq --single reads.left.fq.gz --SS_lib_type F --no_run_chrysalis
@@ -693,7 +208,7 @@ Command line: Trinity --max_memory 2G --seqType fq --single reads.left.fq.gz --S
 --------------------- >> end captured stdout << ----------------------
 </pre>
                                 <h4>Details</h4>
-                                <pre>Found 2664 lines
+                                <pre>Found 2731 lines
 -------------------- >> begin captured stdout << ---------------------
 A compressed single file should be handlred correctly by Inchworm
 Command line: Trinity --max_memory 2G --seqType fq --single reads.left.fq.gz --SS_lib_type F --no_run_chrysalis
@@ -791,26 +306,26 @@ Version flag should return version information
         </ul>
     </section>
     <section>
-        <h2>test_prep.TestTrinityPrepFlag (15 failures, 3 errors)</h2>
+        <h2>test_prep.TestTrinityPrepFlag (0 failures, 0 errors)</h2>
         <ul>
-                <li><a class="failed" href="#test_prep.TestTrinityPrepFlag:test_fasta">test_fasta</a></li>
-                <li><a class="failed" href="#test_prep.TestTrinityPrepFlag:test_fasta_gz">test_fasta_gz</a></li>
-                <li><a class="failed" href="#test_prep.TestTrinityPrepFlag:test_fasta_gz_paired">test_fasta_gz_paired</a></li>
-                <li><a class="failed" href="#test_prep.TestTrinityPrepFlag:test_fasta_multiple_files_paired">test_fasta_multiple_files_paired</a></li>
-                <li><a class="failed" href="#test_prep.TestTrinityPrepFlag:test_fasta_multiple_files_single">test_fasta_multiple_files_single</a></li>
-                <li><a class="failed" href="#test_prep.TestTrinityPrepFlag:test_fasta_multiple_files_single_reverse">test_fasta_multiple_files_single_reverse</a></li>
-                <li><a class="failed" href="#test_prep.TestTrinityPrepFlag:test_fasta_paired">test_fasta_paired</a></li>
-                <li><a class="failed" href="#test_prep.TestTrinityPrepFlag:test_fastq">test_fastq</a></li>
-                <li><a class="failed" href="#test_prep.TestTrinityPrepFlag:test_fastq_bz2">test_fastq_bz2</a></li>
-                <li><a class="failed" href="#test_prep.TestTrinityPrepFlag:test_fastq_gz">test_fastq_gz</a></li>
-                <li><a class="failed" href="#test_prep.TestTrinityPrepFlag:test_fastq_multiple_files_paired">test_fastq_multiple_files_paired</a></li>
-                <li><a class="failed" href="#test_prep.TestTrinityPrepFlag:test_fastq_multiple_files_paired_reverse">test_fastq_multiple_files_paired_reverse</a></li>
-                <li><a class="failed" href="#test_prep.TestTrinityPrepFlag:test_fastq_multiple_files_single">test_fastq_multiple_files_single</a></li>
-                <li><a class="failed" href="#test_prep.TestTrinityPrepFlag:test_fastq_multiple_files_single_bz2">test_fastq_multiple_files_single_bz2</a></li>
-                <li><a class="failed" href="#test_prep.TestTrinityPrepFlag:test_fastq_multiple_files_single_reverse">test_fastq_multiple_files_single_reverse</a></li>
-                <li><a class="failed" href="#test_prep.TestTrinityPrepFlag:test_paired_fastq">test_paired_fastq</a></li>
-                <li><a class="failed" href="#test_prep.TestTrinityPrepFlag:test_paired_fastq_gz">test_paired_fastq_gz</a></li>
-                <li><a class="failed" href="#test_prep.TestTrinityPrepFlag:test_paired_sequences_have_1_or_2_extension">test_paired_sequences_have_1_or_2_extension</a></li>
+                <li><a class="success">test_fasta</a></li>
+                <li><a class="success">test_fasta_gz</a></li>
+                <li><a class="success">test_fasta_gz_paired</a></li>
+                <li><a class="success">test_fasta_multiple_files_paired</a></li>
+                <li><a class="success">test_fasta_multiple_files_single</a></li>
+                <li><a class="success">test_fasta_multiple_files_single_reverse</a></li>
+                <li><a class="success">test_fasta_paired</a></li>
+                <li><a class="success">test_fastq</a></li>
+                <li><a class="success">test_fastq_bz2</a></li>
+                <li><a class="success">test_fastq_gz</a></li>
+                <li><a class="success">test_fastq_multiple_files_paired</a></li>
+                <li><a class="success">test_fastq_multiple_files_paired_reverse</a></li>
+                <li><a class="success">test_fastq_multiple_files_single</a></li>
+                <li><a class="success">test_fastq_multiple_files_single_bz2</a></li>
+                <li><a class="success">test_fastq_multiple_files_single_reverse</a></li>
+                <li><a class="success">test_paired_fastq</a></li>
+                <li><a class="success">test_paired_fastq_gz</a></li>
+                <li><a class="success">test_paired_sequences_have_1_or_2_extension</a></li>
         </ul>
     </section>
     <section>
