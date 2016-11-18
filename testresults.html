@@ -67,7 +67,7 @@ section:target .test-details {
 </head>
 <body>
     <h1>Trinity Automated Test Results</h1>
-    <h2>2016-11-17 18:04</h2>
+    <h2>2016-11-18 18:02</h2>
     <section>
         <table>
             <tr>
@@ -96,18 +96,18 @@ section:target .test-details {
                 </tr>
                 <tr>
                     <td>tests.TestTrinity</td>
-                    <td class="failed">7</td>
+                    <td class="failed">9</td>
                     <td class="failed">3</td>
                     <td>0</td>
-                    <td>11</td>
+                    <td>9</td>
                     <td>21</td>
                 </tr>
             <tr>
                 <td><strong>Total</strong></td>
-                <td class="failed">10</td>
+                <td class="failed">12</td>
                 <td class="failed">25</td>
                 <td>0</td>
-                <td>11</td>
+                <td>9</td>
                 <td>46</td>
             </tr>
         </table>
@@ -693,7 +693,7 @@ Command line: Trinity --left sra_test.fq --right sra_test2.fq --prep --seqType f
                 </div>
             </section>
             <section>
-                <h2>tests.TestTrinity (7 failures, 3 errors)</h2>
+                <h2>tests.TestTrinity (9 failures, 3 errors)</h2>
                 <div>
                         <section id="tests.TestTrinity:test_Inchworm_handles_compressed_files">
                             <h3>test_Inchworm_handles_compressed_files: <strong>exceptions.AssertionError</strong></h3>
@@ -706,7 +706,7 @@ Command line: Trinity --left sra_test.fq --right sra_test2.fq --prep --seqType f
     self.assertTrue(2850 <= num_lines <= 3100, msg='Found %s lines' % num_lines)
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 420, in assertTrue
     raise self.failureException(msg)
-AssertionError: Found 2755 lines
+AssertionError: Found 2778 lines
 -------------------- >> begin captured stdout << ---------------------
 A compressed single file should be handlred correctly by Inchworm
 Command line: Trinity --max_memory 2G --seqType fq --single reads.left.fq.gz --SS_lib_type F --no_run_chrysalis
@@ -714,7 +714,7 @@ Command line: Trinity --max_memory 2G --seqType fq --single reads.left.fq.gz --S
 --------------------- >> end captured stdout << ----------------------
 </pre>
                                 <h4>Details</h4>
-                                <pre>Found 2755 lines
+                                <pre>Found 2778 lines
 -------------------- >> begin captured stdout << ---------------------
 A compressed single file should be handlred correctly by Inchworm
 Command line: Trinity --max_memory 2G --seqType fq --single reads.left.fq.gz --SS_lib_type F --no_run_chrysalis
@@ -764,6 +764,31 @@ Command line: Trinity --seqType fq --max_memory 2G --left reads.left.fq.gz,reads
 -------------------- >> begin captured stdout << ---------------------
 The --full_cleanup flag should ensure that the output directory is gone but the output file remains
 Command line: Trinity --seqType fq --max_memory 2G --left reads.left.fq.gz,reads2.left.fq.gz --right reads.right.fq.gz,reads2.right.fq.gz --SS_lib_type RF --CPU 4 --full_cleanup
+
+--------------------- >> end captured stdout << ----------------------</pre>
+                            </div>
+                        </section>
+                        <section id="tests.TestTrinity:test_no_JM_specified_error">
+                            <h3>test_no_JM_specified_error: <strong>exceptions.AssertionError</strong></h3>
+                            <div class="test-details">
+                                <h4>Traceback</h4>
+                                <pre class="traceback">Traceback (most recent call last):
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
+    testMethod()
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/tests.py", line 186, in test_no_JM_specified_error
+    self.assertTrue("Error, must specify max memory for jellyfish to use, eg.  --max_memory 10G" in error)
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 420, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true
+-------------------- >> begin captured stdout << ---------------------
+max_memory flag is required
+
+--------------------- >> end captured stdout << ----------------------
+</pre>
+                                <h4>Details</h4>
+                                <pre>False is not true
+-------------------- >> begin captured stdout << ---------------------
+max_memory flag is required
 
 --------------------- >> end captured stdout << ----------------------</pre>
                             </div>
@@ -928,6 +953,31 @@ scaffold_iworm_contigs works as expected
 --------------------- >> end captured stdout << ----------------------</pre>
                             </div>
                         </section>
+                        <section id="tests.TestTrinity:test_set_no_cleanup_and_full_cleanup_error">
+                            <h3>test_set_no_cleanup_and_full_cleanup_error: <strong>exceptions.AssertionError</strong></h3>
+                            <div class="test-details">
+                                <h4>Traceback</h4>
+                                <pre class="traceback">Traceback (most recent call last):
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
+    testMethod()
+  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/tests.py", line 196, in test_set_no_cleanup_and_full_cleanup_error
+    self.assertTrue("cannot set --no_cleanup and --full_cleanup as they contradict" in error)
+  File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 420, in assertTrue
+    raise self.failureException(msg)
+AssertionError: False is not true
+-------------------- >> begin captured stdout << ---------------------
+Setting no_cleanup and full_cleanup together results in an error
+
+--------------------- >> end captured stdout << ----------------------
+</pre>
+                                <h4>Details</h4>
+                                <pre>False is not true
+-------------------- >> begin captured stdout << ---------------------
+Setting no_cleanup and full_cleanup together results in an error
+
+--------------------- >> end captured stdout << ----------------------</pre>
+                            </div>
+                        </section>
                         <section id="tests.TestTrinity:test_version">
                             <h3>test_version: <strong>exceptions.AssertionError</strong></h3>
                             <div class="test-details">
@@ -993,14 +1043,14 @@ Version flag should return version information
         </ul>
     </section>
     <section>
-        <h2>tests.TestTrinity (7 failures, 3 errors)</h2>
+        <h2>tests.TestTrinity (9 failures, 3 errors)</h2>
         <ul>
                 <li><a class="failed" href="#tests.TestTrinity:test_Inchworm_handles_compressed_files">test_Inchworm_handles_compressed_files</a></li>
                 <li><a class="failed" href="#tests.TestTrinity:test_QuantifyGraph_works">test_QuantifyGraph_works</a></li>
                 <li><a class="success">test_cite</a></li>
                 <li><a class="failed" href="#tests.TestTrinity:test_cleanup_removes_temp_files">test_cleanup_removes_temp_files</a></li>
                 <li><a class="success">test_invalid_option_error</a></li>
-                <li><a class="success">test_no_JM_specified_error</a></li>
+                <li><a class="failed" href="#tests.TestTrinity:test_no_JM_specified_error">test_no_JM_specified_error</a></li>
                 <li><a class="success">test_no_bowtie</a></li>
                 <li><a class="failed" href="#tests.TestTrinity:test_no_cleanup_leaves_temp_files">test_no_cleanup_leaves_temp_files</a></li>
                 <li><a class="failed" href="#tests.TestTrinity:test_no_distributed_trinity_exec">test_no_distributed_trinity_exec</a></li>
@@ -1010,7 +1060,7 @@ Version flag should return version information
                 <li><a class="failed" href="#tests.TestTrinity:test_sample_data_seq_count">test_sample_data_seq_count</a></li>
                 <li><a class="failed" href="#tests.TestTrinity:test_sample_data_trimmed_and_normalized">test_sample_data_trimmed_and_normalized</a></li>
                 <li><a class="failed" href="#tests.TestTrinity:test_scaffold_iworm_contigs">test_scaffold_iworm_contigs</a></li>
-                <li><a class="success">test_set_no_cleanup_and_full_cleanup_error</a></li>
+                <li><a class="failed" href="#tests.TestTrinity:test_set_no_cleanup_and_full_cleanup_error">test_set_no_cleanup_and_full_cleanup_error</a></li>
                 <li><a class="success">test_show_full_usage_info</a></li>
                 <li><a class="success">test_single_end_with_fa_and_reverse</a></li>
                 <li><a class="success">test_single_end_with_fq</a></li>
