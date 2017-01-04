@@ -67,7 +67,7 @@ section:target .test-details {
 </head>
 <body>
     <h1>Trinity Automated Test Results</h1>
-    <h2>2017-01-03 18:26</h2>
+    <h2>2017-01-04 14:44</h2>
     <section>
         <table>
             <tr>
@@ -123,7 +123,7 @@ section:target .test-details {
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/sample_data_tests.py", line 38, in test_DE_analysis_EdgeR
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/sample_data_tests.py", line 38, in test_DE_analysis_EdgeR
     self.assertTrue(os.path.isfile(check_file), 'DE output file not created')
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 420, in assertTrue
     raise self.failureException(msg)
@@ -140,7 +140,7 @@ AssertionError: DE output file not created
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/sample_data_tests.py", line 45, in test_align_and_estimate_abundance
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/sample_data_tests.py", line 45, in test_align_and_estimate_abundance
     self.assertTrue(os.path.isfile(check_file), 'RSEM-gene.counts.matrix not created')
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 420, in assertTrue
     raise self.failureException(msg)
@@ -157,7 +157,7 @@ AssertionError: RSEM-gene.counts.matrix not created
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/sample_data_tests.py", line 49, in test_full_edgeR_pipeline
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/sample_data_tests.py", line 49, in test_full_edgeR_pipeline
     self.assertTrue(os.path.isfile(check_file), 'edgeR sorted BAM not created')
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 420, in assertTrue
     raise self.failureException(msg)
@@ -174,14 +174,14 @@ AssertionError: edgeR sorted BAM not created
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/sample_data_tests.py", line 13, in test_genome_guided
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/sample_data_tests.py", line 13, in test_genome_guided
     'Trinity-GG.fasta')
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/sample_data_tests.py", line 55, in count_sequences
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/sample_data_tests.py", line 55, in count_sequences
     handle = open(gg, "rU")
-IOError: [Errno 2] No such file or directory: '/N/dc2/scratch/befulton/JenkinsTest/src/sample_data/test_GenomeGuidedTrinity/test_GG_use_bam_trinity_outdir/Trinity-GG.fasta'
+IOError: [Errno 2] No such file or directory: '/N/dc2/projects/hpc/trinity/JenkinsTest/src/sample_data/test_GenomeGuidedTrinity/test_GG_use_bam_trinity_outdir/Trinity-GG.fasta'
 </pre>
                                 <h4>Details</h4>
-                                <pre>[Errno 2] No such file or directory: '/N/dc2/scratch/befulton/JenkinsTest/src/sample_data/test_GenomeGuidedTrinity/test_GG_use_bam_trinity_outdir/Trinity-GG.fasta'</pre>
+                                <pre>[Errno 2] No such file or directory: '/N/dc2/projects/hpc/trinity/JenkinsTest/src/sample_data/test_GenomeGuidedTrinity/test_GG_use_bam_trinity_outdir/Trinity-GG.fasta'</pre>
                             </div>
                         </section>
                         <section id="sample_data_tests.TestTrinitySampleData:test_genome_guided_with_jaccard_clipping">
@@ -191,14 +191,14 @@ IOError: [Errno 2] No such file or directory: '/N/dc2/scratch/befulton/JenkinsTe
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/sample_data_tests.py", line 18, in test_genome_guided_with_jaccard_clipping
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/sample_data_tests.py", line 18, in test_genome_guided_with_jaccard_clipping
     'Trinity-GG.fasta')
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/sample_data_tests.py", line 55, in count_sequences
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/sample_data_tests.py", line 55, in count_sequences
     handle = open(gg, "rU")
-IOError: [Errno 2] No such file or directory: '/N/dc2/scratch/befulton/JenkinsTest/src/sample_data/test_GenomeGuidedTrinity/test_Schizo_trinityGG_jaccard_RF_outdir/Trinity-GG.fasta'
+IOError: [Errno 2] No such file or directory: '/N/dc2/projects/hpc/trinity/JenkinsTest/src/sample_data/test_GenomeGuidedTrinity/test_Schizo_trinityGG_jaccard_RF_outdir/Trinity-GG.fasta'
 </pre>
                                 <h4>Details</h4>
-                                <pre>[Errno 2] No such file or directory: '/N/dc2/scratch/befulton/JenkinsTest/src/sample_data/test_GenomeGuidedTrinity/test_Schizo_trinityGG_jaccard_RF_outdir/Trinity-GG.fasta'</pre>
+                                <pre>[Errno 2] No such file or directory: '/N/dc2/projects/hpc/trinity/JenkinsTest/src/sample_data/test_GenomeGuidedTrinity/test_Schizo_trinityGG_jaccard_RF_outdir/Trinity-GG.fasta'</pre>
                             </div>
                         </section>
                         <section id="sample_data_tests.TestTrinitySampleData:test_paired_end_normalization">
@@ -208,14 +208,14 @@ IOError: [Errno 2] No such file or directory: '/N/dc2/scratch/befulton/JenkinsTe
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/sample_data_tests.py", line 23, in test_paired_end_normalization
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/sample_data_tests.py", line 23, in test_paired_end_normalization
     'reads.left.fq.gz.normalized_K25_C5_pctSD200.fq')
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/sample_data_tests.py", line 55, in count_sequences
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/sample_data_tests.py", line 55, in count_sequences
     handle = open(gg, "rU")
-IOError: [Errno 2] No such file or directory: '/N/dc2/scratch/befulton/JenkinsTest/src/sample_data/test_InSilicoReadNormalization/reads.left.fq.gz.normalized_K25_C5_pctSD200.fq'
+IOError: [Errno 2] No such file or directory: '/N/dc2/projects/hpc/trinity/JenkinsTest/src/sample_data/test_InSilicoReadNormalization/reads.left.fq.gz.normalized_K25_C5_pctSD200.fq'
 </pre>
                                 <h4>Details</h4>
-                                <pre>[Errno 2] No such file or directory: '/N/dc2/scratch/befulton/JenkinsTest/src/sample_data/test_InSilicoReadNormalization/reads.left.fq.gz.normalized_K25_C5_pctSD200.fq'</pre>
+                                <pre>[Errno 2] No such file or directory: '/N/dc2/projects/hpc/trinity/JenkinsTest/src/sample_data/test_InSilicoReadNormalization/reads.left.fq.gz.normalized_K25_C5_pctSD200.fq'</pre>
                             </div>
                         </section>
                         <section id="sample_data_tests.TestTrinitySampleData:test_trinity_assembly">
@@ -225,14 +225,14 @@ IOError: [Errno 2] No such file or directory: '/N/dc2/scratch/befulton/JenkinsTe
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/sample_data_tests.py", line 33, in test_trinity_assembly
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/sample_data_tests.py", line 33, in test_trinity_assembly
     seq_count = self.count_sequences('test_Trinity_Assembly', 'trinity_out_dir', 'Trinity.fasta')
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/sample_data_tests.py", line 55, in count_sequences
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/sample_data_tests.py", line 55, in count_sequences
     handle = open(gg, "rU")
-IOError: [Errno 2] No such file or directory: '/N/dc2/scratch/befulton/JenkinsTest/src/sample_data/test_Trinity_Assembly/trinity_out_dir/Trinity.fasta'
+IOError: [Errno 2] No such file or directory: '/N/dc2/projects/hpc/trinity/JenkinsTest/src/sample_data/test_Trinity_Assembly/trinity_out_dir/Trinity.fasta'
 </pre>
                                 <h4>Details</h4>
-                                <pre>[Errno 2] No such file or directory: '/N/dc2/scratch/befulton/JenkinsTest/src/sample_data/test_Trinity_Assembly/trinity_out_dir/Trinity.fasta'</pre>
+                                <pre>[Errno 2] No such file or directory: '/N/dc2/projects/hpc/trinity/JenkinsTest/src/sample_data/test_Trinity_Assembly/trinity_out_dir/Trinity.fasta'</pre>
                             </div>
                         </section>
                 </div>
@@ -247,9 +247,9 @@ IOError: [Errno 2] No such file or directory: '/N/dc2/scratch/befulton/JenkinsTe
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 53, in test_fasta
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 53, in test_fasta
     self.assertEquals(30575, self.count_seqs(), "Unexpected sequence count")
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
     handle = open("trinity_out_dir/both.fa", "rU")
 IOError: [Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
 -------------------- >> begin captured stdout << ---------------------
@@ -272,9 +272,9 @@ Command line: Trinity --single left1.fa --prep --seqType fa --max_memory 2G --no
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 57, in test_fasta_gz
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 57, in test_fasta_gz
     self.assertEquals(30575, self.count_seqs(), "Unexpected sequence count")
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
     handle = open("trinity_out_dir/both.fa", "rU")
 IOError: [Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
 -------------------- >> begin captured stdout << ---------------------
@@ -297,9 +297,9 @@ Command line: Trinity --single left1.fa.gz --prep --seqType fa --max_memory 2G -
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 93, in test_fasta_gz_paired
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 93, in test_fasta_gz_paired
     self.assertEquals(61150, self.count_seqs(), "Unexpected sequence count")
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
     handle = open("trinity_out_dir/both.fa", "rU")
 IOError: [Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
 -------------------- >> begin captured stdout << ---------------------
@@ -322,9 +322,9 @@ Command line: Trinity --left left1.fa.gz --right right1.fa.gz --prep --seqType f
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 101, in test_fasta_multiple_files_paired
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 101, in test_fasta_multiple_files_paired
     self.assertEquals(122300, self.count_seqs(), "Unexpected sequence count")
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
     handle = open("trinity_out_dir/both.fa", "rU")
 IOError: [Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
 -------------------- >> begin captured stdout << ---------------------
@@ -347,9 +347,9 @@ Command line: Trinity --left left1.fa,left1.fa.gz --right right1.fa,right1.fa.gz
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 61, in test_fasta_multiple_files_single
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 61, in test_fasta_multiple_files_single
     self.assertEquals(61150, self.count_seqs(), "Unexpected sequence count")
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
     handle = open("trinity_out_dir/both.fa", "rU")
 IOError: [Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
 -------------------- >> begin captured stdout << ---------------------
@@ -372,9 +372,9 @@ Command line: Trinity --single left1.fa,left1.fa.gz --prep --seqType fa --max_me
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 65, in test_fasta_multiple_files_single_reverse
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 65, in test_fasta_multiple_files_single_reverse
     self.assertEquals(61150, self.count_seqs(), "Unexpected sequence count")
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
     handle = open("trinity_out_dir/both.fa", "rU")
 IOError: [Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
 -------------------- >> begin captured stdout << ---------------------
@@ -397,9 +397,9 @@ Command line: Trinity --single left1.fa,left1.fa.gz --prep --seqType fa --max_me
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 85, in test_fasta_paired
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 85, in test_fasta_paired
     self.assertEquals(61150, self.count_seqs(), "Unexpected sequence count")
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
     handle = open("trinity_out_dir/both.fa", "rU")
 IOError: [Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
 -------------------- >> begin captured stdout << ---------------------
@@ -422,9 +422,9 @@ Command line: Trinity --left left1.fa --right right1.fa --prep --seqType fa --ma
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 29, in test_fastq
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 29, in test_fastq
     self.assertEquals(30575, self.count_seqs(), "Unexpected sequence count")
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
     handle = open("trinity_out_dir/both.fa", "rU")
 IOError: [Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
 -------------------- >> begin captured stdout << ---------------------
@@ -447,9 +447,9 @@ Command line: Trinity --single left1.fq --prep --seqType fq --max_memory 2G --no
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 37, in test_fastq_bz2
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 37, in test_fastq_bz2
     self.assertEquals(30575, self.count_seqs(), "Unexpected sequence count")
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
     handle = open("trinity_out_dir/both.fa", "rU")
 IOError: [Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
 -------------------- >> begin captured stdout << ---------------------
@@ -472,9 +472,9 @@ Command line: Trinity --single left1.fq.bz2 --prep --seqType fq --max_memory 2G 
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 33, in test_fastq_gz
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 33, in test_fastq_gz
     self.assertEquals(30575, self.count_seqs(), "Unexpected sequence count")
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
     handle = open("trinity_out_dir/both.fa", "rU")
 IOError: [Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
 -------------------- >> begin captured stdout << ---------------------
@@ -497,9 +497,9 @@ Command line: Trinity --single left1.fq.gz --prep --seqType fq --max_memory 2G -
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 77, in test_fastq_multiple_files_paired
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 77, in test_fastq_multiple_files_paired
     self.assertEquals(122300, self.count_seqs(), "Unexpected sequence count")
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
     handle = open("trinity_out_dir/both.fa", "rU")
 IOError: [Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
 -------------------- >> begin captured stdout << ---------------------
@@ -522,9 +522,9 @@ Command line: Trinity --left left1.fq,left1.fq.gz --right right1.fq,right1.fq.gz
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 81, in test_fastq_multiple_files_paired_reverse
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 81, in test_fastq_multiple_files_paired_reverse
     self.assertEquals(122300, self.count_seqs(), "Unexpected sequence count")
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
     handle = open("trinity_out_dir/both.fa", "rU")
 IOError: [Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
 -------------------- >> begin captured stdout << ---------------------
@@ -547,9 +547,9 @@ Command line: Trinity --left left1.fq,left1.fq.gz --right right1.fq,right1.fq.gz
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 41, in test_fastq_multiple_files_single
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 41, in test_fastq_multiple_files_single
     self.assertEquals(61150, self.count_seqs(), "Unexpected sequence count")
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
     handle = open("trinity_out_dir/both.fa", "rU")
 IOError: [Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
 -------------------- >> begin captured stdout << ---------------------
@@ -572,9 +572,9 @@ Command line: Trinity --single left1.fq,left1.fq.gz --prep --seqType fq --max_me
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 45, in test_fastq_multiple_files_single_bz2
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 45, in test_fastq_multiple_files_single_bz2
     self.assertEquals(61150, self.count_seqs(), "Unexpected sequence count")
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
     handle = open("trinity_out_dir/both.fa", "rU")
 IOError: [Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
 -------------------- >> begin captured stdout << ---------------------
@@ -597,9 +597,9 @@ Command line: Trinity --single left1.fq.bz2,left1.fq.gz --prep --seqType fq --ma
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 49, in test_fastq_multiple_files_single_reverse
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 49, in test_fastq_multiple_files_single_reverse
     self.assertEquals(61150, self.count_seqs(), "Unexpected sequence count")
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
     handle = open("trinity_out_dir/both.fa", "rU")
 IOError: [Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
 -------------------- >> begin captured stdout << ---------------------
@@ -622,9 +622,9 @@ Command line: Trinity --single left1.fq,left1.fq.gz --prep --seqType fq --max_me
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 69, in test_paired_fastq
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 69, in test_paired_fastq
     self.assertEquals(61150, self.count_seqs(), "Unexpected sequence count")
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
     handle = open("trinity_out_dir/both.fa", "rU")
 IOError: [Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
 -------------------- >> begin captured stdout << ---------------------
@@ -647,9 +647,9 @@ Command line: Trinity --left left1.fq --right right1.fq --prep --seqType fq --ma
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 73, in test_paired_fastq_gz
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 73, in test_paired_fastq_gz
     self.assertEquals(61150, self.count_seqs(), "Unexpected sequence count")
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 121, in count_seqs
     handle = open("trinity_out_dir/both.fa", "rU")
 IOError: [Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
 -------------------- >> begin captured stdout << ---------------------
@@ -672,9 +672,9 @@ Command line: Trinity --left left1.fq.gz --right right1.fq.gz --prep --seqType f
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 89, in test_paired_sequences_have_1_or_2_extension
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 89, in test_paired_sequences_have_1_or_2_extension
     self.assertEquals(0, self.count_bad_endings(), "Found sequences with bad endings")
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 132, in count_bad_endings
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/test_prep.py", line 132, in count_bad_endings
     handle = open("trinity_out_dir/both.fa", "rU")
 IOError: [Errno 2] No such file or directory: 'trinity_out_dir/both.fa'
 -------------------- >> begin captured stdout << ---------------------
@@ -702,11 +702,11 @@ Command line: Trinity --left sra_test.fq --right sra_test2.fq --prep --seqType f
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/tests.py", line 145, in test_Inchworm_handles_compressed_files
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/tests.py", line 145, in test_Inchworm_handles_compressed_files
     self.assertTrue(2850 <= num_lines <= 3100, msg='Found %s lines' % num_lines)
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 420, in assertTrue
     raise self.failureException(msg)
-AssertionError: Found 2762 lines
+AssertionError: Found 2769 lines
 -------------------- >> begin captured stdout << ---------------------
 A compressed single file should be handlred correctly by Inchworm
 Command line: Trinity --max_memory 2G --seqType fq --single reads.left.fq.gz --SS_lib_type F --no_run_chrysalis
@@ -714,7 +714,7 @@ Command line: Trinity --max_memory 2G --seqType fq --single reads.left.fq.gz --S
 --------------------- >> end captured stdout << ----------------------
 </pre>
                                 <h4>Details</h4>
-                                <pre>Found 2762 lines
+                                <pre>Found 2769 lines
 -------------------- >> begin captured stdout << ---------------------
 A compressed single file should be handlred correctly by Inchworm
 Command line: Trinity --max_memory 2G --seqType fq --single reads.left.fq.gz --SS_lib_type F --no_run_chrysalis
@@ -729,7 +729,7 @@ Command line: Trinity --max_memory 2G --seqType fq --single reads.left.fq.gz --S
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/tests.py", line 151, in test_QuantifyGraph_works
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/tests.py", line 151, in test_QuantifyGraph_works
     self.assertEquals(0, result, "QuantifyGraph failed")
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 511, in assertEqual
     assertion_func(first, second, msg=msg)
@@ -748,7 +748,7 @@ AssertionError: QuantifyGraph failed
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/tests.py", line 64, in test_cleanup_removes_temp_files
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/tests.py", line 64, in test_cleanup_removes_temp_files
     msg="Did full_cleanup but output file not created")
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 420, in assertTrue
     raise self.failureException(msg)
@@ -775,7 +775,7 @@ Command line: Trinity --seqType fq --max_memory 2G --left reads.left.fq.gz,reads
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/tests.py", line 186, in test_no_JM_specified_error
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/tests.py", line 186, in test_no_JM_specified_error
     self.assertTrue("Error, must specify max memory for jellyfish to use, eg.  --max_memory 10G" in error)
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 420, in assertTrue
     raise self.failureException(msg)
@@ -800,7 +800,7 @@ max_memory flag is required
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/tests.py", line 55, in test_no_cleanup_leaves_temp_files
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/tests.py", line 55, in test_no_cleanup_leaves_temp_files
     self.assertTrue(os.path.exists("trinity_out_dir/%s" % f), msg="%s not found with no_cleanup" % f)
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 420, in assertTrue
     raise self.failureException(msg)
@@ -827,7 +827,7 @@ Command line: Trinity --seqType fq --max_memory 2G --left reads.left.fq.gz,reads
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/tests.py", line 100, in test_no_distributed_trinity_exec
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/tests.py", line 100, in test_no_distributed_trinity_exec
     msg="Inchworm did not appear to run with no_distributed_trinity_exec flag")
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 420, in assertTrue
     raise self.failureException(msg)
@@ -854,7 +854,7 @@ Command line: Trinity --max_memory 2G --seqType fq --single reads.left.fq --SS_l
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/tests.py", line 115, in test_output_correctly_changes_dir
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/tests.py", line 115, in test_output_correctly_changes_dir
     self.assertTrue(os.path.exists("trinity_test"), msg="Changed output directory but it was not created")
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 420, in assertTrue
     raise self.failureException(msg)
@@ -881,7 +881,7 @@ Command line: Trinity --max_memory 2G --seqType fq --single reads.left.fq --SS_l
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/tests.py", line 36, in test_sample_data_seq_count
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/tests.py", line 36, in test_sample_data_seq_count
     handle = open("trinity_out_dir/Trinity.fasta", "rU")
 IOError: [Errno 2] No such file or directory: 'trinity_out_dir/Trinity.fasta'
 -------------------- >> begin captured stdout << ---------------------
@@ -906,7 +906,7 @@ Command line: Trinity --seqType fq --max_memory 2G --left reads.left.fq.gz,reads
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/tests.py", line 45, in test_sample_data_trimmed_and_normalized
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/tests.py", line 45, in test_sample_data_trimmed_and_normalized
     handle = open("trinity_out_dir/Trinity.fasta", "rU")
 IOError: [Errno 2] No such file or directory: 'trinity_out_dir/Trinity.fasta'
 -------------------- >> begin captured stdout << ---------------------
@@ -931,7 +931,7 @@ Command line: Trinity --seqType fq --max_memory 2G --left reads.left.fq.gz,reads
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/tests.py", line 124, in test_scaffold_iworm_contigs
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/tests.py", line 124, in test_scaffold_iworm_contigs
     f = subprocess.check_output([exe, bamfile, ifile]).split('\n')
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/subprocess.py", line 537, in check_output
     process = Popen(stdout=PIPE, *popenargs, **kwargs)
@@ -960,7 +960,7 @@ scaffold_iworm_contigs works as expected
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/tests.py", line 196, in test_set_no_cleanup_and_full_cleanup_error
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/tests.py", line 196, in test_set_no_cleanup_and_full_cleanup_error
     self.assertTrue("cannot set --no_cleanup and --full_cleanup as they contradict" in error)
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 420, in assertTrue
     raise self.failureException(msg)
@@ -985,7 +985,7 @@ Setting no_cleanup and full_cleanup together results in an error
                                 <pre class="traceback">Traceback (most recent call last):
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 327, in run
     testMethod()
-  File "/N/dc2/scratch/befulton/JenkinsTest/src/util/support_scripts/tests/tests.py", line 167, in test_version
+  File "/N/dc2/projects/hpc/trinity/JenkinsTest/src/util/support_scripts/tests/tests.py", line 167, in test_version
     self.assertTrue('Trinity version: __TRINITY_VERSION_TAG__' in e.output)
   File "/N/soft/rhel6/python/2.7.3/lib/python2.7/unittest/case.py", line 420, in assertTrue
     raise self.failureException(msg)
